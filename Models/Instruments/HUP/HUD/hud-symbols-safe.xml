@@ -1,0 +1,1427 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <path>hud-symbols.ac</path>
+ 
+ <effect>
+   <inherits-from>Effects/model-transparent</inherits-from>
+   <condition>
+    <property>/sim/rendering/rembrandt/enabled</property>
+   </condition>
+  <object-name>Datum</object-name>
+  <object-name>Horizon</object-name>
+  <object-name>Ladder</object-name>
+  <object-name>ClimbDive.lock</object-name>
+  <object-name>ClimbDive.vv</object-name>
+  <object-name>BankRollScale</object-name>
+  <object-name>BankRollPointer</object-name>
+  <object-name>AltDial</object-name>
+  <object-name>AltDialPointer</object-name>
+  <object-name>Ribbon.mag</object-name>
+  <object-name>Ribbon.true</object-name>
+  <object-name>RibbonLubber</object-name>
+  <object-name>groundspeed-label</object-name>
+  <object-name>groundspeed</object-name>
+  <object-name>mach-label</object-name>
+  <object-name>mach-number</object-name>
+  <object-name>airspeed</object-name>
+  <object-name>altitude</object-name>
+  <object-name>agl-label</object-name>
+  <object-name>agl</object-name>
+  <object-name>g-meter</object-name>
+  <object-name>alpha</object-name>
+  <object-name>gear-nosewheel-down</object-name>
+  <object-name>gear-nosewheel-trans</object-name>
+  <object-name>gear-nosewheel-up</object-name>
+  <object-name>gear-maingearleft-down</object-name>
+  <object-name>gear-maingearleft-trans</object-name>
+  <object-name>gear-maingearleft-up</object-name>
+  <object-name>gear-maingearright-down</object-name>
+  <object-name>gear-maingearright-trans</object-name>
+  <object-name>gear-maingearright-up</object-name>
+  <object-name>waypoint-id</object-name>
+  <object-name>waypoint-type</object-name>
+  <object-name>waypoint-range</object-name>
+  <object-name>waypoint-range-label</object-name>
+  <object-name>waypoint-bearing</object-name>
+  <object-name>waypoint-bearing-label</object-name>
+  <object-name>waypoint-ttg</object-name>    
+  </effect>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>ClimbDive.vv</object-name>
+  <property>/orientation/alpha-deg</property>
+  <factor>0.00495</factor>
+  <condition>
+   <greater-than>
+    <property>/orientation/alpha-deg</property>
+	<value>-5</value>
+   </greater-than>
+   <less-than>
+    <property>/orientation/alpha-deg</property>
+	<value>15</value>
+   </less-than>
+  </condition>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+ 
+ <!-- <animation>
+  <type>textranslate</type>
+  <object-name>Ladder</object-name>
+  <property>/local/temp/hud-calibrate-x</property>
+  <factor>10</factor>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation> -->
+ 
+  <animation>
+   <type>texmultiple</type>
+   <object-name>Ladder</object-name>
+   <transform>
+     <property>/orientation/pitch-deg</property>
+     <subtype>textranslate</subtype>
+   <factor>0.0054</factor>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+   </transform>
+  </animation>
+  
+  <animation>
+   <type>texmultiple</type>
+   <object-name>Ribbon.mag</object-name>
+   <transform>
+     <property>/orientation/heading-magnetic-deg</property>
+     <subtype>textranslate</subtype>
+   <factor>0.002795</factor>
+   <axis>
+     <x>0</x>
+     <y>-1</y>
+     <z>0</z>
+   </axis>
+   </transform>
+  </animation>
+  
+  <animation>
+   <type>texmultiple</type>
+   <object-name>Ribbon.true</object-name>
+   <transform>
+     <property>/orientation/heading-deg</property>
+     <subtype>textranslate</subtype>
+   <factor>0.002795</factor>
+   <axis>
+     <x>0</x>
+     <y>-1</y>
+     <z>0</z>
+   </axis>
+   </transform>
+  </animation>
+ 
+ <animation>
+  <object-name>Ladder</object-name>
+  <object-name>Horizon</object-name>
+  <type>rotate</type>
+  <property>/orientation/roll-deg</property>
+  <factor>1</factor>
+  <offset-deg>0</offset-deg>
+  <center>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>0</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <object-name>BankRollPointer</object-name>
+  <type>rotate</type>
+  <property>/orientation/roll-deg</property>
+  <factor>0.85</factor>
+  <offset-deg>0</offset-deg>
+  <center>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>0</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <object-name>BankRollPointer</object-name>
+  <type>select</type>
+  <condition>
+   <greater-than>
+    <property>/orientation/roll-deg</property>
+	<value>-60</value>
+   </greater-than>
+   <less-than>
+    <property>/orientation/roll-deg</property>
+	<value>60</value>
+   </less-than>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <object-name>AltDialPointer</object-name>
+  <type>rotate</type>
+  <property>/position/altitude-ft</property>
+  <factor>0.36</factor>
+  <offset-deg>0</offset-deg>
+  <center>
+   <x-m>0.006828</x-m>
+   <y-m>0.05741</y-m>
+   <z-m>0.0175</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <object-name>ClimbDive.lock</object-name>
+  <type>select</type>
+  <condition>
+   <property>/instrumentation/HUD/display-locked</property>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <object-name>ClimbDive.vv</object-name>
+  <type>select</type>
+  <condition>
+   <not>
+    <property>/instrumentation/HUD/display-locked</property>
+   </not>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>mach-number</object-name>
+  <object-name>mach-label</object-name>
+  <condition>
+   <and>
+    <greater-than>
+	 <property>/systems/electrical/outputs/avionics/HUD</property>
+	 <value>27</value>
+    </greater-than>
+	<equals>
+	 <property>/instrumentation/HUD/serviceable</property>
+	 <value>true</value>
+    </equals>
+	<equals>
+	 <property>/instrumentation/HUD/display-groundspeed</property>
+	 <value>false</value>
+    </equals>
+   </and>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>groundspeed</object-name>
+  <object-name>groundspeed-label</object-name>
+  <condition>
+   <and>
+    <greater-than>
+	 <property>/systems/electrical/outputs/avionics/HUD</property>
+	 <value>27</value>
+    </greater-than>
+	<equals>
+	 <property>/instrumentation/HUD/serviceable</property>
+	 <value>true</value>
+    </equals>
+	<equals>
+	 <property>/instrumentation/HUD/display-groundspeed</property>
+	 <value>true</value>
+    </equals>
+   </and>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>Ribbon.mag</object-name>
+  <condition>
+   <not>
+    <property>/instrumentation/HUD/display-true</property>
+   </not>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>Ribbon.true</object-name>
+  <condition>
+   <property>/instrumentation/HUD/display-true</property>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>gear-nosewheel-down</object-name>
+  <condition>
+   <and>
+    <greater-than>
+	 <property>/gear/gear[0]/position-norm</property>
+	 <value>0.99</value>
+    </greater-than>
+	<equals>
+	 <property>/instrumentation/HUD/serviceable</property>
+	 <value>true</value>
+    </equals>
+	<equals>
+	 <property>/instrumentation/HUD/display-gear</property>
+	 <value>true</value>
+    </equals>
+   </and>
+  </condition>
+ </animation>
+  
+ <animation>
+  <type>select</type>
+  <object-name>gear-nosewheel-trans</object-name>
+  <condition>
+   <and>
+    <greater-than>
+	 <property>/gear/gear[0]/position-norm</property>
+	 <value>0.01</value>
+	</greater-than>
+	<less-than>
+	 <property>/gear/gear[0]/position-norm</property>
+	 <value>0.99</value>
+    </less-than>
+	<equals>
+	 <property>/instrumentation/HUD/serviceable</property>
+	 <value>true</value>
+    </equals>
+	<equals>
+	 <property>/instrumentation/HUD/display-gear</property>
+	 <value>true</value>
+    </equals>
+   </and>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>gear-nosewheel-up</object-name>
+  <condition>
+   <and>
+    <less-than>
+	 <property>/gear/gear[0]/position-norm</property>
+	 <value>0.01</value>
+    </less-than>
+	<equals>
+	 <property>/instrumentation/HUD/serviceable</property>
+	 <value>true</value>
+    </equals>
+	<equals>
+	 <property>/instrumentation/HUD/display-gear</property>
+	 <value>true</value>
+    </equals>
+   </and>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>gear-maingearleft-down</object-name>
+  <condition>
+   <and>
+    <greater-than>
+	 <property>/gear/gear[1]/position-norm</property>
+	 <value>0.99</value>
+    </greater-than>
+	<equals>
+	 <property>/instrumentation/HUD/serviceable</property>
+	 <value>true</value>
+    </equals>
+	<equals>
+	 <property>/instrumentation/HUD/display-gear</property>
+	 <value>true</value>
+    </equals>
+   </and>
+  </condition>
+ </animation>
+  
+ <animation>
+  <type>select</type>
+  <object-name>gear-maingearleft-trans</object-name>
+  <condition>
+   <and>
+    <greater-than>
+	 <property>/gear/gear[1]/position-norm</property>
+	 <value>0.01</value>
+	</greater-than>
+	<less-than>
+	 <property>/gear/gear[1]/position-norm</property>
+	 <value>0.99</value>
+    </less-than>
+	<equals>
+	 <property>/instrumentation/HUD/serviceable</property>
+	 <value>true</value>
+    </equals>
+	<equals>
+	 <property>/instrumentation/HUD/display-gear</property>
+	 <value>true</value>
+    </equals>
+   </and>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>gear-maingearleft-up</object-name>
+  <condition>
+   <and>
+    <less-than>
+	 <property>/gear/gear[1]/position-norm</property>
+	 <value>0.01</value>
+    </less-than>
+	<equals>
+	 <property>/instrumentation/HUD/serviceable</property>
+	 <value>true</value>
+    </equals>
+	<equals>
+	 <property>/instrumentation/HUD/display-gear</property>
+	 <value>true</value>
+    </equals>
+   </and>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>gear-maingearright-down</object-name>
+  <condition>
+   <and>
+    <greater-than>
+	 <property>/gear/gear[2]/position-norm</property>
+	 <value>0.99</value>
+    </greater-than>
+	<equals>
+	 <property>/instrumentation/HUD/serviceable</property>
+	 <value>true</value>
+    </equals>
+	<equals>
+	 <property>/instrumentation/HUD/display-gear</property>
+	 <value>true</value>
+    </equals>
+   </and>
+  </condition>
+ </animation>
+  
+ <animation>
+  <type>select</type>
+  <object-name>gear-maingearright-trans</object-name>
+  <condition>
+   <and>
+    <greater-than>
+	 <property>/gear/gear[2]/position-norm</property>
+	 <value>0.01</value>
+	</greater-than>
+	<less-than>
+	 <property>/gear/gear[2]/position-norm</property>
+	 <value>0.99</value>
+    </less-than>
+	<equals>
+	 <property>/instrumentation/HUD/serviceable</property>
+	 <value>true</value>
+    </equals>
+	<equals>
+	 <property>/instrumentation/HUD/display-gear</property>
+	 <value>true</value>
+    </equals>
+   </and>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>gear-maingearright-up</object-name>
+  <condition>
+   <and>
+    <less-than>
+	 <property>/gear/gear[2]/position-norm</property>
+	 <value>0.01</value>
+    </less-than>
+	<equals>
+	 <property>/instrumentation/HUD/serviceable</property>
+	 <value>true</value>
+    </equals>
+	<equals>
+	 <property>/instrumentation/HUD/display-gear</property>
+	 <value>true</value>
+    </equals>
+   </and>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>waypoint-id</object-name>
+  <object-name>waypoint-bearing</object-name>
+  <object-name>waypoint-bearing-label</object-name>
+  <object-name>waypoint-range</object-name>
+  <object-name>waypoint-range-label</object-name>
+  <object-name>waypoint-ttg</object-name>
+  <condition>
+   <property>/autopilot/route-manager/active</property>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>tacan-channel-1</object-name>
+  <object-name>tacan-channel-2</object-name>
+  <condition>
+   <property>/instrumentation/tacan/power</property>
+   <not-equals>
+    <property>/computers/phase-of-flight-num</property>
+	<value>4</value>
+   </not-equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>tacan-id</object-name>
+  <object-name>tacan-bearing</object-name>
+  <object-name>tacan-bearing-label</object-name>
+  <object-name>tacan-range</object-name>
+  <object-name>tacan-range-label</object-name>
+  <condition>
+   <property>/instrumentation/tacan/in-range</property>
+   <not-equals>
+    <property>/computers/phase-of-flight-num</property>
+	<value>4</value>
+   </not-equals>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>m-label</object-name>
+  <object-name>s-label</object-name>
+  <object-name>g-label</object-name>
+  <condition>
+   <equals>
+    <property>/computers/phase-of-flight-num</property>
+	<value>4</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <!-- animation>
+  <type>select</type>
+  <object-name>sraam-label</object-name>
+  <object-name>sraam</object-name>
+  <object-name>mraam-label</object-name>
+  <object-name>mraam</object-name>
+  <object-name></object-name>
+  <condition>
+   <property>/instrumentation/tacan/in-range</property>
+   <property>/controls/armament/master-arm-standby</property>
+  </condition>
+ </animation -->
+
+ <!-- OSG Text -->
+ 
+ 
+ 
+ <text>
+  <name>groundspeed-label</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+    <x-m>0.005</x-m>
+   <y-m>-0.09</y-m>
+   <z-m>0.019</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">GS</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>groundspeed</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>-0.09</y-m>
+   <z-m>0.011</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <property>/velocities/groundspeed-kt</property>
+  <format type="string">%4.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>mach-label</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>-0.09</y-m>
+   <z-m>0.019</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">M</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>mach-number</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>-0.09</y-m>
+   <z-m>0.011</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <property>/velocities/mach</property>
+  <format type="string">%1.2f</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>airspeed</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>-0.0625</y-m>
+   <z-m>0.0175</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <property>/velocities/airspeed-kt</property>
+  <format>%4.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <truncate type="bool">true</truncate>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>altitude</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.0575</y-m>
+   <z-m>0.017</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <property>/position/altitude-ft</property>
+  <format>%5.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <truncate type="bool">true</truncate>
+  <alignment>center-center</alignment>
+ </text>
+ 
+  <text>
+  <name>agl-label</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.09</y-m>
+   <z-m>0.019</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">R</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>agl</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.09</y-m>
+   <z-m>0.011</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <property>/position/altitude-agl-ft</property>
+  <format type="string">%5.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>g-meter</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>-0.05</y-m>
+   <z-m>-0.015</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <property>/accelerations/pilot-g</property>
+  <format type="string">%1.1f</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-center</alignment>
+ </text>
+ 
+ <text>
+  <name>alpha</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.05</y-m>
+   <z-m>-0.015</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <property>/orientation/alpha-deg</property>
+  <format type="string">%1.1f</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>gear-nosewheel-down</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.005</x-m>
+   <y-m>-0.1</y-m>
+   <z-m>-0.032</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">D</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>gear-nosewheel-trans</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.005</x-m>
+   <y-m>-0.1</y-m>
+   <z-m>-0.025</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">X</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>gear-nosewheel-up</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.005</x-m>
+   <y-m>-0.1</y-m>
+   <z-m>-0.0175</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">U</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>gear-maingearleft-down</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.005</x-m>
+   <y-m>-0.11</y-m>
+   <z-m>-0.035</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">D</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>gear-maingearleft-trans</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.005</x-m>
+   <y-m>-0.11</y-m>
+   <z-m>-0.02625</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">X</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>gear-maingearleft-up</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.005</x-m>
+   <y-m>-0.11</y-m>
+   <z-m>-0.0175</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">U</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>gear-maingearright-down</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.005</x-m>
+   <y-m>-0.09</y-m>
+   <z-m>-0.035</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">D</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>gear-maingearright-trans</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.005</x-m>
+   <y-m>-0.09</y-m>
+   <z-m>-0.02625</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">X</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>gear-maingearright-up</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.005</x-m>
+   <y-m>-0.09</y-m>
+   <z-m>-0.0175</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">U</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+
+ 
+ <text>
+  <name>waypoint-id</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>-0.095</y-m>
+   <z-m>-0.0555</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">text-value</type>
+  <property>/autopilot/route-manager/wp/id</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+
+ <text>
+  <name>waypoint-bearing</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>-0.085</y-m>
+   <z-m>-0.063</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <format type="string">%3.0f</format>
+  <truncate type="bool">true</truncate>
+  <property>/autopilot/route-manager/wp/true-bearing-deg</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-center</alignment>
+ </text>
+ 
+ <text>
+  <name>waypoint-bearing-label</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.003</character-size>
+  <offsets>
+  <x-m>0.005</x-m>
+   <y-m>-0.084</y-m>
+   <z-m>-0.0615</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">o</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>waypoint-range</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>-0.062</y-m>
+   <z-m>-0.063</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <property>/instrumentation/gps/wp/wp[1]/distance-nm</property>
+  <format type="string">%3.1f</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-center</alignment>
+ </text>
+ 
+ <text>
+  <name>waypoint-range-label</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>-0.055</y-m>
+   <z-m>-0.063</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">NM</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-center</alignment>
+ </text>
+ 
+ <text>
+  <name>waypoint-ttg</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>-0.055</y-m>
+   <z-m>-0.07</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">text-value</type>
+  <property>/instrumentation/gps/wp/wp[1]/TTW</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-center</alignment>
+ </text>
+ 
+ <text>
+  <name>tacan-id</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.095</y-m>
+   <z-m>-0.0555</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">text-value</type>
+  <property>/instrumentation/tacan/ident</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-center</alignment>
+ </text>
+ 
+ <text>
+  <name>tacan-channel-1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.066</y-m>
+   <z-m>-0.0555</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <format>%03.0f</format>
+  <property>/instrumentation/tacan/frequencies/selected-channel</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>tacan-channel-2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.0805</y-m>
+   <z-m>-0.0555</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">text-value</type>
+  <property>/instrumentation/tacan/frequencies/selected-channel[4]</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-center</alignment>
+ </text>
+
+ <text>
+  <name>tacan-bearing</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.057</y-m>
+   <z-m>-0.063</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <format type="string">%3.0f</format>
+  <truncate type="bool">true</truncate>
+  <property>/instrumentation/tacan/indicated-bearing-true-deg</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>tacan-bearing-label</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.003</character-size>
+  <offsets>
+  <x-m>0.005</x-m>
+   <y-m>0.067</y-m>
+   <z-m>-0.0615</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">o</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>tacan-range</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.088</y-m>
+   <z-m>-0.063</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <property>/instrumentation/tacan/indicated-distance-nm</property>
+  <format type="string">%3.1f</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-center</alignment>
+ </text>
+ 
+ <text>
+  <name>tacan-range-label</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.095</y-m>
+   <z-m>-0.063</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">NM</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-center</alignment>
+ </text>
+ 
+ <text>
+  <name>m-label</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.065</y-m>
+   <z-m>-0.0555</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">M</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>mraam</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.075</y-m>
+   <z-m>-0.0555</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <format>%1.0f</format>
+  <property>/computers/weapons/stores/MRAAM</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+  <text>
+  <name>mraam-out</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.075</y-m>
+   <z-m>-0.0555</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">X</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>mraam-out</object-name>
+  <condition>
+   <equals>
+    <property>/computers/weapons/stores/MRAAM</property>
+    <value>0</value>
+   </equals>
+   <equals>
+    <property>/computers/phase-of-flight-num</property>
+	<value>4</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>mraam</object-name>
+  <condition>
+   <not-equals>
+    <property>/computers/weapons/stores/MRAAM</property>
+    <value>0</value>
+   </not-equals>
+   <equals>
+    <property>/computers/phase-of-flight-num</property>
+	<value>4</value>
+   </equals>
+  </condition>
+ </animation>
+  
+ <text>
+  <name>s-label</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.065</y-m>
+   <z-m>-0.0635</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">S</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>sraam</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.075</y-m>
+   <z-m>-0.0635</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <format>%1.0f</format>
+  <property>/computers/weapons/stores/SRAAM</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+  <text>
+  <name>sraam-out</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.075</y-m>
+   <z-m>-0.0635</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">X</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>sraam-out</object-name>
+  <condition>
+   <equals>
+    <property>/computers/weapons/stores/SRAAM</property>
+    <value>0</value>
+   </equals>
+   <equals>
+    <property>/computers/phase-of-flight-num</property>
+	<value>4</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>sraam</object-name>
+  <condition>
+   <not-equals>
+    <property>/computers/weapons/stores/SRAAM</property>
+    <value>0</value>
+   </not-equals>
+   <equals>
+    <property>/computers/phase-of-flight-num</property>
+	<value>4</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+  <text>
+  <name>g-label</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.065</y-m>
+   <z-m>-0.0715</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">G</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>gun</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.075</y-m>
+   <z-m>-0.0715</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <format>%1.0f</format>
+  <property>/computers/weapons/stores/cannon-rounds</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+  <text>
+  <name>gun-out</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.075</y-m>
+   <z-m>-0.0715</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">X</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>gun-out</object-name>
+  <condition>
+   <equals>
+    <property>/computers/weapons/stores/cannon-rounds</property>
+    <value>0</value>
+   </equals>
+   <equals>
+    <property>/computers/phase-of-flight-num</property>
+	<value>4</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>gun</object-name>
+  <condition>
+   <not-equals>
+    <property>/computers/weapons/stores/cannon-rounds</property>
+    <value>0</value>
+   </not-equals>
+   <equals>
+    <property>/computers/phase-of-flight-num</property>
+	<value>4</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+  <text>
+  <name>g-label</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.005</x-m>
+   <y-m>0.065</y-m>
+   <z-m>-0.0715</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">G</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <!-- Illumination -->
+ 
+ <animation>
+  <type>material</type>
+  <object-name>Datum</object-name>
+  <object-name>Horizon</object-name>
+  <object-name>Ladder</object-name>
+  <object-name>ClimbDive.lock</object-name>
+  <object-name>ClimbDive.vv</object-name>
+  <object-name>BankRollScale</object-name>
+  <object-name>BankRollPointer</object-name>
+  <object-name>AltDial</object-name>
+  <object-name>AltDialPointer</object-name>
+  <object-name>Ribbon.mag</object-name>
+  <object-name>Ribbon.true</object-name>
+  <object-name>RibbonLubber</object-name>
+  <diffuse>
+    <red>0.0</red>
+    <green>1.0</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>0.9</red>
+    <green>1.0</green>
+    <blue>0.9</blue>
+    <factor-prop>/instrumentation/illumination/HUD</factor-prop>
+  </emission>
+ </animation>
+ 
+ <animation>
+  <type>material</type>
+  <object-name>groundspeed-label</object-name>
+  <object-name>groundspeed</object-name>
+  <object-name>mach-label</object-name>
+  <object-name>mach-number</object-name>
+  <object-name>airspeed</object-name>
+  <object-name>altitude</object-name>
+  <object-name>agl-label</object-name>
+  <object-name>agl</object-name>
+  <object-name>g-meter</object-name>
+  <object-name>alpha</object-name>
+  <object-name>gear-nosewheel-down</object-name>
+  <object-name>gear-nosewheel-trans</object-name>
+  <object-name>gear-nosewheel-up</object-name>
+  <object-name>gear-maingearleft-down</object-name>
+  <object-name>gear-maingearleft-trans</object-name>
+  <object-name>gear-maingearleft-up</object-name>
+  <object-name>gear-maingearright-down</object-name>
+  <object-name>gear-maingearright-trans</object-name>
+  <object-name>gear-maingearright-up</object-name>
+  <object-name>waypoint-id</object-name>
+  <object-name>waypoint-type</object-name>
+  <object-name>waypoint-range</object-name>
+  <object-name>waypoint-range-label</object-name>
+  <object-name>waypoint-bearing</object-name>
+  <object-name>waypoint-bearing-label</object-name>
+  <object-name>waypoint-ttg</object-name> 
+  <object-name>tacan-id</object-name>
+  <object-name>tacan-channel-1</object-name>
+  <object-name>tacan-channel-2</object-name>
+  <object-name>tacan-bearing</object-name>
+  <object-name>tacan-bearing-label</object-name>
+  <object-name>tacan-range</object-name>
+  <object-name>tacan-range-label</object-name>
+  <object-name>m-label</object-name>
+  <object-name>mraam</object-name>
+  <object-name>mraam-out</object-name>
+  <object-name>s-label</object-name>
+  <object-name>sraam</object-name>
+  <object-name>sraam-out</object-name>
+  <object-name>g-label</object-name>
+  <object-name>gun</object-name>
+  <object-name>gun-out</object-name>
+  <ambient>
+    <red>0.0</red>
+    <green>1.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.0</red>
+    <green>0.1</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>0.5</red>
+    <green>1.0</green>
+    <blue>0.5</blue>
+    <factor-prop>/instrumentation/illumination/HUD</factor-prop>
+  </emission>
+ </animation>
+ 
+</PropertyList>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <filter>
+  <name>HMD Display Gyro Pitch</name>
+  <debug>false</debug>
+  <type>gain</type>
+  <input>
+   <property>/orientation/pitch-deg</property>
+  </input>
+  <output>
+  <property>/instrumentation/HMD/display/pitch-deg</property>
+  </output>
+  <gain>
+   <expression>
+    <table>
+     <property>/orientation/heading-deg</property>
+     <entry><ind>0</ind><dep>1</dep></entry>
+     <entry><ind>90</ind><dep>0</dep></entry>
+     <entry><ind>180</ind><dep>-1</dep></entry>
+     <entry><ind>270</ind><dep>0</dep></entry>
+	 <entry><ind>360</ind><dep>1</dep></entry>
+    </table>
+   </expression>
+  </gain>
+ </filter>
+ 
+  <filter>
+  <name>HMD Display Gyro Roll</name>
+  <debug>false</debug>
+  <type>gain</type>
+  <input>
+   <property>/orientation/roll-deg</property>
+  </input>
+  <output>
+  <property>/instrumentation/HMD/display/roll-deg</property>
+  </output>
+  <gain>
+   <expression>
+    <table>
+     <property>/orientation/heading-deg</property>
+     <entry><ind>0</ind><dep>1</dep></entry>
+     <entry><ind>90</ind><dep>0</dep></entry>
+     <entry><ind>180</ind><dep>-1</dep></entry>
+     <entry><ind>270</ind><dep>0</dep></entry>
+	 <entry><ind>360</ind><dep>1</dep></entry>
+    </table>
+   </expression>
+  </gain>
+ </filter>
+ 
+</PropertyList>

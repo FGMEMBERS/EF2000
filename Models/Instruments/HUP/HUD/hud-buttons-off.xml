@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<PropertyList>
+
+ <path>hud-buttons.ac</path>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>HUDButton.topbar.000</object-name>
+  <object-name>HUDButton.midbar.000</object-name>
+  <object-name>HUDButton.lowbar.000</object-name>
+  <object-name>HUDButton.topbar.001</object-name>
+  <object-name>HUDButton.midbar.001</object-name>
+  <object-name>HUDButton.lowbar.001</object-name>
+  <object-name>HUDButton.topbar.002</object-name>
+  <object-name>HUDButton.midbar.002</object-name>
+  <object-name>HUDButton.lowbar.002</object-name>
+  <object-name>HUDButton.topbar.003</object-name>
+  <object-name>HUDButton.midbar.003</object-name>
+  <object-name>HUDButton.lowbar.003</object-name>
+  <object-name>HUDButton.topbar.004</object-name>
+  <object-name>HUDButton.midbar.004</object-name>
+  <object-name>HUDButton.lowbar.004</object-name>
+  <condition>
+   <not-equals>
+    <property>/sim/signals/fdm-initialized</property>
+    <value>true</value>
+   </not-equals>
+  </condition>
+ </animation>
+
+
+</PropertyList>

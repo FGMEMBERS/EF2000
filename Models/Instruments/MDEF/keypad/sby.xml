@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <path>keys.ac</path>
+ 
+  <effect>
+   <inherits-from>Effects/model-transparent</inherits-from>
+   <condition>
+    <property>/sim/rendering/rembrandt/enabled</property>
+   </condition>
+   <object-name>label.clr</object-name>
+   <object-name>label.ent</object-name>
+  </effect>
+  
+   <animation>
+  <type>pick</type>
+  <object-name>MDEFEntryKey.019</object-name>
+  <object-name>label.ent</object-name>
+  <action>
+   <button>0</button>
+	<binding>
+		<command>property-assign</command>
+		 <property>/instrumentation/MDEF/keypad-page-selected</property>
+		<value>crs</value>
+	</binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>material</type>
+  <object-name>label.clr</object-name>
+  <object-name>label.ent</object-name>
+  <diffuse>
+    <red>0.2</red>
+    <green>0.7</green>
+    <blue>0.2</blue>
+  </diffuse>
+  <emission>
+    <red>0.2</red>
+    <green>0.7</green>
+    <blue>0.2</blue>
+    <factor-prop>/instrumentation/illumination/softkeys</factor-prop>
+  </emission>
+</animation>
+
+</PropertyList>

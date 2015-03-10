@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <path>../softkeys.ac</path>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>Moding.topbar.008</object-name>
+  <object-name>Moding.lowbar.008</object-name>
+  <condition>
+   <equals>
+    <property>/systems/autopilot/locks/speed</property>
+	<value>speed-with-throttle</value>
+   </equals>
+   <equals>
+    <property>/systems/autopilot/settings/kts-mach-select</property>
+	<value>kts</value>
+   </equals>
+  </condition>
+ </animation>
+   
+ <animation>
+  <type>select</type>
+  <object-name>Moding.topbar.009</object-name>
+  <object-name>Moding.lowbar.009</object-name>
+  <condition>
+   <equals>
+    <property>/systems/autopilot/locks/speed</property>
+	<value>speed-with-throttle</value>
+   </equals>
+   <equals>
+    <property>/systems/autopilot/settings/kts-mach-select</property>
+	<value>mach</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <text>
+  <name>spd-ktsset-1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.197</x-m>
+   <y-m>0.031</y-m>
+   <z-m>-0.012</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">KTS</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>spd-ktsset-2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.198</x-m>
+   <y-m>0.031</y-m>
+   <z-m>-0.018</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">SET</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>spd-machset-1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.197</x-m>
+   <y-m>0.052</y-m>
+   <z-m>-0.012</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">M</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>spd-machset-2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.198</x-m>
+   <y-m>0.052</y-m>
+   <z-m>-0.018</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">SET</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>spd-ktshold-1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.029</y-m>
+   <z-m>-0.0355</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">KTS</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>spd-ktshold-2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.029</y-m>
+   <z-m>-0.0405</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">HOLD</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>spd-machhold-1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.052</y-m>
+   <z-m>-0.0355</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">M</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>spd-machhold-2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.052</y-m>
+   <z-m>-0.0405</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">HOLD</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>ModingKey.004</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-cycle</command>
+    <property>/instrumentation/MDEF/keypad-page-selected</property> 
+	<value>spd-kt</value>
+	<value />  
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>ModingKey.005</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-cycle</command>
+    <property>/instrumentation/MDEF/keypad-page-selected</property> 
+	<value>spd-mach</value>
+	<value />   
+   </binding>
+  </action>
+ </animation>
+ 
+<animation>
+  <type>pick</type>
+  <object-name>ModingKey.008</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-assign</command>
+    <property>/systems/autopilot/settings/kts-mach-select</property> 
+	<value>kts</value>  
+   </binding>
+   <binding>
+    <command>property-cycle</command>
+    <property>/systems/autopilot/locks/speed</property> 
+	<value>speed-with-throttle</value>
+	<value />   
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>ModingKey.009</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-assign</command>
+    <property>/systems/autopilot/settings/kts-mach-select</property> 
+	<value>mach</value>  
+   </binding>
+   <binding>
+    <command>property-cycle</command>
+    <property>/systems/autopilot/locks/speed</property> 
+	<value>speed-with-throttle</value>
+	<value />   
+   </binding>
+  </action>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>Moding.topbar.000</object-name>
+  <object-name>Moding.midbar.000</object-name>
+  <object-name>Moding.lowbar.000</object-name>
+  <object-name>Moding.topbar.001</object-name>
+  <object-name>Moding.midbar.001</object-name>
+  <object-name>Moding.lowbar.001</object-name>
+  <object-name>Moding.topbar.002</object-name>
+  <object-name>Moding.midbar.002</object-name>
+  <object-name>Moding.lowbar.002</object-name>
+  <object-name>Moding.topbar.003</object-name>
+  <object-name>Moding.midbar.003</object-name>
+  <object-name>Moding.lowbar.003</object-name>
+  <object-name>Moding.topbar.004</object-name>
+  <object-name>Moding.midbar.004</object-name>
+  <object-name>Moding.lowbar.004</object-name>
+  <object-name>Moding.topbar.005</object-name>
+  <object-name>Moding.midbar.005</object-name>
+  <object-name>Moding.lowbar.005</object-name>
+  <object-name>Moding.topbar.006</object-name>
+  <object-name>Moding.midbar.006</object-name>
+  <object-name>Moding.lowbar.006</object-name>
+  <object-name>Moding.topbar.007</object-name>
+  <object-name>Moding.midbar.007</object-name>
+  <object-name>Moding.lowbar.007</object-name>
+  <object-name>Moding.midbar.008</object-name>
+  <object-name>Moding.midbar.009</object-name>
+  <object-name>Moding.topbar.010</object-name>
+  <object-name>Moding.midbar.010</object-name>
+  <object-name>Moding.lowbar.010</object-name>
+  <object-name>Moding.topbar.011</object-name>
+  <object-name>Moding.midbar.011</object-name>
+  <object-name>Moding.lowbar.011</object-name>
+  <condition>
+   <less-than>
+    <property>systems/electrical/outputs/avionics/MDEF</property>
+	<value>-5</value>
+   </less-than>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>material</type>
+  <object-name>spd-ktsset-1</object-name>
+  <object-name>spd-ktsset-2</object-name>
+  <object-name>spd-machset-1</object-name>
+  <object-name>spd-machset-2</object-name>
+  <object-name>spd-ktshold-1</object-name>
+  <object-name>spd-ktshold-2</object-name>
+  <object-name>spd-machhold-1</object-name>
+  <object-name>spd-machhold-2</object-name>
+  <object-name>Moding.topbar.008</object-name>
+  <object-name>Moding.lowbar.008</object-name>
+  <object-name>Moding.topbar.009</object-name>
+  <object-name>Moding.lowbar.009</object-name>
+  <emission>
+    <red>0.3</red>
+    <green>0.85</green>
+    <blue>0.3</blue>
+	<factor-prop>/instrumentation/illumination/softkeys</factor-prop>
+  </emission>
+ </animation>
+
+</PropertyList>

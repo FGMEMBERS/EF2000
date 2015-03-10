@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <!-- MP Contact -->
+ 
+ <path>hmd-contact2.ac</path>
+ 
+  <effect>
+   <inherits-from>Effects/model-transparent</inherits-from>
+   <condition>
+    <property>/sim/rendering/rembrandt/enabled</property>
+   </condition>
+  <object-name>contact</object-name>
+  <object-name>label</object-name>
+  <object-name>callsign</object-name>
+  <object-name>heading</object-name>
+  <object-name>locked</object-name>
+  <object-name>fired</object-name>
+ </effect>
+    
+ <animation>
+  <object-name>heading</object-name>
+  <type>select</type>
+  <condition>
+   <greater-than>
+	<property>/ai/models/multiplayer[6]/velocities/true-airspeed-kt</property>
+	<value>10</value>
+   </greater-than>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <object-name>locked</object-name>
+  <type>select</type>
+  <condition>
+	<property>computers/attack/contacts/contact[6]/locked</property>
+  </condition>
+ </animation>
+ 
+ 
+ <animation>
+  <object-name>fired</object-name>
+  <type>select</type>
+  <condition>
+	<property>computers/attack/contacts/contact[6]/fired</property>
+  </condition>
+ </animation>
+  
+  <animation>
+   <type>texmultiple</type>
+   <object-name>contact</object-name>
+   <transform>
+     <property>computers/attack/contacts/contact[6]/IFF</property>
+     <subtype>textranslate</subtype>
+   <factor>0.33</factor>
+   <axis>
+     <x>1</x>
+     <y>0</y>
+     <z>0</z>
+   </axis>
+   </transform>
+  </animation>
+ 
+ <animation> 
+	<type>rotate</type>
+	<object-name>heading</object-name>
+	<property>orientation/heading-deg</property>
+	<condition>
+		<not><property>instrumentation/radar/radar-standby</property></not>
+	</condition>
+	<axis><x>1</x></axis>
+	<center><z-m>0.0</z-m></center>
+ </animation>
+ 
+  <animation> 
+	<type>rotate</type>
+	<object-name>heading</object-name>
+	<property>/sim/current-view/heading-offset-deg</property>
+	<condition>
+		<not><property>instrumentation/radar/radar-standby</property></not>
+	</condition>
+	<axis><x>-1</x></axis>
+	<center><z-m>0.0</z-m></center>
+ </animation>
+ 
+ <animation> 
+	<type>rotate</type>
+	<object-name>heading</object-name>
+	<property>instrumentation/radar2/targets/multiplayer[6]/true-heading-deg</property>
+	<condition>
+		<not><property>instrumentation/radar/radar-standby</property></not>
+	</condition>
+	<axis><x>-1</x></axis>
+	<center><z-m>0.0</z-m></center>
+ </animation>
+ 
+  <animation>
+  <type>scale</type>
+  <object-name>contact</object-name>
+  <object-name>heading</object-name>
+  <object-name>fired</object-name>
+  <property>/ai/models/multiplayer[6]/distance-to-nm</property>
+  <x-offset>0</x-offset> 
+  <y-offset>1</y-offset> 
+  <z-offset>1</z-offset> 
+  <y-min>0.5</y-min>
+  <z-min>0.5</z-min>
+  <y-max>1</y-max>
+  <z-max>1</z-max>
+  <x-factor>0</x-factor>
+  <y-factor>-0.005</y-factor>
+  <z-factor>-0.005</z-factor>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>callsign</object-name>
+  <condition>
+   <equals>
+    <property>computers/attack/contacts/contact[6]/IFF</property>
+	<value>1</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>label</object-name>
+  <condition>
+   <not-equals>
+    <property>computers/attack/contacts/contact[6]/IFF</property>
+	<value>1</value>
+   </not-equals>
+  </condition>
+ </animation>
+  
+ 
+ <text>
+  <name>label</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0015</character-size>
+  <offsets>
+   <pitch-deg>0</pitch-deg>
+   <heading-deg>0</heading-deg>
+   <roll-deg>0</roll-deg>
+   <x-m>0.002</x-m>
+   <y-m>0.00</y-m>
+   <z-m>0.0025</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">A</text>
+  <align>center-top</align>
+ </text>
+ 
+  <text>
+  <name>callsign</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0015</character-size>
+  <offsets>
+   <pitch-deg>0</pitch-deg>
+   <heading-deg>0</heading-deg>
+   <roll-deg>0</roll-deg>
+   <x-m>0.002</x-m>
+   <y-m>0.00</y-m>
+   <z-m>0.0025</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">text-value</type>
+  <property type="string">/ai/models/multiplayer[6]/callsign</property>
+  <align>center-top</align>
+ </text>
+ 
+ <animation>
+  <type>material</type>
+  <object-name>contact</object-name>
+  <object-name>heading</object-name>
+  <object-name>locked</object-name>
+  <object-name>fired</object-name>
+  <ambient>
+    <red>0</red>
+    <green>0</green>
+    <blue>0</blue>
+  </ambient>
+    <diffuse>
+    <red>0</red>
+    <green>0</green>
+    <blue>0</blue>
+  </diffuse>
+  <specular>
+    <red>0</red>
+    <green>0</green>
+    <blue>0</blue>
+  </specular>
+  <emission>
+    <red>0.75</red>
+    <green>1</green>
+    <blue>0.75</blue>
+	<factor-prop>/instrumentation/illumination/HUD</factor-prop>
+  </emission>
+ </animation> 
+ 
+  <animation>
+  <type>material</type>
+  <object-name>label</object-name>
+  <object-name>callsign</object-name>
+  <ambient>
+    <red>0</red>
+    <green>0</green>
+    <blue>0</blue>
+  </ambient>
+    <diffuse>
+    <red>0</red>
+    <green>0</green>
+    <blue>0</blue>
+  </diffuse>
+  <specular>
+    <red>0</red>
+    <green>0</green>
+    <blue>0</blue>
+  </specular>
+  <emission>
+    <red>1</red>
+    <green>1</green>
+    <blue>1</blue>
+	<factor-prop>/instrumentation/illumination/LCD</factor-prop>
+  </emission>
+ </animation>
+ 
+ </PropertyList>

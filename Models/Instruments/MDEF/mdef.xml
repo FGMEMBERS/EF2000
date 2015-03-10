@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <path>mdef.ac</path>
+ 
+ <model>
+  <name>sskeys-off</name>
+  <path>Aircraft/EF2000/Models/Instruments/MDEF/sskeys-off.xml</path>
+ </model>
+ 
+ <model>
+  <name>sskeys-on</name>
+  <path>Aircraft/EF2000/Models/Instruments/MDEF/sskeys.xml</path>
+ </model>
+  
+ <model>
+  <name>modingkeys-off</name>
+  <path>Aircraft/EF2000/Models/Instruments/MDEF/modingkeys-off.xml</path>
+ </model>
+ 
+ <model>
+  <name>modingkeys-sby</name>
+  <path>Aircraft/EF2000/Models/Instruments/MDEF/modingkeys-off.xml</path>
+ </model>
+ 
+ <model>
+  <name>modingkeys-hdg</name>
+  <path>Aircraft/EF2000/Models/Instruments/MDEF/subsystems/modingkeys-hdg.xml</path>
+ </model>
+ 
+ <model>
+  <name>modingkeys-alt</name>
+  <path>Aircraft/EF2000/Models/Instruments/MDEF/subsystems/modingkeys-alt.xml</path>
+ </model>
+ 
+ <model>
+  <name>modingkeys-trk</name>
+  <path>Aircraft/EF2000/Models/Instruments/MDEF/subsystems/modingkeys-trk.xml</path>
+ </model>
+ 
+ <model>
+  <name>modingkeys-spd</name>
+  <path>Aircraft/EF2000/Models/Instruments/MDEF/subsystems/modingkeys-spd.xml</path>
+ </model>
+ 
+ <model>
+  <name>modingkeys-mids</name>
+  <path>Aircraft/EF2000/Models/Instruments/MDEF/subsystems/modingkeys-mids.xml</path>
+ </model>
+ 
+ <model>
+  <name>modingkeys-nav</name>
+  <path>Aircraft/EF2000/Models/Instruments/MDEF/subsystems/modingkeys-nav.xml</path>
+ </model>
+ 
+ <model>
+  <name>modingkeys-aids</name>
+  <path>Aircraft/EF2000/Models/Instruments/MDEF/subsystems/modingkeys-aids.xml</path>
+ </model>
+ 
+ <model>
+  <name>modingkeys-app</name>
+  <path>Aircraft/EF2000/Models/Instruments/MDEF/subsystems/modingkeys-app.xml</path>
+ </model>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>sskeys-off</object-name>
+  <object-name>modingkeys-off</object-name>
+  <condition>
+   <less-than>
+    <property>systems/electrical/outputs/avionics/MDEF</property>
+	<value>26</value>
+   </less-than>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>modingkeys-sby</object-name>
+  <condition>
+   <equals>
+    <property>instrumentation/MDEF/subsystem-page-selected</property>
+	<value />
+   </equals>
+   <greater-than>
+    <property>systems/electrical/outputs/avionics/MDEF</property>
+	<value>26</value>
+   </greater-than>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>modingkeys-hdg</object-name>
+  <condition>
+   <equals>
+    <property>instrumentation/MDEF/subsystem-page-selected</property>
+	<value>hdg</value>
+   </equals>
+   <greater-than>
+    <property>systems/electrical/outputs/avionics/MDEF</property>
+	<value>26</value>
+   </greater-than>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>modingkeys-alt</object-name>
+  <condition>
+   <equals>
+    <property>instrumentation/MDEF/subsystem-page-selected</property>
+	<value>alt</value>
+   </equals>
+   <greater-than>
+    <property>systems/electrical/outputs/avionics/MDEF</property>
+	<value>26</value>
+   </greater-than>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>modingkeys-trk</object-name>
+  <condition>
+   <equals>
+    <property>instrumentation/MDEF/subsystem-page-selected</property>
+	<value>trk</value>
+   </equals>
+   <greater-than>
+    <property>systems/electrical/outputs/avionics/MDEF</property>
+	<value>26</value>
+   </greater-than>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>modingkeys-spd</object-name>
+  <condition>
+   <equals>
+    <property>instrumentation/MDEF/subsystem-page-selected</property>
+	<value>spd</value>
+   </equals>
+   <greater-than>
+    <property>systems/electrical/outputs/avionics/MDEF</property>
+	<value>26</value>
+   </greater-than>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>modingkeys-mids</object-name>
+  <condition>
+   <equals>
+    <property>instrumentation/MDEF/subsystem-page-selected</property>
+	<value>mids</value>
+   </equals>
+   <greater-than>
+    <property>systems/electrical/outputs/avionics/MDEF</property>
+	<value>26</value>
+   </greater-than>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>modingkeys-nav</object-name>
+  <condition>
+   <equals>
+    <property>instrumentation/MDEF/subsystem-page-selected</property>
+	<value>nav</value>
+   </equals>
+   <greater-than>
+    <property>systems/electrical/outputs/avionics/MDEF</property>
+	<value>26</value>
+   </greater-than>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>modingkeys-aids</object-name>
+  <condition>
+   <equals>
+    <property>instrumentation/MDEF/subsystem-page-selected</property>
+	<value>aids</value>
+   </equals>
+   <greater-than>
+    <property>systems/electrical/outputs/avionics/MDEF</property>
+	<value>26</value>
+   </greater-than>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>modingkeys-app</object-name>
+  <condition>
+   <equals>
+    <property>instrumentation/MDEF/subsystem-page-selected</property>
+	<value>app</value>
+   </equals>
+   <greater-than>
+    <property>systems/electrical/outputs/avionics/MDEF</property>
+	<value>26</value>
+   </greater-than>
+  </condition>
+ </animation>
+ 
+ <model>
+  	<name>mdef-keypad</name>
+	<path>Aircraft/EF2000/Models/Instruments/MDEF/keypad/keypad.xml</path>
+	<offsets>
+	   <x-m>0.215</x-m>
+	   <y-m>-0.13</y-m>
+       <z-m>-0.165</z-m>
+	   <pitch-deg>-18</pitch-deg>
+	   <heading-deg>18</heading-deg>
+	   <roll-deg>-2</roll-deg>
+	</offsets>
+	<center>
+	   <x-m>3.50</x-m>
+	   <y-m>-0.346</y-m>
+       <z-m>0.90</z-m>
+	</center>
+ </model>
+ 
+</PropertyList>

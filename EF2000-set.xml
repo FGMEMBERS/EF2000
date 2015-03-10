@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList include="EF2000-cockpit.xml"> 
+
+	<sim include="EF2000-config.xml">
+
+  	 <description>Eurofighter EF2000</description>
+  	 <author>Algernon</author>
+  	 <aircraft-version>0.89</aircraft-version>
+	 <status>Alpha</status>
+     <rating>
+      <FDM type="int">3</FDM>
+      <systems type="int">3</systems>
+      <cockpit type="int">4</cockpit>
+      <model type="int">4</model>
+     </rating>
+  
+  	 <flight-model>yasim</flight-model>
+  	 <aero>EF2000-yasim</aero>
+  	 
+	 <fuel-fraction>0.75</fuel-fraction>
+	 
+	 <model>
+      <path>Aircraft/EF2000/Models/EF2000.xml</path>
+     </model>
+	 
+	 <preferences>
+	  <start-running type="bool">true</start-running>
+	 </preferences>
+	
+	<menubar include="gui/EF2000-gui.xml"></menubar>
+	
+	</sim>
+	
+	<systems include="EF2000-systems.xml" />
+	
+	<identification>
+	 <aircraft-number type="string" archive="y">XJ220</aircraft-number>
+	 <pilot-name type="string" archive="y"></pilot-name>
+	</identification>
+	
+	<input>
+	 <keyboard include="Input/EF2000-keyboard.xml" />
+	</input>
+	
+	<!-- Temporary AP links -->
+	<autopilot>
+	 <settings>
+	  <heading-bug-deg alias="/systems/autopilot/settings/target-heading-deg" />
+	  <target-altitude-agl-ft alias="/systems/autopilot/settings/target-altitude-agl-ft" />
+	  <target-speed-kt alias="/systems/autopilot/settings/target-speed-kt" />
+	 </settings>
+	</autopilot>
+	
+	<canopy>
+	 <position-norm type="double">0</position-norm>
+	</canopy>
+	
+	<computers>
+	 <navigation>
+	  <mode type="string">nav</mode>
+	 </navigation>
+	</computers>
+	
+	<consumables>
+    <fuel>
+    <tank n="0">
+     <name>Forward Fuselage Tank 1</name>
+     <selected type="bool">true</selected>
+     <kill-when-empty type="bool">false</kill-when-empty>
+     <level-gal_us archive="y">500</level-gal_us>
+    </tank>
+	<tank n="1">
+     <name>Forward Fuselage Tank 2</name>
+     <selected type="bool">true</selected>
+    </tank>
+    <tank n="2">
+     <name>Rear Fuselage Tank</name>
+     <selected type="bool">true</selected>
+    </tank>
+    <tank n="3">
+     <name>Forward Left Wing Tank</name>
+     <selected type="bool">true</selected>
+    </tank>
+    <tank n="4">
+     <name>Rear Left Wing Tank</name>
+     <selected type="bool">true</selected>
+    </tank>
+    <tank n="5">
+     <name>Forward Right Wing Tank</name>
+     <selected type="bool">true</selected>
+    </tank>
+    <tank n="6">
+     <name>Rear Right Wing Tank</name>
+     <selected type="bool">true</selected>
+    </tank>
+    <tank n="7">
+     <name>Left Wing Droptank</name>
+     <selected type="bool">false</selected>
+    </tank>
+   <tank n="8">
+    <name>Right Wing Droptank</name>
+    <selected type="bool">false</selected>
+    </tank>
+    <tank n="9">
+     <name>Centerline Droptank</name>
+     <selected type="bool">false</selected>
+    </tank>
+    <dump-valve type="bool">false</dump-valve>
+   </fuel>
+  </consumables>
+
+  <nasal>
+	
+		<aar>
+         <file>Aircraft/Generic/aar.nas</file>
+        </aar>
+		
+		<autopilot>
+			<file>Aircraft/EF2000/Nasal/autopilot.nas</file>
+		</autopilot>		
+				
+		<avionics>
+			<file>Aircraft/EF2000/Nasal/avionics.nas</file>
+		</avionics>
+		
+		<computers>
+		 <file>Aircraft/EF2000/Nasal/computers.nas</file>
+		</computers>
+		
+		<electrical>
+			<file>Aircraft/EF2000/Nasal/Electrical.nas</file>
+		</electrical>
+		
+		<effects>
+			<file>Aircraft/EF2000/Nasal/effects.nas</file>
+		</effects>
+		
+		<fuel>
+			<file>Aircraft/EF2000/Nasal/fuel.nas</file>
+		</fuel>
+		
+		<dialogs>
+		 <script>
+		   var apdialog = gui.Dialog.new("/sim/gui/dialogs/autopilot/dialog","Aircraft/EF2000/gui/dialogs/EF2000-apdialog.xml");  
+           gui.menuBind("autopilot-settings", "dialogs.apdialog.open()");
+		 </script>
+		</dialogs>
+		
+		<terrain-map>
+ 			<file>Aircraft/EF2000/Nasal/terrain-map.nas</file>
+ 		</terrain-map>
+		
+		<CAMU>
+ 			<file>Aircraft/EF2000/Nasal/camu.nas</file>
+ 		</CAMU>
+		
+		<checklists>
+		     <file>Aircraft/EF2000/Nasal/checklists.nas</file>
+		</checklists>
+		
+		<MDEF>
+ 			<file>Aircraft/EF2000/Nasal/mdef.nas</file>
+ 		</MDEF>
+		
+		<misc>
+ 			<file>Aircraft/EF2000/Nasal/misc.nas</file>
+ 		</misc>
+		
+		<eject>
+		 <file>Aircraft/EF2000/Nasal/eject.nas</file>
+		</eject>
+		
+		<engines>
+		 <file>Aircraft/EF2000/Nasal/generic-yasim-engine.nas</file>
+		</engines>
+		
+		<fcs>
+		 <file>Aircraft/EF2000/Nasal/fcs.nas</file>
+		</fcs>
+		
+		<decu>
+	 		<file>Aircraft/EF2000/Nasal/decu.nas</file>
+		</decu>	
+		
+		<nav>
+	 		<file>Aircraft/EF2000/Nasal/nav.nas</file>
+		</nav>
+
+		<radar2>
+		 <file>Aircraft/Instruments-3d/radar2/radar2.nas</file>
+		</radar2>
+		
+		<radardist>
+		 <file>Aircraft/Instruments-3d/radardist/radardist.nas</file>
+		</radardist>
+		
+		<warnings>
+		 <file>Aircraft/EF2000/Nasal/warnings.nas</file>
+		</warnings>
+		
+		<weapons>
+		 <file>Aircraft/EF2000/Nasal/weapons.nas</file>
+		</weapons>
+
+  	</nasal>
+  
+</PropertyList>

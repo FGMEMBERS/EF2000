@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <path>eng.ac</path>
+ 
+ <animation>
+		<type>rotate</type>
+		<object-name>rpm.L</object-name>
+		<property>engines/engine[0]/rpm</property>
+		<factor>2.2</factor>
+		<center>
+			<x-m>-0.0079</x-m>
+			<y-m>-0.04317</y-m>
+			<z-m>0.0348</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>rpm.R</object-name>
+		<property>engines/engine[1]/rpm</property>
+		<factor>2</factor>
+		<center>
+			<x-m>-0.00794</x-m>
+			<y-m>0.04318</y-m>
+			<z-m>0.03464</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	 <animation>
+		<type>rotate</type>
+		<object-name>tbt.L</object-name>
+		<property>engines/engine[0]/egt-degf</property>
+		<factor>0.11</factor>
+		<center>
+			<x-m>-0.0079</x-m>
+			<y-m>-0.04317</y-m>
+			<z-m>-0.0415</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+		<animation>
+		<type>rotate</type>
+		<object-name>tbt.R</object-name>
+		<property>engines/engine[1]/egt-degf</property>
+		<factor>0.11</factor>
+		<center>
+			<x-m>-0.00794</x-m>
+			<y-m>0.044</y-m>
+			<z-m>-0.0415</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+</PropertyList>

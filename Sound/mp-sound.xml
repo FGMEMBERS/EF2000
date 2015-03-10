@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- * Eurofighter Typhoon Sound Suite 
+       By Algernon
+	   
+	   Credit where credit is due, here
+	   
+-->
+
+<PropertyList>
+
+ <nasal>
+  <load>
+  props.globals.initNode("/sim/sound/canopy-view-modifier", 0, "DOUBLE");
+   var canopy_sound = func {
+   var int = getprop("/sim/current-view/internal");
+   var can_pos = getprop("/canopy/position-norm");
+      if (int) { var notext = 0 } else { var notext = 1 };
+	  var vol_out = ( can_pos + notext );
+	  setprop("/sim/sound/canopy-view-modifier", vol_out);
+   settimer(canopy_sound, 0.05);
+   }
+
+   setlistener("/controls/switches/canopy", canopy);
+   setlistener("/sim/signals/fdm-initialized", canopy_sound);
+  </load>
+ </nasal>
+ <fx>
+ 
+ <!-- External Sounds -->
+ 
+ <!-- Engines -->
+  
+ <engine1-fan-1>
+  <name>Left Engine Fan</name>
+  <mode>looped</mode>
+  <condition>
+     <not>
+         <property>/sim/current-view/internal</property>
+     </not>
+   </condition>
+  <path>FX/hiss.wav</path>
+   <position>
+    <x>15</x>
+	<y>-0.5</y>
+	<z>-0.5</z>
+   </position>
+   <orientation>
+	<x>-0.5</x>
+    <y>-0.5</y>
+    <z>0</z>
+    <inner-angle>120.0</inner-angle>
+    <outer-angle>270.0</outer-angle>
+    <outer-gain>0.35</outer-gain>
+   </orientation>
+   <volume>
+    <property>engines/engine[0]/n1</property>
+    <factor>0.0025</factor>
+	<offset>-0.025</offset>
+	<min>0.0</min>
+	<max>0.3</max>
+   </volume>
+   <reference-dist>30</reference-dist>
+   <max-dist>1000</max-dist>
+  </engine1-fan-1>
+  
+  
+ <engine1-whine>
+  <name>Left Engine Whine</name>
+  <mode>looped</mode>
+  <condition>
+     <not>
+         <property>/sim/current-view/internal</property>
+     </not>
+   </condition>
+  <path>FX/whine.wav</path>
+  <position>
+   <x>8</x>
+   <y>-0.5</y>
+   <z>-0.5</z>
+   </position>
+     <orientation>
+	<x>-0</x>
+    <y>0</y>
+    <z>0</z>
+    <inner-angle>50.0</inner-angle>
+    <outer-angle>100.0</outer-angle>
+    <outer-gain>0.15</outer-gain>
+   </orientation>
+   <volume>
+    <property>engines/engine[0]/n1</property>
+    <factor>0.005</factor>
+	<offset>-0.15</offset>
+	<min>0.0</min>
+	<max>0.25</max>
+   </volume>
+   <pitch>
+    <property>engines/engine[0]/n1</property>
+	<factor>0.012</factor>
+	<min>0.0</min>
+	<max>1.0</max>
+   </pitch>
+   <reference-dist>30</reference-dist>
+   <max-dist>750</max-dist>
+  </engine1-whine>  
+  
+ <engine1-rumble-1>
+  <name>Left Engine Rumble 1</name>
+  <mode>looped</mode>
+  <condition>
+     <not>
+         <property>/sim/current-view/internal</property>
+     </not>
+   </condition>
+  <path>FX/lofreq.wav</path>
+  <position>
+   <x>20</x>
+   <y>-0.5</y>
+   <z>0</z>
+   </position>
+   <orientation>
+	<x>1</x>
+    <y>0</y>
+    <z>0</z>
+    <inner-angle>60.0</inner-angle>
+    <outer-angle>180.0</outer-angle>
+    <outer-gain>0.05</outer-gain>
+   </orientation>
+   <volume>
+    <property>engines/engine[0]/n1</property>
+    <factor>0.014</factor>
+	<offset>-0.6</offset>
+	<min>0.0</min>
+	<max>5.0</max>
+   </volume>
+  </engine1-rumble-1>
+  
+  <!-- <engine1-rumble-2>
+  <name>Left Engine Rumble 2</name>
+  <mode>looped</mode>
+  <path>FX/lofreq.wav</path>
+  <condition>
+   <not>
+    <property>/sim/current-view/internal</property>
+   </not>
+  </condition>
+  <position>
+   <x>60</x>
+   <y>-0.5</y>
+   <z>-0.5</z>
+   </position>
+   <orientation>
+	<x>1</x>
+    <y>0</y>
+    <z>0</z>
+    <inner-angle>30.0</inner-angle>
+    <outer-angle>360.0</outer-angle>
+    <outer-gain>0.5</outer-gain>
+   </orientation>
+   <volume>
+    <property>engines/engine[0]/n1</property>
+    <factor>0.008</factor>
+	<offset>-0.6</offset>
+	<min>0.0</min>
+	<max>1.0</max>
+   </volume>
+  </engine1-rumble-2> -->
+  
+ <engine1-wake-forward>
+  <name>Left Engine Wake</name>
+  <mode>looped</mode>
+  <condition>
+     <not>
+         <property>/sim/current-view/internal</property>
+     </not>
+   </condition>
+  <path>FX/wake.wav</path>
+  <position>
+   <x>25</x>
+   <y>-0.5</y>
+   <z>0</z>
+   </position>
+   <orientation>
+	<x>1</x>
+    <y>0</y>
+    <z>0</z>
+    <inner-angle>15.0</inner-angle>
+    <outer-angle>90.0</outer-angle>
+    <outer-gain>0.025</outer-gain>
+   </orientation>
+   <volume>
+    <property>sim/multiplay/generic/float[19]</property>
+    <factor>1.9</factor>
+	<offset>-0.3</offset>
+	<min>0.00</min>
+	<max>1.0</max>
+	</volume>
+  </engine1-wake-forward> 
+  
+  <engine1-wake-forward>
+  <name>Left Engine Wake Forward</name>
+  <mode>looped</mode>
+  <condition>
+     <not>
+         <property>/sim/current-view/internal</property>
+     </not>
+   </condition>
+  <path>FX/wake-fwd.wav</path>
+  <delay-sec>3</delay-sec>
+  <position>
+   <x>-10</x>
+   <y>-0.5</y>
+   <z>0</z>
+   </position>
+   <orientation>
+	<x>-1</x>
+    <y>0</y>
+    <z>0</z>
+    <inner-angle>90.0</inner-angle>
+    <outer-angle>250.0</outer-angle>
+    <outer-gain>0.1</outer-gain>
+   </orientation>
+   <volume>
+    <property>sim/multiplay/generic/float[19]</property>
+    <factor>1.0</factor>
+	<offset>-0.25</offset>
+	<min>0.00</min>
+	<max>1.0</max>
+	</volume>
+  </engine1-wake-forward> 
+  
+  <engine1-wake-forward>
+  <name>Right Engine Wake</name>
+  <mode>looped</mode>
+  <condition>
+     <not>
+         <property>/sim/current-view/internal</property>
+     </not>
+   </condition>
+  <path>FX/wake.wav</path>
+  <position>
+   <x>25</x>
+   <y>0.5</y>
+   <z>0</z>
+   </position>
+   <orientation>
+	<x>1</x>
+    <y>0</y>
+    <z>0</z>
+    <inner-angle>15.0</inner-angle>
+    <outer-angle>90.0</outer-angle>
+    <outer-gain>0.025</outer-gain>
+   </orientation>
+   <volume>
+    <property>sim/multiplay/generic/float[19]</property>
+    <factor>1.9</factor>
+	<offset>-0.3</offset>
+	<min>0.00</min>
+	<max>1.0</max>
+	</volume>
+  </engine1-wake-forward> 
+  
+  <engine1-wake-forward>
+  <name>Right Engine Wake Forward</name>
+  <mode>looped</mode>
+  <condition>
+     <not>
+         <property>/sim/current-view/internal</property>
+     </not>
+   </condition>
+  <path>FX/wake-fwd.wav</path>
+  <position>
+   <x>-10</x>
+   <y>0.5</y>
+   <z>0</z>
+   </position>
+   <orientation>
+	<x>-1</x>
+    <y>0</y>
+    <z>0</z>
+    <inner-angle>90.0</inner-angle>
+    <outer-angle>250.0</outer-angle>
+    <outer-gain>0.1</outer-gain>
+   </orientation>
+   <volume>
+    <property>sim/multiplay/generic/float[19]</property>
+    <factor>1.0</factor>
+	<offset>-0.25</offset>
+	<min>0.00</min>
+	<max>1.0</max>
+	</volume>
+  </engine1-wake-forward> 
+  
+  
+ <reheat>
+  <name>Reheat Left</name>
+  <mode>looped</mode>
+  <condition>
+     <not>
+         <property>/sim/current-view/internal</property>
+     </not>
+   </condition>
+  <path>FX/reheat.wav</path>
+  <position>
+   <x>15.5</x>
+   <y>-0.5</y>
+   <z>0</z>
+   </position>
+   <orientation>
+	<x>1</x>
+    <y>0</y>
+    <z>0</z>
+    <inner-angle>40.0</inner-angle>
+    <outer-angle>140.0</outer-angle>
+    <outer-gain>0.15</outer-gain>
+   </orientation>
+   <volume>
+    <property>sim/multiplay/generic/float[8]</property>
+    <factor>0.3</factor>
+	<offset>-0.05</offset>
+	<min>0.0</min>
+	<max>0.10</max>
+	</volume>
+	<reference-dist>15</reference-dist>
+   <max-dist>1200</max-dist>
+  </reheat>
+  
+  <reheat>
+  <name>Reheat Right</name>
+  <mode>looped</mode>
+  <condition>
+     <not>
+         <property>/sim/current-view/internal</property>
+     </not>
+   </condition>
+  <path>FX/reheat.wav</path>
+  <position>
+   <x>15.5</x>
+   <y>0.5</y>
+   <z>0</z>
+   </position>
+   <orientation>
+	<x>1</x>
+    <y>0</y>
+    <z>0</z>
+    <inner-angle>40.0</inner-angle>
+    <outer-angle>140.0</outer-angle>
+    <outer-gain>0.15</outer-gain>
+   </orientation>
+   <volume>
+    <property>sim/multiplay/generic/float[9]</property>
+    <factor>0.3</factor>
+	<offset>-0.05</offset>
+	<min>0.0</min>
+	<max>0.10</max>
+	</volume>
+	<reference-dist>15</reference-dist>
+   <max-dist>1500</max-dist>
+  </reheat>
+  
+  <reheat>
+  <name>Boom</name>
+  <mode>once</mode>
+  <path>FX/sonicboom.wav</path>
+  <condition>
+   <greater-than>
+    <property>sim/multiplay/generic/float[19]</property>
+	<value>1.01</value>
+   </greater-than>
+     <not>
+         <property>/sim/current-view/internal</property>
+     </not>
+  </condition>
+  <position>
+   <x>35.5</x>
+   <y>0.5</y>
+   <z>0</z>
+   </position>
+   <orientation>
+	<x>1</x>
+    <y>0</y>
+    <z>0</z>
+    <inner-angle>40.0</inner-angle>
+    <outer-angle>140.0</outer-angle>
+    <outer-gain>0.15</outer-gain>
+   </orientation>
+   <volume>
+    <property>velocities/true-airspeed-kt</property>
+    <factor>0.0025</factor>
+	<offset>-0.05</offset>
+	<min>0.0</min>
+	<max>0.8</max>
+	</volume>
+	<reference-dist>20</reference-dist>
+   <max-dist>15000</max-dist>
+  </reheat>
+ 
+  
+ </fx>
+ 
+</PropertyList>

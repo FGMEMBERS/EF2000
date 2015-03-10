@@ -1,0 +1,66 @@
+
+<PropertyList>
+
+ <key n="99">
+  <name>C</name>
+  <desc>Toggle Canopy</desc>
+  <binding> 
+   <command>property-toggle</command>
+   <property>/controls/switches/canopy</property>
+  </binding>
+  </key>
+
+  <key n="70">
+   <name>Shift-F</name>
+   <desc>Toggle Fuel Probe</desc>
+   <binding> 
+    <command>property-toggle</command>
+    <property>/controls/switches/fuel-probe</property>
+   </binding>
+  </key>
+  
+  <key n="125">
+   <name>Shift-]</name>
+   <desc>Full Autostart</desc>
+   <binding> 
+    <command>nasal</command>
+    <script>checklists.autostart();</script>
+   </binding>
+   <binding>
+    <mod-ctrl>
+	</mod-ctrl>
+   </binding>
+  </key>
+  
+  <!-- Staged Autostart/Stop
+  
+    Key '}' autostarts each preflight checklist group in turn
+	Key '{' autostarts each shutdown checklist group in turn
+	
+	-->
+  
+  <key n="93">
+   <name>Ctrl-]</name>
+   <desc>Full Autostart</desc>
+   <binding> 
+    <command>nasal</command>
+    <script>checklists.autostart();</script>
+   </binding>
+   <binding>
+    <mod-ctrl>
+	</mod-ctrl>
+   </binding>
+  </key>
+  
+  <!-- Temporary for testing -->
+  
+  		<key n="70">
+			<name>F</name>
+			<desc>Toggle smoke</desc>
+				<binding>
+					<command>property-toggle</command>
+					<property>/systems/weapons/display-smoke</property>
+				</binding>
+		</key>
+
+</PropertyList>

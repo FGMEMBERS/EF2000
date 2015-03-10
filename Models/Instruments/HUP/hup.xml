@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<PropertyList>
+
+ <path>hup.ac</path>
+ 
+ <model>
+ 	<name>hud-off</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HUP/HUD/hud-off.xml</path>
+ 	<offsets> 
+		<x-m>0</x-m>
+	    <y-m>0.0</y-m>
+	    <z-m>0.18</z-m>
+		<pitch-deg>20</pitch-deg>
+    </offsets>
+ </model>
+ 
+ <model>
+ 	<name>hud-on</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HUP/HUD/hud-on.xml</path>
+ 	<offsets> 
+		<x-m>0</x-m>
+	    <y-m>0.0</y-m>
+	    <z-m>0.18</z-m>
+		<pitch-deg>20</pitch-deg>
+    </offsets>
+ </model>
+ 
+ <model>
+ 	<name>radio1-off</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HUP/radio1-off.xml</path>
+ 	<offsets> 
+		<x-m>0.012</x-m>
+	    <y-m>-0.0575</y-m>
+	    <z-m>-0.09</z-m>
+		<pitch-deg>18</pitch-deg>
+    </offsets>
+ </model>
+ 
+ <model>
+ 	<name>radio1-on</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HUP/radio1-on.xml</path>
+ 	<offsets> 
+		<x-m>0.012</x-m>
+	    <y-m>-0.0575</y-m>
+	    <z-m>-0.09</z-m>
+		<pitch-deg>18</pitch-deg>
+    </offsets>
+ </model>
+ 
+ <model>
+ 	<name>radio2-off</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HUP/radio2-off.xml</path>
+ 	<offsets> 
+		<x-m>0.012</x-m>
+	    <y-m>0.010</y-m>
+	    <z-m>-0.09</z-m>
+		<pitch-deg>18</pitch-deg>
+    </offsets>
+ </model>
+ 
+ <model>
+ 	<name>radio2-on</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HUP/radio2-on.xml</path>
+ 	<offsets> 
+		<x-m>0.012</x-m>
+	    <y-m>0.010</y-m>
+	    <z-m>-0.09</z-m>
+		<pitch-deg>18</pitch-deg>
+    </offsets>
+ </model>
+ 
+ <model>
+ 	<name>mids-off</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HUP/MIDS/mids-off.xml</path>
+ 	<offsets> 
+		<x-m>0.0</x-m>
+	    <y-m>0.00</y-m>
+	    <z-m>0.02</z-m>
+		<pitch-deg>18</pitch-deg>
+    </offsets>
+ </model>
+ 
+ <model>
+ 	<name>mids-on</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HUP/MIDS/mids-on.xml</path>
+ 	<offsets> 
+		<x-m>0.07</x-m>
+	    <y-m>0.0</y-m>
+	    <z-m>0.012</z-m>
+		<pitch-deg>14</pitch-deg>
+    </offsets>
+ </model>
+  
+ <animation>
+  <type>select</type>
+  <object-name>hud-on</object-name>
+  <condition>
+   <greater-than>
+    <property>/systems/electrical/outputs/avionics/HUD</property>
+    <value>180</value>
+   </greater-than>
+   <equals>
+    <property>/instrumentation/HUD/serviceable</property>
+	<value>true</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>hud-off</object-name>
+  <condition>
+   <or>
+    <less-than>
+     <property>/systems/electrical/outputs/avionics/HUD</property>
+     <value>180</value>
+    </less-than>
+    <equals>
+     <property>/instrumentation/HUD/serviceable</property>
+	 <value>false</value>
+    </equals>
+   </or>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>radio1-on</object-name>
+  <condition>
+   <greater-than>
+    <property>/systems/electrical/outputs/avionics/radio-1</property>
+    <value>26</value>
+   </greater-than>
+   <equals>
+    <property>/instrumentation/radio[0]/serviceable</property>
+	<value>true</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>radio1-off</object-name>
+  <condition>
+   <or>
+    <less-than>
+     <property>/systems/electrical/outputs/avionics/radio-1</property>
+     <value>26</value>
+    </less-than>
+    <equals>
+     <property>/instrumentation/radio[0]/serviceable</property>
+	 <value>false</value>
+    </equals>
+   </or>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>radio2-on</object-name>
+  <condition>
+   <greater-than>
+    <property>/systems/electrical/outputs/avionics/radio-2</property>
+    <value>100</value> 
+   </greater-than>
+   <equals>
+    <property>/instrumentation/radio[1]/serviceable</property>
+	<value>true</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>radio2-off</object-name>
+  <condition>
+   <or>
+    <less-than>
+     <property>/systems/electrical/outputs/avionics/radio-2</property>
+     <value>200</value>
+    </less-than>
+    <equals>
+     <property>/instrumentation/radio[1]/serviceable</property>
+	 <value>false</value>
+    </equals>
+   </or>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>mids-off</object-name>
+  <condition>
+    <less-than>
+     <property>/systems/electrical/outputs/avionics/MIDS</property>
+     <value>26</value>
+    </less-than>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>mids-on</object-name>
+  <condition>
+    <greater-than>
+     <property>/systems/electrical/outputs/avionics/MIDS</property>
+     <value>26</value>
+    </greater-than>
+  </condition>
+ </animation>
+ 
+ <text>
+  <name>fuel-fwd</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <offsets>
+   <x-m>0.033</x-m>
+   <y-m>0.0095</y-m>
+   <z-m>-0.041</z-m>
+   <pitch-deg>25</pitch-deg>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <property>/consumables/fuel/fwd-level-lbs</property>
+  <format>%4.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>fuel-rear</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <offsets>
+   <x-m>0.032</x-m>
+   <y-m>0.0095</y-m>
+   <z-m>-0.05</z-m>
+   <pitch-deg>25</pitch-deg>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <property>/consumables/fuel/rear-level-lbs</property>
+  <format>%4.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>fuel-total</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.03</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.067</z-m>
+   <pitch-deg>25</pitch-deg>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <property>/consumables/fuel/total-fuel-lbs</property>
+  <format>%5.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+
+ <text>
+  <name>fuelflow-left</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.035</x-m>
+   <y-m>-0.038</y-m>
+   <z-m>-0.05</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <property>/engines/engine[0]/fuel-flow-gpm</property>
+  <format>%3.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>fuelflow-right</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.035</x-m>
+   <y-m>0.049</y-m>
+   <z-m>-0.05</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <property>/engines/engine[1]/fuel-flow-gpm</property>
+  <format>%3.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>fuel-fwd</object-name>
+  <object-name>fuel-rear</object-name>
+  <object-name>fuel-total</object-name>
+  <condition>
+    <greater-than>
+     <property>/systems/electrical/outputs/avionics/HUP</property>
+     <value>26</value>
+    </greater-than>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>NLDialL.blank</object-name>
+  <object-name>NLDialR.blank</object-name>
+  <condition>
+    <less-than>
+     <property>/systems/electrical/outputs/avionics/HUP</property>
+     <value>26</value>
+    </less-than>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>NLDialL</object-name>
+  <condition>
+    <greater-than>
+     <property>/systems/electrical/outputs/avionics/HUP</property>
+     <value>26</value>
+    </greater-than>
+	<equals>
+	 <property>/engines/engine[0]/reheat</property>
+	 <value>0</value>
+	</equals>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>NLDialR</object-name>
+  <condition>
+    <greater-than>
+     <property>/systems/electrical/outputs/avionics/HUP</property>
+     <value>26</value>
+    </greater-than>
+	<equals>
+	 <property>/engines/engine[1]/reheat</property>
+	 <value>0</value>
+	</equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>NLDialL.reheat</object-name>
+  <condition>
+    <greater-than>
+     <property>/systems/electrical/outputs/avionics/HUP</property>
+     <value>26</value>
+    </greater-than>
+	<not-equals>
+	 <property>/engines/engine[0]/reheat</property>
+	 <value>0</value>
+	</not-equals>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>NLDialR.reheat</object-name>
+  <condition>
+   <and>
+    <greater-than>
+     <property>/systems/electrical/outputs/avionics/HUP</property>
+     <value>26</value>
+    </greater-than>
+	<not-equals>
+	 <property>/engines/engine[1]/reheat</property>
+	 <value>0</value>
+	</not-equals>
+   </and>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>fuelflow-right</object-name>
+  <object-name>fuelflow-left</object-name>
+  <condition>
+    <greater-than>
+     <property>/systems/electrical/outputs/avionics/radios</property>
+     <value>26</value>
+    </greater-than>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <object-name>NLDialL</object-name>
+  <object-name>NLDialL.reheat</object-name>
+  <type>rotate</type>
+  <property>engines/engine[0]/rpm</property>
+  <factor>1.4</factor>
+  <offset-deg>0</offset-deg>
+  <center>
+   <x-m>0.026</x-m>
+   <y-m>-0.04486</y-m>
+   <z-m>-0.0552</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <object-name>NLDialR</object-name>
+  <object-name>NLDialR.reheat</object-name>
+  <type>rotate</type>
+  <property>engines/engine[1]/rpm</property>
+  <factor>1.4</factor>
+  <offset-deg>0</offset-deg>
+  <center>
+   <x-m>0.026</x-m>
+   <y-m>0.04486</y-m>
+   <z-m>-0.0552</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>material</type>
+  <object-name>fuel-fwd</object-name>
+  <object-name>fuel-rear</object-name>
+  <object-name>fuel-total</object-name>
+  <object-name>fuelflow-right</object-name>
+  <object-name>fuelflow-left</object-name>
+  <diffuse>
+    <red>0.2</red>
+    <green>0.7</green>
+    <blue>0.2</blue>
+  </diffuse>
+  <emission>
+    <red>0.2</red>
+    <green>0.7</green>
+    <blue>0.2</blue>
+    <factor-prop>/instrumentation/illumination/softkeys</factor-prop>
+  </emission>
+</animation>
+
+<animation>
+  <type>material</type>
+  <object-name>NLDialL</object-name>
+  <object-name>NLDialR</object-name>
+  <object-name>NLDialL.reheat</object-name>
+  <object-name>NLDialR.reheat</object-name>
+  <diffuse>
+    <red>0.6</red>
+    <green>0.6</green>
+    <blue>0.6</blue>
+  </diffuse>
+  <emission>
+    <red>0.6</red>
+    <green>0.6</green>
+    <blue>0.6</blue>
+    <factor-prop>/instrumentation/illumination/softkeys</factor-prop>
+  </emission>
+</animation>
+
+
+
+</PropertyList>

@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <path>acue.ac</path>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>canopy</object-name>
+  <condition>
+   <greater-than>
+	<property>canopy/position-norm</property>
+    <value>0</value>
+   </greater-than>
+  </condition>
+  </animation>
+  
+    <animation>
+  <type>select</type>
+  <object-name>seatsafe</object-name>
+  <condition>
+   <not>
+    <property>/controls/seat/arming-handle</property>
+   </not>
+  </condition>
+  </animation>
+  
+  <animation>
+  <type>select</type>
+  <object-name>apu-start</object-name>
+  <condition>
+   <and>
+    <greater-than>
+	 <property>/engines/engine[2]/rpm</property>
+	 <value>1</value>
+	</greater-than>
+	<less-than>
+	 <property>/engines/engine[2]/rpm</property>
+	 <value>65</value>
+	</less-than>
+	<equals>
+	 <property>/sim/model/instrumentation/mfd-blink/state</property>
+     <value>true</value>
+    </equals>
+	<not-equals>
+	 <property>/controls/engines/engine[2]/cutoff</property>
+	 <value>true</value>
+	</not-equals>
+   </and>
+   </condition>
+  </animation>
+   
+  <animation>
+  <type>select</type>
+  <object-name>apu-run</object-name>
+  <condition>
+    <greater-than>
+	 <property>/engines/engine[2]/rpm</property>
+	 <value>65</value>
+	</greater-than>
+   </condition>
+   </animation>
+  
+  <text>
+	 <name>apu-start</name>
+	 <font>lcd.txf</font>
+	 <character-size type="double">0.0065</character-size>
+	 <offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>-0.065</y-m>
+      <z-m>0.065</z-m>
+    </offsets>
+	<type type="string">literal</type>
+    <text type="string">APU START</text>
+	<align>center-top</align>
+   </text>
+   
+   <text>
+	 <name>apu-run</name>
+	 <font>lcd.txf</font>
+	 <character-size type="double">0.0065</character-size>
+	 <offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>-0.065</y-m>
+      <z-m>0.065</z-m>
+    </offsets>
+	<type type="string">literal</type>
+    <text type="string">APU RUN</text>
+	<align>center-top</align>
+   </text>
+  
+  <text>
+	 <name>pwrup-label</name>
+	 <font>lcd.txf</font>
+	 <character-size type="double">0.0065</character-size>
+	 <offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>-0.01</y-m>
+      <z-m>0.015</z-m>
+    </offsets>
+	<type type="string">literal</type>
+    <text type="string">PWR UP</text>
+	<align>center-top</align>
+   </text>
+   
+   <text>
+	 <name>iff-mode</name>
+	 <font>lcd.txf</font>
+	 <character-size type="double">0.0065</character-size>
+	 <offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>-0.065</y-m>
+      <z-m>-0.03</z-m>
+    </offsets>
+	<type type="string">literal</type>
+    <text type="string">IFF MODE 3A CODES</text>
+	<align>center-top</align>
+   </text>
+ 
+ <!-->
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>rose</object-name>
+  <property>orientation/heading-magnetic-deg</property>
+  <center>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z></z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>bug</object-name>
+  <property>/systems/autopilot/settings/heading-bug-deg</property>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>bug</object-name>
+  <property>/orientation/heading-magnetic-deg</property>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>head</object-name>
+  <object-name>cdi</object-name>
+  <object-name>tail</object-name>
+  <object-name>cdiscale</object-name>
+  <condition>
+   <equals>
+    <property>/computers/navigation/mode</property>
+	<value>nav</value>
+   </equals>
+  </condition>
+  <property>/systems/autopilot/internal/target-offset-deg</property>
+  <axis>
+	<x>-1</x>
+	<y>0</y>
+	<z>0</z>
+ </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>head</object-name>
+  <object-name>cdi</object-name>
+  <object-name>tail</object-name>
+  <object-name>cdiscale</object-name>
+  <condition>
+   <equals>
+    <property>/computers/navigation/mode</property>
+	<value>tacan</value>
+   </equals>
+  </condition>
+  <property>/instrumentation/tacan/indicated-bearing-true-deg</property>
+  <axis>
+	<x>-1</x>
+	<y>0</y>
+	<z>0</z>
+ </axis>
+ </animation>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>cdi</object-name>
+  <property>instrumentation/gps/cdi-deflection</property>
+  <factor>0.003875</factor>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <text>
+	 <name>airspeed</name>
+	 <font>lcd.txf</font>
+	 <character-size type="double">0.005</character-size>
+	 <offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>-0.06</y-m>
+      <z-m>0.075</z-m>
+    </offsets>
+	<type type="string">number-value</type>
+	<property type="string">/velocities/airspeed-kt</property>
+	<factor type="double">1</factor>
+	<format>%3.0f</format>
+	<truncate>true</truncate>
+	<align>right-top</align>
+   </text>
+   
+   <text>
+	 <name>airspeed-app</name>
+	 <font>lcd.txf</font>
+	 <character-size type="double">0.004</character-size>
+	 <offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>-0.045</y-m>
+      <z-m>0.075</z-m>
+    </offsets>
+	<type type="string">literal</type>
+    <text type="string">KT</text>
+	<align>left-top</align>
+   </text>
+   
+   <text>
+	 <name>heading</name>
+	 <font>lcd.txf</font>
+	 <character-size type="double">0.005</character-size>
+	 <offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>-0.005</y-m>
+      <z-m>0.075</z-m>
+    </offsets>
+	<type type="string">number-value</type>
+	<property type="string">/orientation/heading-magnetic-deg</property>
+	<factor type="double">1</factor>
+	<format>%3.0f</format>
+	<truncate>true</truncate>
+	<align>centre-top</align>
+   </text>
+   
+   <text>
+	 <name>heading-app</name>
+	 <font>lcd.txf</font>
+	 <character-size type="double">0.004</character-size>
+	 <offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>0.009</y-m>
+      <z-m>0.077</z-m>
+    </offsets>
+	<type type="string">literal</type>
+    <text type="string">o</text>
+	<align>left-top</align>
+   </text>
+   
+   <text>
+	 <name>altitude</name>
+	 <font>lcd.txf</font>
+	 <character-size type="double">0.005</character-size>
+	 <offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>0.04</y-m>
+      <z-m>0.075</z-m>
+    </offsets>
+	<type type="string">number-value</type>
+	<property type="string">/position/altitude-angels</property>
+	<factor type="double">1</factor>
+	<format>%1.3f</format>
+	<align>right-top</align>
+   </text>
+   
+   <text>
+	 <name>altitude-app</name>
+	 <font>lcd.txf</font>
+	 <character-size type="double">0.004</character-size>
+	 <offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>0.063</y-m>
+      <z-m>0.075</z-m>
+    </offsets>
+	<type type="string">literal</type>
+    <text type="string">FT</text>
+	<align>left-top</align>
+   </text>
+   
+   <text>
+    <name>waypoint-number-app</name>
+    <font>lcd.txf</font>
+    <character-size type="double">0.004</character-size>
+	<offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>-0.0675</y-m>
+      <z-m>0.064</z-m>
+    </offsets>
+	<type type="string">literal</type>
+    <text type="string">WPT</text>
+	<align>left-top</align>
+   </text>
+   
+   <text>
+    <name>waypoint-number</name>
+    <font>lcd.txf</font>
+    <character-size type="double">0.005</character-size>
+	<draw-boundingbox>true</draw-boundingbox>
+	<offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>-0.0675</y-m>
+      <z-m>0.058</z-m>
+    </offsets>
+	<type type="string">number-value</type>
+	<property type="string">/autopilot/route-manager/current-wp</property>
+	<factor type="double">1</factor>
+	<format>%3.0f</format>
+	<align>right-top</align>
+   </text>
+   
+   <text>
+    <name>bearing-app</name>
+    <font>lcd.txf</font>
+    <character-size type="double">0.004</character-size>
+	<offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>-0.025</y-m>
+      <z-m>0.071</z-m>
+    </offsets>
+	<type type="string">literal</type>
+    <text type="string">BRG</text>
+	<align>center-top</align>
+   </text>
+   
+   <text>
+    <name>bearing-nav</name>
+    <font>lcd.txf</font>
+    <character-size type="double">0.005</character-size>
+	<draw-boundingbox>true</draw-boundingbox>
+	<offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>-0.025</y-m>
+      <z-m>0.065</z-m>
+    </offsets>
+	<type type="string">number-value</type>
+	<property type="string">/instrumentation/gps/wp/wp[1]/bearing-mag-deg</property>
+	<factor type="double">1</factor>
+	<format>%3.0f</format>
+	<align>center-top</align>
+   </text>
+   
+   <text>
+    <name>range-app</name>
+    <font>lcd.txf</font>
+    <character-size type="double">0.004</character-size>
+	<offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>0.025</y-m>
+      <z-m>0.071</z-m>
+    </offsets>
+	<type type="string">literal</type>
+    <text type="string">RNG</text>
+	<align>center-top</align>
+   </text>
+   
+   <text>
+    <name>range-nav</name>
+    <font>lcd.txf</font>
+    <character-size type="double">0.005</character-size>
+	<draw-boundingbox>true</draw-boundingbox>
+	<offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>0.0225</y-m>
+      <z-m>0.065</z-m>
+    </offsets>
+	<type type="string">number-value</type>
+	<property type="string">/instrumentation/gps/wp/wp[1]/distance-nm</property>
+	<factor type="double">1</factor>
+	<format>%4.1f</format>
+	<align>center-top</align>
+   </text>
+   
+   	<text>
+	 <name>headmode</name>
+	  <font>lcd.txf</font>
+    <character-size type="double">0.0065</character-size>
+    <offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>-0.098</y-m>
+      <z-m>0.061</z-m>
+    </offsets>
+	  <type type="string">literal</type>
+	  <text type="string">MAG</text>
+	</text>
+	<text>
+	 <name>trackmode</name>
+	  <font>lcd.txf</font>
+    <character-size type="double">0.0065</character-size>
+    <offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>-0.098</y-m>
+      <z-m>0.039</z-m>
+    </offsets>
+	  <type type="string">literal</type>
+	  <text type="string">TRK</text>
+	</text>
+	<text>
+	 <name>mapmode</name>
+	  <font>lcd.txf</font>
+    <character-size type="double">0.0065</character-size>
+    <offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>-0.098</y-m>
+      <z-m>-0.007</z-m>
+    </offsets>
+	  <type type="string">literal</type>
+	  <text type="string">MAP</text>
+	</text>
+	<text>
+	 <name>norm</name>
+	  <font>lcd.txf</font>
+    <character-size type="double">0.0065</character-size>
+    <offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>0.079</y-m>
+      <z-m>0.061</z-m>
+    </offsets>
+	  <type type="string">literal</type>
+	  <text type="string">NORM</text>
+	</text>
+	<text>
+	 <name>hsi-desel</name>
+	  <font>lcd.txf</font>
+    <character-size type="double">0.0065</character-size>
+    <offsets>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>0</heading-deg>
+      <roll-deg>90</roll-deg>
+      <x-m>0.018</x-m>
+      <y-m>.039</y-m>
+      <z-m>-0.078</z-m>
+    </offsets>
+	  <type type="string">literal</type>
+	  <text type="string">HSI</text>
+      <draw-boundingbox type="bool">true</draw-boundingbox>
+	</text>   
+
+<animation>
+  <type>material</type>
+  <object-name>hsi-desel</object-name>
+  <object-name>norm</object-name>
+  <object-name>headmode</object-name>
+  <object-name>trackmode</object-name>
+  <object-name>mapmode</object-name>
+  <diffuse>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>0.0</blue>
+    <factor-prop>/instrumentation/illumination/led-brightness</factor-prop>
+  </emission>
+</animation>
+
+   
+   <animation>
+  <type>material</type>
+  <object-name>rose</object-name>
+  <object-name>head</object-name>
+  <object-name>cdi</object-name>
+  <object-name>tail</object-name>
+  <object-name>cdiscale</object-name>
+  <object-name>altitude</object-name>
+  <object-name>altitude-app</object-name>
+  <object-name>heading</object-name>
+  <object-name>heading-app</object-name>
+  <object-name>airspeed</object-name>
+  <object-name>airspeed-app</object-name>
+  <object-name>bearing-app</object-name>
+  <object-name>bearing-nav</object-name>
+  <object-name>range-app</object-name>
+  <object-name>range-nav</object-name>
+  <object-name>waypoint-number</object-name>
+  <object-name>waypoint-number-app</object-name>
+  <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+	<factor-prop>/instrumentation/illumination/lcd-brightness</factor-prop>
+  </emission>
+</animation>
+
+<-->
+
+ <animation>
+  <type>material</type>
+  <object-name>ACUEScreen</object-name>
+  <object-name>pwrup-label</object-name>
+  <object-name>canopy</object-name>
+  <object-name>seatsafe</object-name>
+  <object-name>iff-mode</object-name>
+  <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+	<factor-prop>/instrumentation/illumination/LCD</factor-prop>
+  </emission>
+ </animation>
+ 
+ <animation>
+  <type>material</type>
+  <object-name>apu-start</object-name>
+  <object-name>atck</object-name>
+  <object-name>mntc</object-name>
+  <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>0.0</blue>
+	<factor-prop>/instrumentation/illumination/LCD</factor-prop>
+  </emission>
+ </animation>
+ 
+ <animation>
+  <type>material</type>
+  <object-name>apu-run</object-name>
+  <emission>
+    <red>0.1</red>
+    <green>1.0</green>
+    <blue>0.1</blue>
+	<factor-prop>/instrumentation/illumination/lcd-brightness</factor-prop>
+  </emission>
+ </animation>
+
+</PropertyList>

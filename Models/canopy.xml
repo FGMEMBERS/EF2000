@@ -1,0 +1,39 @@
+
+<PropertyList>
+
+ <path>canopy.ac</path>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>CanopyFrame</object-name>
+  <object-name>CanopyGlass</object-name>
+  <condition>
+   <not>
+    <property>/eject/canopy/jettison</property>
+   </not>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>CanopyGlass</object-name>
+  <object-name>CanopyFrame</object-name>v
+  <property>canopy/position-norm</property>
+  <factor>40</factor>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ 	<model>
+  		<path>Aircraft/EF2000/Models/Submodels/canopy-submodel.xml</path>
+		   <offsets>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</offsets>
+    </model>
+ 
+</PropertyList>

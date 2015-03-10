@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+
+    <enable3d>false</enable3d>
+
+    <ladder>
+        <name>Pitch Ladder</name>
+        <type>pitch</type>
+        <x>-12</x>
+		<y>28</y>
+		<width>10.0</width>
+		<height>10.0</height>
+        <roll-input>
+            <property>/orientation/roll-deg</property>
+        </roll-input>
+        <pitch-input>
+            <property>/orientation/pitch-deg</property>
+        </pitch-input>
+        <compression-factor>7.33</compression-factor>
+        <display-span>10.0</display-span>
+        <divisions>2.0</divisions>
+        <screen-hole>20</screen-hole>
+        <zero-bar-overlength>15</zero-bar-overlength>
+		<option>notext</option>
+        <enable-dive-bar-angle>false</enable-dive-bar-angle>
+        <enable-dynamic-origin>false</enable-dynamic-origin>
+        <enable-fuselage-ref-line>true</enable-fuselage-ref-line>
+        <enable-target-spot>true</enable-target-spot>
+		<enable-target-markers>true</enable-target-markers>
+        <enable-velocity-vector>false</enable-velocity-vector>
+        <enable-drift-marker>false</enable-drift-marker>
+        <enable-alpha-bracket>false</enable-alpha-bracket>
+        <enable-energy-marker>false</enable-energy-marker>
+        <enable-climb-dive-marker>false</enable-climb-dive-marker>
+        <enable-glide-slope-marker>false</enable-glide-slope-marker>
+        <glide-slope>0.0</glide-slope>
+        <enable-energy-worm>false</enable-energy-worm>
+        <enable-waypoint-marker>false</enable-waypoint-marker>
+    </ladder>
+
+</PropertyList>

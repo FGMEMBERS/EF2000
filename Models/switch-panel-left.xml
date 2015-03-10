@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+ <path>switch-panel-left.ac</path>
+ 
+   <effect>
+   <inherits-from>Effects/model-transparent</inherits-from>
+   <condition>
+    <property>sim/rendering/rembrandt/enabled</property>
+   </condition>
+  <object-name>Labels</object-name>
+  <object-name>Labels.lit</object-name>
+ </effect>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>Labels</object-name>
+   <condition>
+	 <less-than>
+      <property>systems/electrical/outputs/avionics/cockpit-lighting</property>
+      <value>24</value>
+	 </less-than>
+    </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>Labels.lit</object-name>
+   <condition>
+	 <greater-than>
+      <property>systems/electrical/outputs/avionics/cockpit-lighting</property>
+      <value>24</value>
+	 </greater-than>
+    </condition>
+ </animation>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>Throttle.left</object-name>
+  <property>/controls/engines/engine[0]/throttle</property>
+  <factor>0.11</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>Throttle.right</object-name>
+  <property>/controls/engines/engine[1]/throttle</property>
+  <factor>0.11</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+   <type>texmultiple</type>
+   <object-name>Throttle.slat-L</object-name>
+   <transform>
+     <property>/controls/engines/engine[0]/throttle</property>
+     <subtype>textranslate</subtype>
+   <factor>17</factor>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+   </transform>
+  </animation>
+  
+  <animation>
+   <type>texmultiple</type>
+   <object-name>Throttle.slat-R</object-name>
+   <transform>
+     <property>/controls/engines/engine[1]/throttle</property>
+     <subtype>textranslate</subtype>
+   <factor>17</factor>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+   </transform>
+  </animation>
+
+</PropertyList>

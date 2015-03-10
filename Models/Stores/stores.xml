@@ -1,0 +1,585 @@
+
+<PropertyList>
+
+	<!-- pylons -->
+	<model>
+		<name>pylons</name>
+		<path>Aircraft/EF2000/Models/Stores/pylons.ac</path>
+		<offsets>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+			<pitch-deg>0.0</pitch-deg>
+		</offsets>
+	</model>
+
+<!-- Station 1 Left -->
+
+  <animation>
+   <type>select</type>
+   <object-name>pylon1.L</object-name>      
+   <condition>
+    <greater-than>
+     <property>sim/multiplay/generic/int[4]</property>
+     <value>0</value>
+    </greater-than>
+    </condition>
+   </animation>
+   
+   <model>
+	<name>SmokewinderL1</name>
+	<path>Aircraft/EF2000/Models/Stores/Smokewinder/smokewinder.xml</path>
+	<offsets>
+	 <x-m>11.2</x-m>
+	 <y-m>-4.93</y-m>
+	 <z-m>-0.85</z-m>
+	 <pitch-deg>-0.865</pitch-deg>
+	</offsets>
+	</model>
+	
+	<animation>
+     <type>select</type>
+     <object-name>SmokewinderL1</object-name>      
+     <condition>
+      <equals>
+       <property>sim/multiplay/generic/int[4]</property>
+       <value>2</value>
+      </equals>
+    </condition>
+  </animation>
+  
+     <model>
+	<name>AIM-9L1</name>
+	<path>Aircraft/FGUK-weapons/Air-Air/aim9/AIM-9.xml</path>
+	<offsets>
+	 <x-m>11.2</x-m>
+	 <y-m>-4.93</y-m>
+	 <z-m>-0.85</z-m>
+	 <pitch-deg>-0.865</pitch-deg>
+	</offsets>
+	</model>
+	
+	<animation>
+     <type>select</type>
+     <object-name>AIM-9L1</object-name>      
+     <condition>
+      <equals>
+       <property>sim/multiplay/generic/int[4]</property>
+       <value>3</value>
+      </equals>
+    </condition>
+  </animation>
+  
+  <!-- Station 1 Right -->
+
+  <animation>
+   <type>select</type>
+   <object-name>pylon1.R</object-name>      
+   <condition>
+    <greater-than>
+     <property>sim/multiplay/generic/int[12]</property>
+     <value>0</value>
+    </greater-than>
+    </condition>
+   </animation>
+   
+   <model>
+	<name>Aim-9R1</name>
+	<path>Aircraft/FGUK-weapons/Air-Air/aim9/AIM-9.xml</path>
+	<offsets>
+	 <x-m>11.2</x-m>
+	 <y-m>4.93</y-m>
+	 <z-m>-0.85</z-m>
+	 <pitch-deg>-0.865</pitch-deg>
+	</offsets>
+	</model>	
+	<animation>
+     <type>select</type>
+     <object-name>Aim-9R1</object-name>      
+     <condition>
+      <equals>
+       <property>sim/multiplay/generic/int[12]</property>
+       <value>3</value>
+      </equals>
+    </condition>
+  </animation>
+   
+   <model>
+	<name>SmokewinderR1</name>
+	<path>Aircraft/EF2000/Models/Stores/Smokewinder/smokewinder.xml</path>
+	<offsets>
+	 <x-m>11.2</x-m>
+	 <y-m>4.93</y-m>
+	 <z-m>-0.85</z-m>
+	 <pitch-deg>-0.865</pitch-deg>
+	</offsets>
+	</model>	
+	<animation>
+     <type>select</type>
+     <object-name>SmokewinderR1</object-name>      
+     <condition>
+      <equals>
+       <property>sim/multiplay/generic/int[12]</property>
+       <value>2</value>
+      </equals>
+    </condition>
+  </animation>
+  
+  
+  
+  <!-- Station 2 Left -->
+  
+    <animation>
+   <type>select</type>
+   <object-name>pylon2.L</object-name>      
+   <condition>
+    <greater-than>
+     <property>sim/multiplay/generic/int[5]</property>
+     <value>0</value>
+    </greater-than>
+    </condition>
+   </animation>
+   
+   <model>
+	<name>Aim-9L2</name>
+	<path>Aircraft/FGUK-weapons/Air-Air/aim9/AIM-9.xml</path>
+	<offsets>
+	 <x-m>10.4</x-m>
+	 <y-m>-4.0</y-m>
+	 <z-m>-0.85</z-m>
+	 <pitch-deg>-0.865</pitch-deg>
+	</offsets>
+	</model>
+	<animation>
+     <type>select</type>
+     <object-name>Aim-9L2</object-name>      
+     <condition>
+      <equals>
+       <property>sim/multiplay/generic/int[5]</property>
+       <value>3</value>
+      </equals>
+    </condition>
+ 
+ </animation>
+     <model>
+	<name>AMRAAML2</name>
+	<path>Aircraft/FGUK-weapons/Air-Air/aim120/AIM-120.xml</path>
+	<offsets>
+	 <x-m>10.4</x-m>
+	 <y-m>-4.0</y-m>
+	 <z-m>-0.85</z-m>
+	 <pitch-deg>-0.865</pitch-deg>
+	</offsets>
+	</model>
+	<animation>
+     <type>select</type>
+     <object-name>AMRAAML2</object-name>      
+     <condition>
+      <equals>
+       <property>sim/multiplay/generic/int[5]</property>
+       <value>6</value>
+      </equals>
+    </condition>
+  </animation>
+   
+
+   
+     <!-- Station 2 Right -->
+  
+    <animation>
+   <type>select</type>
+   <object-name>pylon2.R</object-name>      
+   <condition>
+    <greater-than>
+     <property>sim/multiplay/generic/int[11]</property>
+     <value>0</value>
+    </greater-than>
+    </condition>
+   </animation>
+   
+   <model>
+	<name>Aim-9R2</name>
+	<path>Aircraft/FGUK-weapons/Air-Air/aim9/AIM-9.xml</path>
+	<offsets>
+	 <x-m>10.4</x-m>
+	 <y-m>4.0</y-m>
+	 <z-m>-0.85</z-m>
+	 <pitch-deg>-0.865</pitch-deg>
+	</offsets>
+	</model>
+	<animation>
+     <type>select</type>
+     <object-name>Aim-9R2</object-name>      
+     <condition>
+      <equals>
+       <property>sim/multiplay/generic/int[11]</property>
+       <value>3</value>
+      </equals>
+    </condition>
+ 
+ </animation>
+   <model>
+	<name>AMRAAMR2</name>
+	<path>Aircraft/FGUK-weapons/Air-Air/aim120/AIM-120.xml</path>
+	<offsets>
+	 <x-m>10.4</x-m>
+	 <y-m>4.0</y-m>
+	 <z-m>-0.85</z-m>
+	 <pitch-deg>-0.865</pitch-deg>
+	</offsets>
+	</model>
+	<animation>
+     <type>select</type>
+     <object-name>AMRAAMR2</object-name>      
+     <condition>
+      <equals>
+       <property>sim/multiplay/generic/int[11]</property>
+       <value>6</value>
+      </equals>
+    </condition>
+  </animation>
+   
+     <!-- Station 3 Left -->
+  
+    <animation>
+   <type>select</type>
+   <object-name>pylon3.L</object-name>      
+   <condition>
+    <greater-than>
+     <property>sim/multiplay/generic/int[6]</property>
+     <value>0</value>
+    </greater-than>
+    </condition>
+   </animation>
+   
+   <model>
+	<name>Aim-9L3</name>
+	<path>Aircraft/FGUK-weapons/Air-Air/aim9/AIM-9.xml</path>
+	<offsets>
+	 <x-m>9.8</x-m>
+	 <y-m>-3.0125</y-m>
+	 <z-m>-0.85</z-m>
+	 <pitch-deg>-0.865</pitch-deg>
+	</offsets>
+	</model>
+	<animation>
+     <type>select</type>
+     <object-name>Aim-9L3</object-name>      
+     <condition>
+      <equals>
+       <property>sim/multiplay/generic/int[6]</property>
+       <value>3</value>
+      </equals>
+    </condition>
+ 
+ </animation>
+   <model>
+	<name>AMRAAML3</name>
+	<path>Aircraft/FGUK-weapons/Air-Air/aim120/AIM-120.xml</path>
+	<offsets>
+	 <x-m>9.8</x-m>
+	 <y-m>-3.0125</y-m>
+	 <z-m>-0.85</z-m>
+	 <pitch-deg>-0.865</pitch-deg>
+	</offsets>
+	</model>
+	<animation>
+     <type>select</type>
+     <object-name>AMRAAML3</object-name>      
+     <condition>
+      <equals>
+       <property>sim/multiplay/generic/int[6]</property>
+       <value>6</value>
+      </equals>
+    </condition>
+  </animation>
+   
+   <model>
+	<name>1000LL</name>
+	<path>Aircraft/EF2000/Models/Stores/Droptanks/1000lTank.xml</path>
+	<offsets>
+	 <x-m>10.1</x-m>
+	 <y-m>-2.96</y-m>
+	 <z-m>-1.04</z-m>
+	 <pitch-deg>-0.1</pitch-deg>
+	</offsets>
+	</model>	
+  
+   <animation>
+   <type>select</type>
+   <object-name>1000LL</object-name>      
+   <condition>
+    <equals>
+     <property>sim/multiplay/generic/int[6]</property>
+     <value>7</value>
+    </equals>
+    </condition>
+   </animation>
+   
+   <model>
+	<name>2000LL</name>
+	<path>Aircraft/EF2000/Models/Stores/Droptanks/2000lTank.xml</path>
+	<offsets>
+	 <x-m>10.1</x-m>
+	 <y-m>-2.96</y-m>
+	 <z-m>-1.04</z-m>
+	 <pitch-deg>-0.1</pitch-deg>
+	</offsets>
+	</model>	
+  
+   <animation>
+   <type>select</type>
+   <object-name>2000LL</object-name>      
+   <condition>
+    <equals>
+     <property>sim/multiplay/generic/int[6]</property>
+     <value>8</value>
+    </equals>
+    </condition>
+   </animation>
+   
+     <!-- Station 3 Right -->
+  
+  <animation>
+   <type>select</type>
+   <object-name>pylon3.R</object-name>      
+   <condition>
+    <greater-than>
+     <property>sim/multiplay/generic/int[10]</property>
+     <value>0</value>
+    </greater-than>
+    </condition>
+   </animation>
+   
+  <model>
+	<name>Aim-9R3</name>
+	<path>Aircraft/FGUK-weapons/Air-Air/aim9/AIM-9.xml</path>
+	<offsets>
+	 <x-m>9.8</x-m>
+	 <y-m>3.0125</y-m>
+	 <z-m>-0.85</z-m>
+	 <pitch-deg>-0.865</pitch-deg>
+	</offsets>
+	</model>
+	<animation>
+     <type>select</type>
+     <object-name>Aim-9R3</object-name>      
+     <condition>
+      <equals>
+       <property>sim/multiplay/generic/int[10]</property>
+       <value>3</value>
+      </equals>
+    </condition>
+ 
+ </animation>
+   <model>
+	<name>AMRAAMR3</name>
+	<path>Aircraft/FGUK-weapons/Air-Air/aim120/AIM-120.xml</path>
+	<offsets>
+	 <x-m>9.8</x-m>
+	 <y-m>3.0125</y-m>
+	 <z-m>-0.85</z-m>
+	 <pitch-deg>-0.865</pitch-deg>
+	</offsets>
+	</model>
+	<animation>
+     <type>select</type>
+     <object-name>AMRAAMR3</object-name>      
+     <condition>
+      <equals>
+       <property>sim/multiplay/generic/int[10]</property>
+       <value>6</value>
+      </equals>
+    </condition>
+  </animation>
+   
+      <model>
+	<name>1000LR</name>
+	<path>Aircraft/EF2000/Models/Stores/Droptanks/1000lTank.xml</path>
+	<offsets>
+	 <x-m>10.1</x-m>
+	 <y-m>2.96</y-m>
+	 <z-m>-1.04</z-m>
+	 <pitch-deg>-0.1</pitch-deg>
+	</offsets>
+	</model>	
+  
+   <animation>
+   <type>select</type>
+   <object-name>1000LR</object-name>      
+   <condition>
+    <equals>
+     <property>sim/multiplay/generic/int[10]</property>
+     <value>7</value>
+    </equals>
+    </condition>
+   </animation>
+   
+   <model>
+	<name>2000LR</name>
+	<path>Aircraft/EF2000/Models/Stores/Droptanks/2000lTank.xml</path>
+	<offsets>
+	 <x-m>10.1</x-m>
+	 <y-m>2.96</y-m>
+	 <z-m>-1.06</z-m>
+	 <pitch-deg>-0.1</pitch-deg>
+	</offsets>
+	</model>	
+  
+   <animation>
+   <type>select</type>
+   <object-name>2000LR</object-name>      
+   <condition>
+    <equals>
+     <property>sim/multiplay/generic/int[10]</property>
+     <value>8</value>
+    </equals>
+    </condition>
+   </animation>
+   
+     <!-- Station 4 Left -->
+  
+    <animation>
+   <type>select</type>
+   <object-name>pylon4.L</object-name>      
+   <condition>
+    <greater-than>
+     <property>sim/multiplay/generic/int[7]</property>
+     <value>0</value>
+    </greater-than>
+    </condition>
+   </animation>
+   
+   <model>
+	<name>Aim-9L4</name>
+	<path>Aircraft/FGUK-weapons/Air-Air/aim9/AIM-9.xml</path>
+	<offsets>
+	 <x-m>8.6</x-m>
+	 <y-m>-2.285</y-m>
+	 <z-m>-0.85</z-m>
+	 <pitch-deg>-0.865</pitch-deg>
+	</offsets>
+	</model>
+	<animation>
+     <type>select</type>
+     <object-name>Aim-9L4</object-name>      
+     <condition>
+      <equals>
+       <property>sim/multiplay/generic/int[7]</property>
+       <value>3</value>
+      </equals>
+    </condition>
+ 
+ </animation>
+   <model>
+	<name>AMRAAML4</name>
+	<path>Aircraft/FGUK-weapons/Air-Air/aim120/AIM-120.xml</path>
+	<offsets>
+	 <x-m>8.6</x-m>
+	 <y-m>-2.285</y-m>
+	 <z-m>-0.85</z-m>
+	 <pitch-deg>-0.865</pitch-deg>
+	</offsets>
+	</model>
+	<animation>
+     <type>select</type>
+     <object-name>AMRAAML4</object-name>      
+     <condition>
+      <equals>
+       <property>sim/multiplay/generic/int[7]</property>
+       <value>6</value>
+      </equals>
+    </condition>
+  </animation>
+   
+     <!-- Station 4 Right -->
+  
+    <animation>
+   <type>select</type>
+   <object-name>pylon4.R</object-name>      
+   <condition>
+    <greater-than>
+     <property>sim/multiplay/generic/int[9]</property>
+     <value>0</value>
+    </greater-than>
+    </condition>
+   </animation>
+   
+  <model>
+	<name>Aim-9R4</name>
+	<path>Aircraft/FGUK-weapons/Air-Air/aim9/AIM-9.xml</path>
+	<offsets>
+	 <x-m>8.6</x-m>
+	 <y-m>2.285</y-m>
+	 <z-m>-0.85</z-m>
+	 <pitch-deg>-0.865</pitch-deg>
+	</offsets>
+	</model>
+	<animation>
+     <type>select</type>
+     <object-name>Aim-9R4</object-name>      
+     <condition>
+      <equals>
+       <property>sim/multiplay/generic/int[9]</property>
+       <value>3</value>
+      </equals>
+    </condition>
+ 
+ </animation>
+   <model>
+	<name>AMRAAMR4</name>
+	<path>Aircraft/FGUK-weapons/Air-Air/aim120/AIM-120.xml</path>
+	<offsets>
+	 <x-m>8.6</x-m>
+	 <y-m>2.285</y-m>
+	 <z-m>-0.85</z-m>
+	 <pitch-deg>-0.865</pitch-deg>
+	</offsets>
+	</model>
+	<animation>
+     <type>select</type>
+     <object-name>AMRAAMR4</object-name>      
+     <condition>
+      <equals>
+       <property>sim/multiplay/generic/int[9]</property>
+       <value>6</value>
+      </equals>
+    </condition>
+  </animation>
+   
+        <!-- Station Center -->
+  
+    <animation>
+   <type>select</type>
+   <object-name>pylon.C</object-name>      
+   <condition>
+    <greater-than>
+     <property>sim/multiplay/generic/int[8]</property>
+     <value>0</value>
+    </greater-than>
+    </condition>
+   </animation>
+   
+   <model>
+	<name>1000C</name>
+	<path>Aircraft/EF2000/Models/Stores/Droptanks/1000lTank.xml</path>
+	<offsets>
+	 <x-m>10.3</x-m>
+	 <y-m>0</y-m>
+	 <z-m>-1.2</z-m>
+	 <pitch-deg>-3.0</pitch-deg>
+	</offsets>
+	</model>	
+  
+   <animation>
+   <type>select</type>
+   <object-name>1000C</object-name>      
+   <condition>
+    <equals>
+     <property>sim/multiplay/generic/int[8]</property>
+     <value>7</value>
+    </equals>
+    </condition>
+   </animation>
+  
+  </PropertyList>

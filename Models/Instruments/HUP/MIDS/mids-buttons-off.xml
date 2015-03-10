@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<PropertyList>
+
+ <path>mids-buttons.ac</path>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>MIDSbutton.topbar.000</object-name>
+  <object-name>MIDSbutton.midbar.000</object-name>
+  <object-name>MIDSbutton.lowbar.000</object-name>
+  <object-name>MIDSbutton.topbar.001</object-name>
+  <object-name>MIDSbutton.midbar.001</object-name>
+  <object-name>MIDSbutton.lowbar.001</object-name>
+  <object-name>MIDSbutton.topbar.002</object-name>
+  <object-name>MIDSbutton.midbar.002</object-name>
+  <object-name>MIDSbutton.lowbar.002</object-name>
+  <object-name>MIDSbutton.topbar.003</object-name>
+  <object-name>MIDSbutton.midbar.003</object-name>
+  <object-name>MIDSbutton.lowbar.003</object-name>
+  <object-name>MIDSbutton.topbar.004</object-name>
+  <object-name>MIDSbutton.midbar.004</object-name>
+  <object-name>MIDSbutton.lowbar.004</object-name>
+  <object-name>MIDSbutton.topbar.005</object-name>
+  <object-name>MIDSbutton.midbar.005</object-name>
+  <object-name>MIDSbutton.lowbar.005</object-name>  
+  <condition>
+   <greater-than>
+    <property>/systems/electrical/outputs/avionics/MIDS</property>
+    <value>26</value>
+   </greater-than>
+   <equals>
+    <property>/instrumentation/MIDS/serviceable</property>
+	<value>true</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+</PropertyList>

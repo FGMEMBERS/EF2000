@@ -1,0 +1,48 @@
+
+<PropertyList>
+
+ <path>warnings.ac</path>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>Warn.L</object-name>
+  <condition>
+   <property>/sim/model/lights/attn-get/state</property>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>Warn.L.001</object-name>
+  <condition>
+   <not>
+    <property>/sim/model/lights/attn-get/state</property>
+   </not>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>Warn.L</object-name>
+  <object-name>Warn.L.001</object-name>
+  <action>
+   <button>0</button>
+	<binding>
+     <command>nasal</command>
+	 <script>warnings.acknowledge();</script>
+    </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>material</type>
+  <object-name>Warn.L</object-name>
+  <emission>
+    <red>1.0</red>
+    <green>0.5</green>
+    <blue>0.5</blue>
+	<factor>1</factor>
+  </emission>
+ </animation>
+
+</PropertyList>

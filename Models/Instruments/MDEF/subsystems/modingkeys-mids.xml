@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <path>../softkeys.ac</path>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>Moding.topbar.000</object-name>
+  <object-name>Moding.midbar.000</object-name>
+  <object-name>Moding.lowbar.000</object-name>
+  <object-name>Moding.topbar.001</object-name>
+  <object-name>Moding.midbar.001</object-name>
+  <object-name>Moding.lowbar.001</object-name>
+  <object-name>Moding.topbar.002</object-name>
+  <object-name>Moding.midbar.002</object-name>
+  <object-name>Moding.lowbar.002</object-name>
+  <object-name>Moding.topbar.003</object-name>
+  <object-name>Moding.midbar.003</object-name>
+  <object-name>Moding.lowbar.003</object-name>
+  <object-name>Moding.topbar.004</object-name>
+  <object-name>Moding.midbar.004</object-name>
+  <object-name>Moding.lowbar.004</object-name>
+  <object-name>Moding.topbar.005</object-name>
+  <object-name>Moding.midbar.005</object-name>
+  <object-name>Moding.lowbar.005</object-name>
+  <object-name>Moding.topbar.006</object-name>
+  <object-name>Moding.midbar.006</object-name>
+  <object-name>Moding.lowbar.006</object-name>
+  <object-name>Moding.topbar.007</object-name>
+  <object-name>Moding.midbar.007</object-name>
+  <object-name>Moding.lowbar.007</object-name>
+  <object-name>Moding.topbar.008</object-name>
+  <object-name>Moding.midbar.008</object-name>
+  <object-name>Moding.lowbar.008</object-name>
+  <object-name>Moding.topbar.009</object-name>
+  <object-name>Moding.midbar.009</object-name>
+  <object-name>Moding.lowbar.009</object-name>
+  <object-name>Moding.topbar.010</object-name>
+  <object-name>Moding.midbar.010</object-name>
+  <object-name>Moding.lowbar.010</object-name>
+  <object-name>Moding.topbar.011</object-name>
+  <object-name>Moding.midbar.011</object-name>
+  <object-name>Moding.lowbar.011</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/avionics/MDEF</property>
+	<value>500</value>
+   </greater-than>
+  </condition>
+ </animation>
+
+</PropertyList>

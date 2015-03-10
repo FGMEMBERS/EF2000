@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+ <path>mid-panel-left.ac</path>
+ 
+   <effect>
+   <inherits-from>Effects/model-transparent</inherits-from>
+   <condition>
+    <property>sim/rendering/rembrandt/enabled</property>
+   </condition>
+  <object-name>Labels</object-name>
+  <object-name>Labels.lit</object-name>
+ </effect>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>gearLED.left.off</object-name>
+  <object-name>gearLED.right.off</object-name>
+  <object-name>gearLED.nose.off</object-name>
+   <condition>
+	 <less-than>
+      <property>systems/electrical/outputs/avionics/cockpit-lighting</property>
+      <value>24</value>
+	 </less-than>
+    </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>gearLED.nose.green</object-name>
+   <condition>
+	 <greater-than>
+      <property>systems/electrical/outputs/avionics/cockpit-lighting</property>
+      <value>24</value>
+	 </greater-than>
+	 <equals>
+	  <property>/gear/gear[0]/position-norm</property>
+	  <value>1</value>
+	 </equals>
+    </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>gearLED.left.green</object-name>
+   <condition>
+	 <greater-than>
+      <property>systems/electrical/outputs/avionics/cockpit-lighting</property>
+      <value>24</value>
+	 </greater-than>
+	 <equals>
+	  <property>/gear/gear[1]/position-norm</property>
+	  <value>1</value>
+	 </equals>
+    </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>gearLED.right.green</object-name>
+   <condition>
+	 <greater-than>
+      <property>systems/electrical/outputs/avionics/cockpit-lighting</property>
+      <value>24</value>
+	 </greater-than>
+	 <equals>
+	  <property>/gear/gear[2]/position-norm</property>
+	  <value>1</value>
+	 </equals>
+    </condition>
+ </animation>
+ 
+<animation>
+  <type>select</type>
+  <object-name>gearLED.nose.red</object-name>
+   <condition>
+	 <greater-than>
+      <property>systems/electrical/outputs/avionics/cockpit-lighting</property>
+      <value>24</value>
+	 </greater-than>
+	 <less-than>
+	  <property>/gear/gear[0]/position-norm</property>
+	  <value>1</value>
+	 </less-than>
+    </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>gearLED.left.red</object-name>
+   <condition>
+	 <greater-than>
+      <property>systems/electrical/outputs/avionics/cockpit-lighting</property>
+      <value>24</value>
+	 </greater-than>
+	 <less-than>
+	  <property>/gear/gear[0]/position-norm</property>
+	  <value>1</value>
+	 </less-than>
+    </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>gearLED.right.red</object-name>
+   <condition>
+	 <greater-than>
+      <property>systems/electrical/outputs/avionics/cockpit-lighting</property>
+      <value>24</value>
+	 </greater-than>
+	 <less-than>
+	  <property>/gear/gear[0]/position-norm</property>
+	  <value>1</value>
+	 </less-than>
+    </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>Labels</object-name>
+   <condition>
+	 <less-than>
+      <property>systems/electrical/outputs/avionics/cockpit-lighting</property>
+      <value>24</value>
+	 </less-than>
+    </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>Labels.lit</object-name>
+   <condition>
+	 <greater-than>
+      <property>systems/electrical/outputs/avionics/cockpit-lighting</property>
+      <value>24</value>
+	 </greater-than>
+    </condition>
+ </animation>
+ 
+  <!-- Gear Light Switch -->
+ 
+ <animation> 
+  <type>rotate</type>
+  <object-name>GearLightSwitch</object-name>
+  <property>/controls/switches/gear-lights</property>
+  <factor>-25</factor>
+  <offset-deg>25</offset-deg>
+   <axis>
+    <y>-1</y>
+   </axis>
+   <center>
+	<x-m>0.000814</x-m>
+	<y-m>0.007308</y-m>
+	<z-m>-0.04002</z-m>
+  </center>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>Spot.gearlight-dec</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>nasal</command>
+    <script>avionics.controls.gearLights(1);</script>    
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>Spot.gearlight-off</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>nasal</command>
+    <script>avionics.controls.gearLights(2);</script>    
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>Spot.gearlight-inc</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>nasal</command>
+    <script>avionics.controls.gearLights(3);</script>    
+   </binding>
+  </action>
+ </animation>
+ 
+   <!-- Gear Control --> 
+ <animation> 
+  <type>rotate</type>
+  <object-name>GearSwitch</object-name>
+  <property>/controls/gear/gear-down</property>
+  <factor>-20</factor>
+   <axis>
+    <y>-1</y>
+   </axis>
+   <center>
+	<x-m>0.001135</x-m>
+	<y-m>0.05549</y-m>
+	<z-m>-0.01147</z-m>
+  </center>
+ </animation>
+ 
+  <animation> 
+  <type>rotate</type>
+  <object-name>GearSwitch.gaiter2</object-name>
+  <property>/controls/gear/gear-down</property>
+  <factor>-10</factor>
+   <axis>
+    <y>-1</y>
+   </axis>
+   <center>
+	<x-m>0.001135</x-m>
+	<y-m>0.05549</y-m>
+	<z-m>-0.01147</z-m>
+  </center>
+ </animation>
+ 
+ <animation>
+   <type>material</type>
+   <object-name>gearLED.nose.red</object-name>
+   <object-name>gearLED.left.red</object-name>
+   <object-name>gearLED.right.red</object-name>
+   <emission>
+    <red>1.0</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+    <factor-prop>/instrumentation/illumination/softkeys</factor-prop>
+   </emission>   
+ </animation> 
+ 
+  <animation>
+   <type>material</type>
+   <object-name>gearLED.nose.green</object-name>
+   <object-name>gearLED.left.green</object-name>
+   <object-name>gearLED.right.green</object-name>
+   <emission>
+    <red>0.9</red>
+    <green>1.0</green>
+    <blue>0.9</blue>
+    <factor-prop>/instrumentation/illumination/softkeys</factor-prop>
+   </emission>   
+ </animation> 
+
+</PropertyList>

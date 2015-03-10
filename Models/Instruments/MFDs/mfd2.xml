@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<PropertyList>
+
+ <path>mfd.ac</path>
+ 
+ <model>
+ <name>mfd-buttons-off</name>
+  	<path>Aircraft/EF2000/Models/Instruments/MFDs/buttons-off.xml</path>
+ </model>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>mfd-buttons-off</object-name>
+  <condition>
+   <or>
+    <less-than>
+     <property>/systems/electrical/outputs/avionics/MFHDD[2]</property>
+     <value>26</value>
+    </less-than>
+    <equals>
+     <property>/instrumentation/MFD[2]/serviceable</property>
+	 <value>false</value>
+    </equals>
+	<equals>
+    <property>/instrumentation/MFD[2]/stand-by</property>
+    <value>true</value>
+   </equals>
+   </or>
+  </condition>
+ </animation>
+ 
+ <model>
+ <name>elev-prof-page</name>
+ <path>Aircraft/EF2000/Models/Instruments/MFDs/ELEV/elev-prof.xml</path>
+ <offsets>
+	   <x-m>0.0</x-m>
+	   <y-m>-0.000</y-m>
+       <z-m>0.00</z-m>
+	</offsets>
+ </model>
+ 
+ <model>
+ <name>elev-buttons</name>
+ <path>Aircraft/EF2000/Models/Instruments/MFDs/ELEV/elev-buttons.xml</path>
+ </model>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>elev-prof-page</object-name>
+  <condition>
+   <greater-than>
+    <property>/systems/electrical/outputs/avionics/MFHDD[2]</property>
+    <value>26</value>
+   </greater-than>
+   <equals>
+    <property>/instrumentation/MFD[2]/serviceable</property>
+    <value>true</value>
+   </equals>
+   <equals>
+    <property>/instrumentation/MFD[2]/stand-by</property>
+    <value>false</value>
+   </equals>
+   <equals>
+    <property>/instrumentation/MFD[2]/page-selected</property>
+    <value>elev</value>
+   </equals>
+   <equals>
+    <property>/instrumentation/MFD[2]/ELEV/c-scope</property>
+    <value>false</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>elev-buttons</object-name>
+  <condition>
+   <greater-than>
+    <property>/systems/electrical/outputs/avionics/MFHDD[2]</property>
+    <value>26</value>
+   </greater-than>
+   <equals>
+    <property>/instrumentation/MFD[2]/serviceable</property>
+    <value>true</value>
+   </equals>
+   <equals>
+    <property>/instrumentation/MFD[2]/stand-by</property>
+    <value>false</value>
+   </equals>
+   <equals>
+    <property>/instrumentation/MFD[2]/page-selected</property>
+    <value>elev</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+<model>
+ <name>stor-page</name>
+ <path>Aircraft/EF2000/Models/Instruments/MFDs/STOR/stor.xml</path>
+ <offsets>
+	   <x-m>0.0</x-m>
+	   <y-m>-0.000</y-m>
+       <z-m>0.00</z-m>
+	</offsets>
+ </model>
+ 
+ <model>
+ <name>stor-buttons</name>
+ <path>Aircraft/EF2000/Models/Instruments/MFDs/STOR/stor-buttons.xml</path>
+ </model>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>stor-page</object-name>
+  <condition>
+   <greater-than>
+    <property>/systems/electrical/outputs/avionics/MFHDD[2]</property>
+    <value>26</value>
+   </greater-than>
+   <equals>
+    <property>/instrumentation/MFD[2]/serviceable</property>
+    <value>true</value>
+   </equals>
+   <equals>
+    <property>/instrumentation/MFD[2]/stand-by</property>
+    <value>false</value>
+   </equals>
+   <equals>
+    <property>/instrumentation/MFD[2]/page-selected</property>
+    <value>stor</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>stor-buttons</object-name>
+  <condition>
+   <greater-than>
+    <property>/systems/electrical/outputs/avionics/MFHDD[2]</property>
+    <value>26</value>
+   </greater-than>
+   <equals>
+    <property>/instrumentation/MFD[2]/serviceable</property>
+    <value>true</value>
+   </equals>
+   <equals>
+    <property>/instrumentation/MFD[2]/stand-by</property>
+    <value>false</value>
+   </equals>
+   <equals>
+    <property>/instrumentation/MFD[2]/page-selected</property>
+    <value>stor</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <model>
+ <name>eng-page</name>
+ <path>Aircraft/EF2000/Models/Instruments/MFDs/ENG/eng.xml</path>
+ <offsets>
+	   <x-m>0.0</x-m>
+	   <y-m>-0.000</y-m>
+       <z-m>0.00</z-m>
+	</offsets>
+ </model>
+ 
+ <model>
+ <name>eng-buttons</name>
+ <path>Aircraft/EF2000/Models/Instruments/MFDs/ENG/eng-buttons.xml</path>
+ </model>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>eng-page</object-name>
+  <condition>
+   <greater-than>
+    <property>/systems/electrical/outputs/avionics/MFHDD[2]</property>
+    <value>26</value>
+   </greater-than>
+   <equals>
+    <property>/instrumentation/MFD[2]/serviceable</property>
+    <value>true</value>
+   </equals>
+   <equals>
+    <property>/instrumentation/MFD[2]/stand-by</property>
+    <value>false</value>
+   </equals>
+   <equals>
+    <property>/instrumentation/MFD[2]/page-selected</property>
+    <value>eng</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>eng-buttons</object-name>
+  <condition>
+   <greater-than>
+    <property>/systems/electrical/outputs/avionics/MFHDD[2]</property>
+    <value>26</value>
+   </greater-than>
+   <equals>
+    <property>/instrumentation/MFD[2]/serviceable</property>
+    <value>true</value>
+   </equals>
+   <equals>
+    <property>/instrumentation/MFD[2]/stand-by</property>
+    <value>false</value>
+   </equals>
+   <equals>
+    <property>/instrumentation/MFD[2]/page-selected</property>
+    <value>eng</value>
+   </equals>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>power</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/MFD[2]/stand-by</property>    
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>power</object-name>
+  <property>/instrumentation/MFD[2]/stand-by</property>
+  <factor>0.0075</factor>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+ <type>material</type>
+ <object-name>eng-page</object-name>
+ <ambient>
+   <red>0.0</red>
+   <green>0.0</green>
+   <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+   <red>0.0</red>
+   <green>0.0</green>
+   <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>0.8</red>
+    <green>0.8</green>
+    <blue>0.8</blue>
+    <factor-prop>/instrumentation/illumination/LCD</factor-prop>
+  </emission>
+ </animation>
+
+</PropertyList>

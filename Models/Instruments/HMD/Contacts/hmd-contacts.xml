@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <path>../hmd.ac</path>
+ 
+  <model>
+ 	<name>HMD-MP1</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HMD/Contacts/contact-a.xml</path>
+ 	<offsets> 
+		<x-m>-0.2</x-m>
+	    <y-m>0</y-m>
+	    <z-m>0</z-m>
+		<pitch-deg>0</pitch-deg>
+    </offsets>
+ </model>
+ 
+   <model>
+ 	<name>HMD-MP2</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HMD/Contacts/contact-b.xml</path>
+ 	<offsets> 
+		<x-m>-0.2</x-m>
+	    <y-m>0</y-m>
+	    <z-m>0</z-m>
+		<pitch-deg>0</pitch-deg>
+    </offsets>
+ </model>
+ 
+   <model>
+ 	<name>HMD-MP3</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HMD/Contacts/contact-c.xml</path>
+ 	<offsets> 
+		<x-m>-0.2</x-m>
+	    <y-m>0</y-m>
+	    <z-m>0</z-m>
+		<pitch-deg>0</pitch-deg>
+    </offsets>
+ </model>
+ 
+   <model>
+ 	<name>HMD-MP4</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HMD/Contacts/contact-d.xml</path>
+ 	<offsets> 
+		<x-m>-0.2</x-m>
+	    <y-m>0</y-m>
+	    <z-m>0</z-m>
+		<pitch-deg>0</pitch-deg>
+    </offsets>
+ </model>
+ 
+ <model>
+ 	<name>HMD-MP5</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HMD/Contacts/contact-e.xml</path>
+ 	<offsets> 
+		<x-m>-0.2</x-m>
+	    <y-m>0</y-m>
+	    <z-m>0</z-m>
+		<pitch-deg>0</pitch-deg>
+    </offsets>
+ </model>
+ 
+   <model>
+ 	<name>HMD-MP6</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HMD/Contacts/contact-f.xml</path>
+ 	<offsets> 
+		<x-m>-0.2</x-m>
+	    <y-m>0</y-m>
+	    <z-m>0</z-m>
+		<pitch-deg>0</pitch-deg>
+    </offsets>
+ </model>
+ 
+   <model>
+ 	<name>HMD-MP7</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HMD/Contacts/contact-g.xml</path>
+ 	<offsets> 
+		<x-m>-0.2</x-m>
+	    <y-m>0</y-m>
+	    <z-m>0</z-m>
+		<pitch-deg>0</pitch-deg>
+    </offsets>
+ </model>
+ 
+   <model>
+ 	<name>HMD-MP8</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HMD/Contacts/contact-h.xml</path>
+ 	<offsets> 
+		<x-m>-0.2</x-m>
+	    <y-m>0</y-m>
+	    <z-m>0</z-m>
+		<pitch-deg>0</pitch-deg>
+    </offsets>
+ </model>
+ 
+
+ <animation>
+  <type>select</type>
+  <object-name>HMD-MP1</object-name>
+  <condition>
+   <property>/instrumentation/radar2/targets/multiplayer[0]/display</property>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>HMD-MP2</object-name>
+  <condition>
+   <property>/instrumentation/radar2/targets/multiplayer[1]/display</property>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>HMD-MP3</object-name>
+  <condition>
+   <property>/instrumentation/radar2/targets/multiplayer[2]/display</property>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>HMD-MP4</object-name>
+  <condition>
+   <property>/instrumentation/radar2/targets/multiplayer[3]/display</property>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>HMD-MP5</object-name>
+  <condition>
+   <property>/instrumentation/radar2/targets/multiplayer[4]/display</property>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>HMD-MP6</object-name>
+  <condition>
+   <property>/instrumentation/radar2/targets/multiplayer[5]/display</property>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>HMD-MP7</object-name>
+  <condition>
+   <property>/instrumentation/radar2/targets/multiplayer[6]/display</property>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>HMD-MP8</object-name>
+  <condition>
+   <property>/instrumentation/radar2/targets/multiplayer[7]/display</property>
+  </condition>
+ </animation>
+
+ <animation> 
+	<type>rotate</type>
+	<object-name>HMD-MP1</object-name>
+	<property>/ai/models/multiplayer[0]/radar/bearing-deg</property>
+	<factor>1.0</factor>
+	<axis>
+	 <z>-1</z>
+	</axis>
+    <center>
+	<x-m>0</x-m>
+	<y-m>0.0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+  <animation> 
+	<type>rotate</type>
+	<object-name>HMD-MP1</object-name>
+	<property>/ai/models/multiplayer[0]/radar/v-offset</property>
+	<factor>1</factor>
+	<axis>
+	 <y>1</y>
+	</axis>
+    <center>
+	<x-m>0</x-m>
+	<y-m>0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+  <animation> 
+	<type>rotate</type>
+	<object-name>HMD-MP2</object-name>
+	<property>/ai/models/multiplayer[1]/radar/bearing-deg</property>
+	<axis>
+	 <z>-1</z>
+	</axis>
+    <center>
+	<x-m>-0.00</x-m>
+	<y-m>0.0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+   <animation> 
+	<type>rotate</type>
+	<object-name>HMD-MP2</object-name>
+	<property>/ai/models/multiplayer[1]/radar/v-offset</property>
+	<factor>1</factor>
+	<axis>
+	 <y>1</y>
+	</axis>
+    <center>
+	<x-m>0</x-m>
+	<y-m>0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+  <animation> 
+	<type>rotate</type>
+	<object-name>HMD-MP3</object-name>
+	<property>/ai/models/multiplayer[2]/radar/bearing-deg</property>
+	<axis>
+	 <z>-1</z>
+	</axis>
+    <center>
+	<x-m>0</x-m>
+	<y-m>0.0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+  <animation> 
+	<type>rotate</type>
+	<object-name>HMD-MP3</object-name>
+	<property>/ai/models/multiplayer[2]/radar/v-offset</property>
+	<factor>1</factor>
+	<axis>
+	 <y>1</y>
+	</axis>
+    <center>
+	<x-m>0</x-m>
+	<y-m>0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+   <animation> 
+	<type>rotate</type>
+	<object-name>HMD-MP4</object-name>
+	<property>/ai/models/multiplayer[3]/radar/bearing-deg</property>
+	<axis>
+	 <z>-1</z>
+	</axis>
+    <center>
+	<x-m>0</x-m>
+	<y-m>0.0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+  <animation> 
+	<type>rotate</type>
+	<object-name>HMD-MP4</object-name>
+	<property>/ai/models/multiplayer[3]/radar/v-offset</property>
+	<factor>1</factor>
+	<axis>
+	 <y>1</y>
+	</axis>
+    <center>
+	<x-m>0</x-m>
+	<y-m>0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+ <animation> 
+	<type>rotate</type>
+	<object-name>HMD-MP5</object-name>
+	<property>/ai/models/multiplayer[4]/radar/bearing-deg</property>
+	<factor>1.0</factor>
+	<axis>
+	 <z>-1</z>
+	</axis>
+    <center>
+	<x-m>0</x-m>
+	<y-m>0.0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+  <animation> 
+	<type>rotate</type>
+	<object-name>HMD-MP5</object-name>
+	<property>/ai/models/multiplayer[4]/radar/v-offset</property>
+	<factor>1</factor>
+	<axis>
+	 <y>1</y>
+	</axis>
+    <center>
+	<x-m>0</x-m>
+	<y-m>0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+  <animation> 
+	<type>rotate</type>
+	<object-name>HMD-MP6</object-name>
+	<property>/ai/models/multiplayer[5]/radar/bearing-deg</property>
+	<axis>
+	 <z>-1</z>
+	</axis>
+    <center>
+	<x-m>-0.00</x-m>
+	<y-m>0.0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+   <animation> 
+	<type>rotate</type>
+	<object-name>HMD-MP6</object-name>
+	<property>/ai/models/multiplayer[5]/radar/v-offset</property>
+	<factor>1</factor>
+	<axis>
+	 <y>1</y>
+	</axis>
+    <center>
+	<x-m>0</x-m>
+	<y-m>0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+  <animation> 
+	<type>rotate</type>
+	<object-name>HMD-MP7</object-name>
+	<property>/ai/models/multiplayer[6]/radar/bearing-deg</property>
+	<axis>
+	 <z>-1</z>
+	</axis>
+    <center>
+	<x-m>0</x-m>
+	<y-m>0.0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+  <animation> 
+	<type>rotate</type>
+	<object-name>HMD-MP7</object-name>
+	<property>/ai/models/multiplayer[6]/radar/v-offset</property>
+	<factor>1</factor>
+	<axis>
+	 <y>1</y>
+	</axis>
+    <center>
+	<x-m>0</x-m>
+	<y-m>0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+   <animation> 
+	<type>rotate</type>
+	<object-name>HMD-MP8</object-name>
+	<property>/ai/models/multiplayer[7]/radar/bearing-deg</property>
+	<axis>
+	 <z>-1</z>
+	</axis>
+    <center>
+	<x-m>0</x-m>
+	<y-m>0.0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+  <animation> 
+	<type>rotate</type>
+	<object-name>HMD-MP8</object-name>
+	<property>/ai/models/multiplayer[7]/radar/v-offset</property>
+	<factor>1</factor>
+	<axis>
+	 <y>1</y>
+	</axis>
+    <center>
+	<x-m>0</x-m>
+	<y-m>0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+</PropertyList>

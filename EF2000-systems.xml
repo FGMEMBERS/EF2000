@@ -1,0 +1,190 @@
+
+<PropertyList>
+
+    <ACS>
+	 <serviceable type="bool">true</serviceable>
+	</ACS>
+
+	<autopilot>
+	 <internal>
+	  <auto-climb>
+	   <auto-take-off type="bool">false</auto-take-off>
+	  </auto-climb>
+	  <nav-altitude-ft alias="/autopilot/settings/target-altitude-ft" />
+	 </internal>
+	 <locks>
+	  <autopilot-engaged type="bool">false</autopilot-engaged>
+	 </locks>
+	 <settings>
+	  <kts-mach-select type="string">kts</kts-mach-select>
+	  <altitude-mode type="string">alt</altitude-mode>
+	  <nav-lock type="bool">false</nav-lock>
+	  <trk-dir type="string">track</trk-dir>
+	  <auto-climb-allow-reheat type="bool">false</auto-climb-allow-reheat>
+	 </settings>
+	</autopilot>
+	
+    <CAMU include="Systems/EF2000-camu.xml">
+     <channel-list include="Data/channel-list.xml">
+	 <channel n="8">
+      <channel-number type="string">M1</channel-number>
+	  <identifier type="string">MANUAL 1</identifier>
+	  <frequency type="double">122.75</frequency>
+	  <status type="string">CLR</status>
+     </channel>
+	 <channel n="9">
+      <channel-number type="string">M2</channel-number>
+	  <identifier type="string">MANUAL 2</identifier>
+	  <frequency type="double">127.32</frequency>
+	  <status type="string">CLR</status>
+     </channel>
+    </channel-list>
+    <voice-alerts>
+     <supply-voltage alias="/systems/electrical/outputs/avionics/warnings" />
+	 <voice-active type="bool" alias="/controls/switches/voice" />
+     <volume type="double">0.25</volume>
+    </voice-alerts>
+   </CAMU>
+   
+   <DECU>
+    <settings>
+     <reheat-gate-norm type="double">0.975</reheat-gate-norm>
+	 <APU-throttle type="double">0.86</APU-throttle>
+	</settings>
+	<command-outputs>
+	 <engine n="0">
+	  <air-start type="bool">false</air-start>
+	 </engine>
+	 <engine n="1">
+	  <air-start type="bool">false</air-start>
+	 </engine>
+	 </command-outputs>
+   </DECU>
+   
+  <FCS>
+   
+   <override type="bool">false</override>
+   
+   <control-inputs>
+    <elevator type="double">0</elevator>
+	<aileron type="double">0</aileron>
+   </control-inputs>
+   
+   <command-outputs>
+    <canard type="double">0.8</canard>
+	<thrust-vector type="double">0.25</thrust-vector>
+	<flaperon-flap type="double">-0.075</flaperon-flap>
+	<flaperon-roll-trim type="double">0</flaperon-roll-trim>
+   </command-outputs>
+   
+   <settings>
+    <!-- Control Input Settings -->
+	<!-- For FCS V1 -->
+	<stick-scale-pitch>0.75</stick-scale-pitch>
+	<stick-scale-roll>0.75</stick-scale-roll>
+	<pedal-scale>0.8</pedal-scale>
+	<pitch-damping>0.4</pitch-damping>
+	<roll-damping>1.0</roll-damping>
+	<yaw-damping>1.0</yaw-damping>
+	<!-- For FCS V2 >
+    <stick-scale-pitch>1.0</stick-scale-pitch>
+	<stick-scale-roll>0.8</stick-scale-roll>
+	<pedal-scale>1.0</pedal-scale>
+	<pitch-damping>0.5</pitch-damping>
+	<roll-damping>1.0</roll-damping>
+	<yaw-damping>1.0</yaw-damping -->
+	
+	
+	<stick-deadzone-pitch-forward>0.0002</stick-deadzone-pitch-forward>
+	<stick-deadzone-pitch-back>-0.002</stick-deadzone-pitch-back>
+	<stick-deadzone-roll-left>-0.0001</stick-deadzone-roll-left>
+	<stick-deadzone-roll-right>0.0001</stick-deadzone-roll-right>
+	<autopilot-pitch-limit-deg>10</autopilot-pitch-limit-deg>
+	<speed-compensator-scale>1.0</speed-compensator-scale>
+	<!-- Automated Control Surface Thresholds -->
+	<flaperon-threshold>220</flaperon-threshold>
+	<slat-threshold>220</slat-threshold>
+   </settings>
+   
+   <internal>
+    <attitude>
+	 <pitch-deg type="float">0</pitch-deg>
+	 <roll-deg type="float">0</roll-deg>
+	 <yaw-deg type="float">0</yaw-deg>
+	 <pitch-adjust type="float">0</pitch-adjust>
+	 <roll-adjust type="float">0</roll-adjust>
+	 <yaw-adjust type="float">0</yaw-adjust>
+	</attitude>
+	<inverted type="bool">false</inverted>
+	<canard-park type="bool">true</canard-park>
+	<canard-parked type="bool">true</canard-parked>
+	<canard-park-angle type="double">0.8</canard-park-angle>
+   </internal>
+  </FCS>
+  
+  <refuel>
+   <type>probe</type>
+   <serviceable type="bool">true</serviceable>
+  </refuel>
+  
+  <weapons>
+   <display-smoke type="bool">false</display-smoke>
+   <cannon>
+    <serviceable type="bool">true</serviceable>
+	<rounds type="int">150</rounds>
+	<firing type="bool">false</firing>
+   </cannon>
+  </weapons>
+  
+  <warnings>
+   <alerts>
+	 <mass-not-live>
+	  <alert type="bool">false</alert>
+	  <acknowledged type="bool">false</acknowledged>
+	  <category type="int">1</category>
+	  <voice-trigger type="bool">false</voice-trigger>
+	 </mass-not-live>
+	 <pull-up>
+	  <alert type="bool">false</alert>
+	  <acknowledged type="bool">false</acknowledged>
+	  <category type="int">1</category>
+	  <voice-trigger type="bool">false</voice-trigger>
+	 </pull-up>
+	 <gear-limit>
+	  <alert type="bool">false</alert>
+	  <acknowledged type="bool">false</acknowledged>
+	  <category type="int">1</category>
+	  <voice-trigger type="bool">false</voice-trigger>
+	 </gear-limit>
+	 <landing-gear>
+	  <alert type="bool">false</alert>
+	  <acknowledged type="bool">false</acknowledged>
+	  <category type="int">1</category>
+	  <voice-trigger type="bool">false</voice-trigger>
+	 </landing-gear>
+	 <low-height>
+	  <alert type="bool">false</alert>
+	  <acknowledged type="bool">false</acknowledged>
+	  <category type="int">1</category>
+	  <voice-trigger type="bool">false</voice-trigger>
+	 </low-height>
+	 <speed-low>
+	  <alert type="bool">false</alert>
+	  <acknowledged type="bool">false</acknowledged>
+	  <category type="int">1</category>
+	  <voice-trigger type="bool">false</voice-trigger>
+	 </speed-low>
+	 <park-brake>
+	  <alert type="bool">false</alert>
+	  <acknowledged type="bool">false</acknowledged>
+	  <category type="int">1</category>
+	  <voice-trigger type="bool">false</voice-trigger>
+	 </park-brake>
+   </alerts>
+   <nogos>
+    <test-nogo-1 type="bool">false</test-nogo-1>
+	<test-nogo-2 type="bool">false</test-nogo-2>
+   </nogos>
+  </warnings>
+
+</PropertyList>

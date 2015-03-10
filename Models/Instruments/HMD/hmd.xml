@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <path>hmd.ac</path>
+ 
+  <model>
+ 	<name>HMD-symbols</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HMD/hmd-symbols.xml</path>
+ 	<offsets> 
+		<x-m>0</x-m>
+	    <y-m>0</y-m>
+	    <z-m>0</z-m>
+		<pitch-deg>0</pitch-deg>
+    </offsets>
+ </model>
+ 
+ <model>
+ 	<name>HMD-contacts</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HMD/Contacts/hmd-contacts.xml</path>
+ 	<offsets> 
+		<x-m>0</x-m>
+	    <y-m>0</y-m>
+	    <z-m>0</z-m>
+		<pitch-deg>0</pitch-deg>
+    </offsets>
+ </model>
+ 
+  <animation> 
+	<type>rotate</type>
+	<object-name>HMD-contacts</object-name>
+	<property>/orientation/heading-deg</property>
+	<factor>1</factor>
+	<axis>
+	 <z>1</z>
+	</axis>
+	<center>
+	<x-m>0</x-m>
+	<y-m>0.0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+   <animation> 
+	<type>rotate</type>
+	<object-name>HMD-contacts</object-name>
+	<property>/instrumentation/HMD/display/pitch-deg</property>
+	<axis>
+	 <y>-1</y>
+	</axis>
+	<center>
+	<x-m>0.0</x-m>
+	<y-m>0.0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+    <animation> 
+	<type>rotate</type>
+	<object-name>HMD-contacts</object-name>
+	<property>/instrumentation/HMD/display/roll-deg</property>
+	<axis>
+	 <x>1</x>
+	</axis>
+	<center>
+	<x-m>0.0</x-m>
+	<y-m>0.0</y-m>
+	<z-m>0</z-m>
+	</center>
+ </animation>
+ 
+</PropertyList>

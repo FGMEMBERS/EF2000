@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <path>../softkeys.ac</path>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>Moding.topbar.005</object-name>
+  <condition>
+   <equals>
+    <property>/systems/autopilot/settings/heading-mode</property>
+	<value>mag</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>Moding.lowbar.005</object-name>
+  <condition>
+   <equals>
+    <property>/systems/autopilot/settings/heading-mode</property>
+	<value>true</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>Moding.topbar.008</object-name>
+  <object-name>Moding.lowbar.008</object-name>
+  <condition>
+   <equals>
+    <property>/systems/autopilot/locks/heading</property>
+	<value>heading-hold</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>Moding.topbar.011</object-name>
+  <object-name>Moding.lowbar.011</object-name>
+  <condition>
+   <equals>
+    <property>/systems/autopilot/locks/heading</property>
+	<value>pitch-hold</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <text>
+  <name>hdg-headingset-1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.197</x-m>
+   <y-m>0.031</y-m>
+   <z-m>-0.012</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">HDG</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>hdg-headingset-2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.198</x-m>
+   <y-m>0.031</y-m>
+   <z-m>-0.018</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">SET</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>hdg-heading-mag</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.197</x-m>
+   <y-m>0.052</y-m>
+   <z-m>-0.012</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">MAG</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>hdg-heading-true</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.198</x-m>
+   <y-m>0.052</y-m>
+   <z-m>-0.018</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">TRUE</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>hdg-setcurr-1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.0725</y-m>
+   <z-m>-0.014</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">SET</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>hdg-setcurr-2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.0725</y-m>
+   <z-m>-0.02</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">CURR</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>hdg-setrcp-1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.0945</y-m>
+   <z-m>-0.014</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">SET</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>hdg-setrcp-2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.0945</y-m>
+   <z-m>-0.02</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">RCP</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>hdg-headinghold-1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.029</y-m>
+   <z-m>-0.0355</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">HDG</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>hdg-headinghold-2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.029</y-m>
+   <z-m>-0.0405</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">HOLD</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+  <text>
+  <name>hdg-rollhold-1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.0945</y-m>
+   <z-m>-0.0355</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">ROLL</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>hdg-rollhold-2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.0945</y-m>
+   <z-m>-0.0405</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">HOLD</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>ModingKey.004</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-cycle</command>
+    <property>/instrumentation/MDEF/keypad-page-selected</property> 
+	<value>hdg</value>
+	<value></value>   
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>ModingKey.005</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-cycle</command>
+    <property>/systems/autopilot/settings/heading-mode</property> 
+	<value>mag</value>
+	<value>true</value>   
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>ModingKey.006</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>nasal</command>
+    <script>MDEF.current_hdg();</script>
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>ModingKey.007</object-name>
+  <action>
+   <button>0</button>
+  <binding>
+    <command>nasal</command>
+    <script>MDEF.rcp_hdg();</script>
+   </binding>
+  </action>
+ </animation>
+ 
+<animation>
+  <type>pick</type>
+  <object-name>ModingKey.008</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-cycle</command>
+    <property>/systems/autopilot/locks/heading</property> 
+	<value>heading-hold</value>
+	<value />   
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>ModingKey.011</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-cycle</command>
+    <property>/systems/autopilot/locks/heading</property> 
+	<value>roll-hold</value>
+	<value />   
+   </binding>
+  </action>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>Moding.topbar.000</object-name>
+  <object-name>Moding.midbar.000</object-name>
+  <object-name>Moding.lowbar.000</object-name>
+  <object-name>Moding.topbar.001</object-name>
+  <object-name>Moding.midbar.001</object-name>
+  <object-name>Moding.lowbar.001</object-name>
+  <object-name>Moding.topbar.002</object-name>
+  <object-name>Moding.midbar.002</object-name>
+  <object-name>Moding.lowbar.002</object-name>
+  <object-name>Moding.topbar.003</object-name>
+  <object-name>Moding.midbar.003</object-name>
+  <object-name>Moding.lowbar.003</object-name>
+  <object-name>Moding.topbar.004</object-name>
+  <object-name>Moding.midbar.004</object-name>
+  <object-name>Moding.lowbar.004</object-name>
+  <object-name>Moding.topbar.006</object-name>
+  <object-name>Moding.midbar.006</object-name>
+  <object-name>Moding.lowbar.006</object-name>
+  <object-name>Moding.topbar.007</object-name>
+  <object-name>Moding.midbar.007</object-name>
+  <object-name>Moding.lowbar.007</object-name>
+  <object-name>Moding.midbar.008</object-name>
+  <object-name>Moding.topbar.009</object-name>
+  <object-name>Moding.midbar.009</object-name>
+  <object-name>Moding.lowbar.009</object-name>
+  <object-name>Moding.topbar.010</object-name>
+  <object-name>Moding.midbar.010</object-name>
+  <object-name>Moding.lowbar.010</object-name>
+  <object-name>Moding.midbar.011</object-name>
+  <condition>
+   <less-than>
+    <property>systems/electrical/outputs/avionics/MDEF</property>
+	<value>-5</value>
+   </less-than>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>material</type>
+  <object-name>hdg-headingset-1</object-name>
+  <object-name>hdg-headingset-2</object-name>
+  <object-name>hdg-heading-mag</object-name>
+  <object-name>hdg-heading-true</object-name>
+  <object-name>hdg-headinghold-1</object-name>
+  <object-name>hdg-headinghold-2</object-name>
+  <object-name>hdg-setcurr-1</object-name>
+  <object-name>hdg-setcurr-2</object-name>
+  <object-name>hdg-setrcp-1</object-name>
+  <object-name>hdg-setrcp-2</object-name>
+  <object-name>hdg-rollhold-1</object-name>
+  <object-name>hdg-rollhold-2</object-name>
+  <object-name>Moding.topbar.007</object-name>
+  <object-name>Moding.lowbar.007</object-name>
+  <object-name>Moding.topbar.008</object-name>
+  <object-name>Moding.lowbar.008</object-name>
+  <object-name>Moding.topbar.005</object-name>
+  <object-name>Moding.midbar.005</object-name>
+  <object-name>Moding.lowbar.005</object-name>
+  <object-name>Moding.topbar.011</object-name>
+  <object-name>Moding.lowbar.011</object-name>
+  <emission>
+    <red>0.3</red>
+    <green>0.85</green>
+    <blue>0.3</blue>
+	<factor-prop>/instrumentation/illumination/softkeys</factor-prop>
+  </emission>
+ </animation>
+
+</PropertyList>

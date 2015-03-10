@@ -1,0 +1,215 @@
+
+<PropertyList>
+
+     <weight n="0">
+		<name>Pylon Left 1</name>
+		<weight-lb>0</weight-lb>
+		<selected>none</selected>
+		<opt>
+			<name>none</name>
+			<lbs>0</lbs>
+		</opt>
+		<opt>
+			<name>Smokewinder</name>
+			<lbs>190.0</lbs>
+		</opt>
+		<opt>
+			<name>AIM-9</name>
+			<lbs>190.0</lbs>
+		</opt>
+		</weight>
+	<weight n="1">
+		<name>Pylon Left 2</name>
+		<weight-lb>0</weight-lb>
+		<selected>none</selected>
+		<opt>
+			<name>none</name>
+			<lbs>0</lbs>
+		</opt>
+		<opt>
+			<name>AIM-9</name>
+			<lbs>190.0</lbs>
+		</opt>	
+        <opt>
+			<name>AMRAAM</name>
+			<lbs>335.0</lbs>
+		</opt>	    
+	</weight>
+	<weight n="2">
+		<name>Pylon Left 3</name>
+		<tank>7</tank>
+		<weight-lb>0</weight-lb>
+		<selected>none</selected>
+		<opt>
+			<name>none</name>
+			<lbs>0</lbs>
+		</opt>
+		<opt>
+			<name>AIM-9</name>
+			<lbs>190.0</lbs>
+		</opt>
+		<opt>
+			<name>AMRAAM</name>
+			<lbs>335.0</lbs>
+		</opt>
+		<opt>
+			<name>2000l Droptank</name>
+			<lbs>240.0</lbs>
+			<gals>528</gals>
+		</opt>
+		<opt>
+			<name>1000l Droptank</name>
+			<lbs>220.0</lbs>
+			<gals>264</gals>
+		</opt>
+	</weight>
+	<weight n="3">
+		<name>Pylon Left 4</name>
+		<weight-lb>0</weight-lb>
+		<selected>none</selected>
+		<opt>
+			<name>none</name>
+			<lbs>0</lbs>
+		</opt>
+		<opt>
+			<name>AIM-9</name>
+			<lbs>190.0</lbs>
+		</opt>
+		<opt>
+			<name>AMRAAM</name>
+			<lbs>335.0</lbs>
+		</opt>
+	</weight>
+
+	<weight n="4">
+		<name>Center</name>
+		<tank>9</tank>
+		<weight-lb>0</weight-lb>
+		<selected>none</selected>
+		<opt>
+			<name>none</name>
+			<lbs>0</lbs>
+		</opt>
+		<opt>
+			<name>1000l Droptank</name>
+			<lbs>220.0</lbs>
+			<gals>264</gals>
+		</opt>
+  </weight>
+	<weight n="5">
+		<name>Pylon Right 4</name>
+		<weight-lb>0</weight-lb>
+		<selected>none</selected>
+		<opt>
+			<name>none</name>
+			<lbs>0</lbs>
+		</opt>
+		<opt>
+			<name>AIM-9</name>
+			<lbs>190.0</lbs>
+		</opt>
+		<opt>
+			<name>AMRAAM</name>
+			<lbs>335.0</lbs>
+		</opt>
+	</weight>
+	<weight n="6">
+		<name>Pylon Right 3</name>
+		<tank>8</tank>
+		<weight-lb>0</weight-lb>
+		<selected>none</selected>
+		<opt>
+			<name>none</name>
+			<lbs>0</lbs>
+		</opt>
+		<opt>
+			<name>AIM-9</name>
+			<lbs>190.0</lbs>
+		</opt>
+		<opt>
+			<name>AMRAAM</name>
+			<lbs>335.0</lbs>
+		</opt>
+		<opt>
+			<name>2000l Droptank</name>
+			<lbs>240.0</lbs>
+			<gals>528</gals>
+		</opt>
+		<opt>
+			<name>1000l Droptank</name>
+			<lbs>220.0</lbs>
+			<gals>264</gals>
+		</opt>
+	</weight>
+	<weight n="7">
+		<name>Pylon Right 2</name>
+		<weight-lb>0</weight-lb>
+		<selected>none</selected>
+		<opt>
+			<name>none</name>
+			<lbs>0</lbs>
+		</opt>
+		<opt>
+			<name>AIM-9</name>
+			<lbs>190.0</lbs>
+		</opt>	
+        <opt>
+			<name>AMRAAM</name>
+			<lbs>335.0</lbs>
+		</opt>
+	</weight>
+	<weight n="8">
+		<name>Pylon Right 1</name>
+		<weight-lb>0</weight-lb>
+		<selected>none</selected>
+		<opt>
+			<name>none</name>
+			<lbs>0</lbs>
+		</opt>
+		<opt>
+			<name>Smokewinder</name>
+			<lbs>190.0</lbs>
+		</opt>
+		<opt>
+			<name>AIM-9</name>
+			<lbs>190.0</lbs>
+		</opt>
+		</weight>
+	<weight n="9">
+		<name>Fuselage Left 1</name>
+		<weight-lb>0</weight-lb>
+		<selected>none</selected>
+		<opt>
+			<name>none</name>
+			<lbs>0</lbs>
+		</opt>
+		</weight>
+	<weight n="10">
+		<name>Fuselage Left 2</name>
+		<weight-lb>0</weight-lb>
+		<selected>none</selected>
+		<opt>
+			<name>none</name>
+			<lbs>0</lbs>
+		</opt>
+		</weight>
+	<weight n="11">
+		<name>Fuselage Right 1</name>
+		<weight-lb>0</weight-lb>
+		<selected>none</selected>
+		<opt>
+			<name>none</name>
+			<lbs>0</lbs>
+		</opt>
+		</weight>
+	<weight n="12">
+		<name>Fuselage Right 2</name>
+		<weight-lb>0</weight-lb>
+		<selected>none</selected>
+		<opt>
+			<name>none</name>
+			<lbs>0</lbs>
+		</opt>
+		</weight>
+
+</PropertyList>

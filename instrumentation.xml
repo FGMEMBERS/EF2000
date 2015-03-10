@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+    <efis>
+    <input>
+	 <TERR type="bool">true</TERR>
+	</input>
+	<nd> <display-range type="double">50</display-range>
+	<display-mode type="string">ARC</display-mode>
+	</nd>
+	
+   </efis>
+	 
+	
+	 <HUD>
+	  <display-altitude type="string">both</display-altitude>
+	  <display-groundspeed type="bool">true</display-groundspeed>
+	  <display-FLIR type="bool">false</display-FLIR>
+	  <display-locked type="bool">false</display-locked>
+	  <display-true type="bool">true</display-true>
+	  <display-gear type="bool">true</display-gear>
+	  <serviceable type="bool">true</serviceable>
+	 </HUD>
+	 <illumination>
+	  <HUD type="double">0.95</HUD>
+	  <softkeys type="double">0.95</softkeys>
+	  <LCD type="double">0.5</LCD>
+	  <cockpit-lighting type="double">0.15</cockpit-lighting>
+	 </illumination>
+	 
+	 <MDEF>
+	  <serviceable type="bool">true</serviceable>
+	  <keypad-page-selected type="string">crs</keypad-page-selected>
+	  <keypad>
+	   <current-entry type="int">0</current-entry>
+	   <entry n="0" type="string"></entry>
+	   <entry n="1" type="string"></entry>
+	   <entry n="2" type="string"></entry>
+	   <entry n="3" type="string"></entry>
+	   <entry n="4" type="string"></entry>
+	   <entry n="5" type="string"></entry>
+	   <entry n="6" type="string"></entry>
+	   <entry n="7" type="string"></entry>
+       <page type="int">1</page>
+	   <step type="int">1</step>
+	   <course-mode>
+		<heading-mode type="string"></heading-mode>
+		<kts-mach type="string"></kts-mach>
+		<target-heading-deg type="double"></target-heading-deg>
+		<target-altitude-ft type="double"></target-altitude-ft>
+		<target-speed-kt type="double"></target-speed-kt>
+		<target-speed-mach type="double"></target-speed-mach>
+	  </course-mode>
+	  </keypad>
+	  <subsystems-page-selected type="string">off</subsystems-page-selected>
+	 </MDEF>
+	 
+	 <MFD n="0">
+	  <page-selected type="string">pa</page-selected>
+	  <serviceable type="bool">true</serviceable>
+	  <stand-by type="bool">false</stand-by>
+	  <test-mode type="bool">false</test-mode>
+	  <PA>
+	   <display-map type="bool">true</display-map>
+	   <display-traffic type="bool">true</display-traffic>
+	   <display-airfield type="bool">true</display-airfield>
+	   <display-nav-data type="bool">true</display-nav-data>
+	   <true-heading type="bool">false</true-heading>
+	   <orientation-north type="bool">false</orientation-north>
+	   <orientation-deg type="int">12</orientation-deg>
+	   <zoom-nm type="int">50</zoom-nm>
+	  </PA>
+	 </MFD>
+	 
+	 <MIDS>
+	  <serviceable type="bool">true</serviceable>
+	 </MIDS>
+
+	<radar>
+	 <range type="double">100</range>
+	 <radar2-range type="double">80</radar2-range>
+	 <radar-standby type="int">0</radar-standby>
+	</radar>
+	
+	<tacan>
+	 <power type="bool">true</power>
+	</tacan>
+	
+	<ecm>
+	 <on-off type="bool">0</on-off>
+	 <alert-type1 type="bool">0</alert-type1>
+	 <alert-type2 type="bool">0</alert-type2>
+	</ecm>	 	 
+	 
+	 <radio n="0">
+	  <serviceable type="bool">true</serviceable>
+	 </radio>
+	 
+	 <radio n="1">
+	  <serviceable type="bool">true</serviceable>
+	 </radio>
+
+</PropertyList>

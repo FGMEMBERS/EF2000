@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <path>../softkeys.ac</path>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>Moding.topbar.007</object-name>
+  <condition>
+   <equals>
+    <property>/systems/autopilot/settings/trk-dir</property>
+	<value>track</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>Moding.lowbar.007</object-name>
+  <condition>
+   <equals>
+    <property>/systems/autopilot/settings/trk-dir</property>
+	<value>dir</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <text>
+  <name>nav-trkdir-1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.0945</y-m>
+   <z-m>-0.014</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">TRK</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>nav-trkdir-2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.0945</y-m>
+   <z-m>-0.02</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">DIR</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>nav-prevwp-1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.052</y-m>
+   <z-m>-0.0355</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">PREV</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>nav-prevwp-2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.052</y-m>
+   <z-m>-0.0405</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">WPT</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>nav-nextwp-1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.073</y-m>
+   <z-m>-0.0355</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">NEXT</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>nav-nextwp-2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.073</y-m>
+   <z-m>-0.0405</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">WP</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>ModingKey.007</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-cycle</command>
+    <property>/systems/autopilot/settings/trk-dir</property> 
+	<value>track</value>
+	<value>dir</value>   
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>ModingKey.009</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+	<command>nasal</command>
+	<script>setprop("/autopilot/route-manager/input", "@previous")</script>
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>ModingKey.010</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+	<command>nasal</command>
+	<script>setprop("/autopilot/route-manager/input", "@next")</script>
+   </binding>
+  </action>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>Moding.topbar.000</object-name>
+  <object-name>Moding.midbar.000</object-name>
+  <object-name>Moding.lowbar.000</object-name>
+  <object-name>Moding.topbar.001</object-name>
+  <object-name>Moding.midbar.001</object-name>
+  <object-name>Moding.lowbar.001</object-name>
+  <object-name>Moding.topbar.002</object-name>
+  <object-name>Moding.midbar.002</object-name>
+  <object-name>Moding.lowbar.002</object-name>
+  <object-name>Moding.topbar.003</object-name>
+  <object-name>Moding.midbar.003</object-name>
+  <object-name>Moding.lowbar.003</object-name>
+  <object-name>Moding.topbar.004</object-name>
+  <object-name>Moding.midbar.004</object-name>
+  <object-name>Moding.lowbar.004</object-name>
+  <object-name>Moding.topbar.005</object-name>
+  <object-name>Moding.midbar.005</object-name>
+  <object-name>Moding.lowbar.005</object-name>
+  <object-name>Moding.topbar.006</object-name>
+  <object-name>Moding.midbar.006</object-name>
+  <object-name>Moding.lowbar.006</object-name>
+  <object-name>Moding.topbar.008</object-name>
+  <object-name>Moding.midbar.008</object-name>
+  <object-name>Moding.lowbar.008</object-name>
+  <object-name>Moding.topbar.009</object-name>
+  <object-name>Moding.midbar.009</object-name>
+  <object-name>Moding.lowbar.009</object-name>
+  <object-name>Moding.topbar.010</object-name>
+  <object-name>Moding.midbar.010</object-name>
+  <object-name>Moding.lowbar.010</object-name>
+  <object-name>Moding.topbar.011</object-name>
+  <object-name>Moding.midbar.011</object-name>
+  <object-name>Moding.lowbar.011</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/avionics/MDEF</property>
+	<value>500</value>
+   </greater-than>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>material</type>
+  <object-name>nav-trkdir-1</object-name>
+  <object-name>nav-trkdir-2</object-name>
+  <object-name>nav-prevwp-1</object-name>
+  <object-name>nav-prevwp-2</object-name>
+  <object-name>nav-nextwp-1</object-name>
+  <object-name>nav-nextwp-2</object-name>
+  <object-name>Moding.topbar.007</object-name>
+  <object-name>Moding.midbar.007</object-name>
+  <object-name>Moding.lowbar.007</object-name>
+  <emission>
+    <red>0.3</red>
+    <green>0.85</green>
+    <blue>0.3</blue>
+	<factor-prop>/instrumentation/illumination/softkeys</factor-prop>
+  </emission>
+ </animation>
+
+</PropertyList>

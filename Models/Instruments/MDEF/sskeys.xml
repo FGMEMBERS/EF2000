@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <path>sskeys.ac</path>
+ 
+   <effect>
+   <inherits-from>Effects/model-transparent</inherits-from>
+   <condition>
+    <property>/sim/rendering/rembrandt/enabled</property>
+   </condition>
+     <object-name>SubsystemKeyLabel.hdg</object-name>
+  <object-name>SubsystemKeyLabel.trk</object-name>
+  <object-name>SubsystemKeyLabel.spd</object-name>
+  <object-name>SubsystemKeyLabel.alt</object-name>
+  <object-name>SubsystemKeyLabel.clm</object-name>
+  <object-name>SubsystemKeyLabel.atk</object-name>
+  <object-name>SubsystemKeyLabel.app</object-name>
+  <object-name>SubsystemKeyLabel.mids</object-name>
+  <object-name>SubsystemKeyLabel.aids</object-name>
+  <object-name>SubsystemKeyLabel.nav</object-name>
+  </effect>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>SubsystemKey.hdg</object-name>
+  <object-name>SubsystemKeyLabel.hdg</object-name>
+  <action>
+   <button>0</button>
+	<binding>
+     <command>property-assign</command>
+	 <property>/instrumentation/MDEF/subsystem-page-selected</property>
+	 <value>hdg</value>
+    </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>SubsystemKey.alt</object-name>
+  <object-name>SubsystemKeyLabel.alt</object-name>
+  <action>
+   <button>0</button>
+	<binding>
+     <command>property-assign</command>
+	 <property>/instrumentation/MDEF/subsystem-page-selected</property>
+	 <value>alt</value>
+    </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>SubsystemKey.trk</object-name>
+  <object-name>SubsystemKeyLabel.trk</object-name>
+  <action>
+   <button>0</button>
+	<binding>
+     <command>property-assign</command>
+	 <property>/instrumentation/MDEF/subsystem-page-selected</property>
+	 <value>trk</value>
+    </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>SubsystemKey.spd</object-name>
+  <object-name>SubsystemKeyLabel.spd</object-name>
+  <action>
+   <button>0</button>
+	<binding>
+     <command>property-assign</command>
+	 <property>/instrumentation/MDEF/subsystem-page-selected</property>
+	 <value>spd</value>
+    </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>SubsystemKey.mids</object-name>
+  <object-name>SubsystemKeyLabel.mids</object-name>
+  <action>
+   <button>0</button>
+	<binding>
+     <command>property-assign</command>
+	 <property>/instrumentation/MDEF/subsystem-page-selected</property>
+	 <value>mids</value>
+    </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>SubsystemKey.nav</object-name>
+  <object-name>SubsystemKeyLabel.nav</object-name>
+  <action>
+   <button>0</button>
+	<binding>
+     <command>property-assign</command>
+	 <property>/instrumentation/MDEF/subsystem-page-selected</property>
+	 <value>nav</value>
+    </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>SubsystemKey.aids</object-name>
+  <object-name>SubsystemKeyLabel.aids</object-name>
+  <action>
+   <button>0</button>
+	<binding>
+     <command>property-assign</command>
+	 <property>/instrumentation/MDEF/subsystem-page-selected</property>
+	 <value>aids</value>
+    </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>SubsystemKey.app</object-name>
+  <object-name>SubsystemKeyLabel.app</object-name>
+  <action>
+   <button>0</button>
+	<binding>
+     <command>property-assign</command>
+	 <property>/instrumentation/MDEF/subsystem-page-selected</property>
+	 <value>app</value>
+    </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>material</type>
+  <object-name>SubsystemKeyLabel.hdg</object-name>
+  <object-name>SubsystemKeyLabel.trk</object-name>
+  <object-name>SubsystemKeyLabel.alt</object-name>
+  <object-name>SubsystemKeyLabel.spd</object-name>
+  <object-name>SubsystemKeyLabel.clm</object-name>
+  <object-name>SubsystemKeyLabel.atk</object-name>
+  <object-name>SubsystemKeyLabel.app</object-name>
+  <object-name>SubsystemKeyLabel.mids</object-name>
+  <object-name>SubsystemKeyLabel.aids</object-name>
+  <object-name>SubsystemKeyLabel.nav</object-name>
+  <emission>
+    <red>0.3</red>
+    <green>0.85</green>
+    <blue>0.3</blue>
+	<factor-prop>/instrumentation/illumination/HUD</factor-prop>
+  </emission>
+ </animation>
+
+
+
+</PropertyList>

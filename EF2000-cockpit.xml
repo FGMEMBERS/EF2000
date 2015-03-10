@@ -1,0 +1,242 @@
+
+<PropertyList>
+
+    <computers>
+	 <attack>
+	  <target-selected-index type="int">-1</target-selected-index>
+	  <target-locked-index type="int">-1</target-locked-index>
+	  <target-distance-nm type="double">0</target-distance-nm>
+	  <target-bearing-deg type="double">0</target-bearing-deg>
+	  <target-tas-kt type="double">0</target-tas-kt>
+	  <atk-distance type="double">0</atk-distance>
+	  <atk-offset type="double">0</atk-offset>
+	 </attack>
+	 <phase-of-flight-name type="string">ground</phase-of-flight-name>
+	 <phase-of-flight-num type="int">1</phase-of-flight-num>
+	</computers>
+
+	<controls>
+	
+	 <armament>
+	  <master-arm-standby type="bool">true</master-arm-standby>
+	 </armament>
+	 
+	 <engines>
+	  <engine n="0">
+	   <reheat type="bool">0</reheat>
+	   <throttle-command alias="/controls/engines/engine[0]/throttle" />
+	  </engine>
+	  
+      <engine n="1">
+	   <reheat type="bool">0</reheat>
+	  </engine>
+	  
+	 </engines>
+	 
+	 <gear>
+	  <brake-parking type="bool">true</brake-parking>
+	 </gear>
+	 
+	 <buttons>
+	  <external-lights-master type="bool">true</external-lights-master>
+	  <FCS-override type="bool">false</FCS-override>
+	  <APU type="bool">false</APU>
+	 </buttons>
+	 
+	 <electric>
+	  <battery-switch type="bool">false</battery-switch>
+	 </electric>
+	 
+	 <rotary>
+	  <console-lighting type="double" archive="y">0.7</console-lighting>
+	  <glareshield-lighting type="double" archive="y">0.5</glareshield-lighting>
+	  <display-brightness type="double" archive="y">0.8</display-brightness>
+	  <formation-lights type="double" archive="y">0</formation-lights>
+	  <MASS type="double">0</MASS>
+	  <voice-volume>0.5</voice-volume>
+	 </rotary>
+	 
+	 <seat>
+	  <arming-handle type="double">0</arming-handle>
+	 </seat>
+	 
+	 <switches>
+	  <boost-pump-left type="bool">false</boost-pump-left>
+	  <boost-pump-right type="bool">false</boost-pump-right>
+	  <canopy type="bool">false</canopy>
+	  <engine-start type="int">1</engine-start>
+	  <fuel-probe type="bool">false</fuel-probe>
+	  <gear-lights type="int">2</gear-lights>
+	  <navigation-lights type="int">0</navigation-lights>
+	  <strobe-lights type="bool">false</strobe-lights>
+	  <landing-lights type="bool">false</landing-lights>
+	  <lp-cock-left type="bool">false</lp-cock-left>
+	  <lp-cock-left-cover type="double">0</lp-cock-left-cover>
+	  <taxi-lights type="bool">false</taxi-lights>
+	  <MIDS-power type="bool">false</MIDS-power>
+	  <rad-1-power type="bool">false</rad-1-power>
+	  <rad-2-power type="bool">false</rad-2-power>
+	  <voice type="bool">false</voice>
+	 </switches>
+	 
+	</controls>
+
+   <instrumentation>
+
+ 	<efis>
+     <input>
+	  <TERR type="bool">true</TERR>
+	 </input>
+	<nd>
+ 	 <display-range type="double">50</display-range>
+	 <display-mode type="string">ARC</display-mode>
+	</nd>
+	</efis>
+	 
+	 <HMD>
+	  <serviceable type="bool">true</serviceable>
+	 </HMD>
+
+	 
+     <HUD>
+	  <display-altitude type="string">both</display-altitude>
+	  <display-groundspeed type="bool">true</display-groundspeed>
+	  <display-FLIR type="bool">false</display-FLIR>
+	  <display-locked type="bool">false</display-locked>
+	  <display-true type="bool">true</display-true>
+	  <display-gear type="bool">true</display-gear>
+	  <serviceable type="bool">true</serviceable>
+	 </HUD>
+	 
+	 <illumination>
+	  <HUD alias="/controls/rotary/display-brightness" />
+	  <softkeys alias="/controls/rotary/display-brightness" />
+	  <LCD alias="/controls/rotary/display-brightness" />
+	  <console-lighting alias="/controls/rotary/console-lighting" />
+	  <glareshield-lighting alias="/controls/rotary/glareshield-lighting" />
+	 </illumination>
+	 
+	 <MDEF>
+	  <serviceable type="bool">true</serviceable>
+	  <keypad-page-selected type="string"></keypad-page-selected>
+	  <keypad>
+	   <current-entry type="int">0</current-entry>
+	   <entry n="0" type="string"></entry>
+	   <entry n="1" type="string"></entry>
+	   <entry n="2" type="string"></entry>
+	   <entry n="3" type="string"></entry>
+	   <entry n="4" type="string"></entry>
+	   <entry n="5" type="string"></entry>
+	   <entry n="6" type="string"></entry>
+	   <entry n="7" type="string"></entry>
+       <page type="int">1</page>
+	   <step type="int">1</step>
+	   <course-mode>
+		<heading-mode type="string"></heading-mode>
+		<kts-mach type="string"></kts-mach>
+		<target-heading-deg type="double"></target-heading-deg>
+		<target-altitude-ft type="double"></target-altitude-ft>
+		<target-speed-kt type="double"></target-speed-kt>
+		<target-speed-mach type="double"></target-speed-mach>
+	  </course-mode>
+	  </keypad>
+	  <subsystem-page-selected type="string"></subsystem-page-selected>
+	 </MDEF>
+	 
+	 <MFD n="0"> <!-- Centre -->
+	  <page-selected type="string">pa</page-selected>
+	  <serviceable type="bool">true</serviceable>
+	  <stand-by type="bool">true</stand-by>
+	  <test-mode type="bool">false</test-mode>
+	  <PA>
+	   <display-map type="bool">true</display-map>
+	   <display-traffic type="bool">true</display-traffic>
+	   <display-airfield type="bool">true</display-airfield>
+	   <display-nav-data type="bool">true</display-nav-data>
+	   <true-heading type="bool">false</true-heading>
+	   <orientation-north type="bool">false</orientation-north>
+	   <orientation-deg type="int">12</orientation-deg>
+	   <zoom-nm type="int">25</zoom-nm>
+	   <contact-factor type="double">0.0028</contact-factor>
+	  </PA>
+	 </MFD>
+	 
+	 <MFD n="1"> <!-- Left -->
+	  <page-selected type="string">acue</page-selected>
+	  <serviceable type="bool">true</serviceable>
+	  <stand-by type="bool">true</stand-by>
+	  <test-mode type="bool">false</test-mode>
+	  <ATCK>
+	   <b-scope type="bool">false</b-scope>
+	  </ATCK>
+	 </MFD>
+	 
+	 <MFD n="2"> <!-- Right -->
+	  <page-selected type="string">eng</page-selected>
+	  <serviceable type="bool">true</serviceable>
+	  <stand-by type="bool">true</stand-by>
+	  <test-mode type="bool">false</test-mode>
+	  <ELEV>
+	   <c-scope type="bool">false</c-scope>
+	  </ELEV>
+	 </MFD>
+	 
+	 <MIDS>
+	  <serviceable type="bool">true</serviceable>
+	 </MIDS>
+
+	<radar>
+	 <az-field type="double">120</az-field>
+	 <display-rdr type="bool">true</display-rdr>
+	 <enabled type="bool">true</enabled>
+	 <range type="double">50</range>
+	 <radar2-range type="double">50</radar2-range>
+	 <radar-standby type="bool">0</radar-standby>
+	 <range-selected type="int">25</range-selected>
+	 <symbols-enabled type="bool">true</symbols-enabled>
+	</radar>
+	
+	<radar2>
+	 <sweep-width-m type="double">0.135</sweep-width-m>
+	 <range-width-m type="double">0.148</range-width-m>
+	 <radius-ppi-display-m type="double">0.13</radius-ppi-display-m>
+	 <hud-eye-dist-m type="double">1.5</hud-eye-dist-m>
+	 <hud-radius-m type="double">0.5</hud-radius-m>
+	</radar2>
+	
+	<radar-altimeter>
+	 <agl-setting type="int">500</agl-setting>
+	</radar-altimeter>
+	
+	<tacan>
+	 <power type="bool">true</power>
+	</tacan>
+	
+	<transponder>
+	 <id-code type="int">1735</id-code>
+	</transponder>
+	
+	<IFF>
+	 <serviceable type="bool">true</serviceable>
+	</IFF>
+	
+	<ecm>
+	 <enabled type="bool">true</enabled>
+	 <on-off type="bool">0</on-off>
+	 <alert-type1 type="bool">0</alert-type1>
+	 <alert-type2 type="bool">0</alert-type2>
+	</ecm>	 	 
+	
+	 <radar-performance include="Data/radardist.xml" />
+
+	 <radio n="0">
+	  <serviceable type="bool">true</serviceable>
+	 </radio>
+	 
+	 <radio n="1">
+	  <serviceable type="bool">true</serviceable>
+	 </radio>
+	 
+	</instrumentation>
+
+</PropertyList>

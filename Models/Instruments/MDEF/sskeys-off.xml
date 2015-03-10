@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <path>sskeys.ac</path>
+ 
+  <effect>
+   <inherits-from>Effects/model-transparent</inherits-from>
+   <condition>
+    <property>/sim/rendering/rembrandt/enabled</property>
+   </condition>
+     <object-name>SubsystemKeyLabel.hdg</object-name>
+  <object-name>SubsystemKeyLabel.trk</object-name>
+  <object-name>SubsystemKeyLabel.spd</object-name>
+  <object-name>SubsystemKeyLabel.alt</object-name>
+  <object-name>SubsystemKeyLabel.clm</object-name>
+  <object-name>SubsystemKeyLabel.atk</object-name>
+  <object-name>SubsystemKeyLabel.app</object-name>
+  <object-name>SubsystemKeyLabel.mids</object-name>
+  <object-name>SubsystemKeyLabel.aids</object-name>
+  <object-name>SubsystemKeyLabel.nav</object-name>
+  </effect>
+ 
+</PropertyList>

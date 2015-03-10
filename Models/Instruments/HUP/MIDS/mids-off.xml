@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<PropertyList>
+
+ <path>mids.ac</path>
+ 
+ <model>
+ 	<name>mids-buttons-off</name>
+ 	<path>Aircraft/EF2000/Models/Instruments/HUP/MIDS/mids-buttons-off.xml</path>
+ 	<offsets> 
+		<x-m>0.0075</x-m>
+	    <y-m>0</y-m>
+	    <z-m>-0.014</z-m>
+		<pitch-deg>-15</pitch-deg>
+    </offsets>
+ </model>
+ 
+</PropertyList>

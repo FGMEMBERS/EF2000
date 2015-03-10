@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<PropertyList>
+
+ <path>hud-buttons.ac</path>
+ 
+ <!-- HUD Button 1: Locked/Velocity Vector -->
+ 
+ <animation>
+  <type>select</type>
+  <object-name>HUDButton.topbar.000</object-name>
+  <condition>
+   <equals>
+    <property>/instrumentation/HUD/display-locked</property>
+    <value>true</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>HUDButton.lowbar.000</object-name>
+  <condition>
+   <not-equals>
+    <property>/instrumentation/HUD/display-locked</property>
+    <value>true</value>
+   </not-equals>
+  </condition>
+ </animation>
+ 
+ <text>
+  <name>hudbutton1-lock</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.001</x-m>
+   <y-m>-0.039</y-m>
+   <z-m>0.001</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">LOCK</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>hudbutton1-vv</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.001</x-m>
+   <y-m>-0.039</y-m>
+   <z-m>-0.0052</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">V V</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <!-- HUD Button 2: Groundspeed/Mach -->
+ 
+ <animation>
+  <type>select</type>
+  <object-name>HUDButton.topbar.001</object-name>
+  <condition>
+   <equals>
+    <property>/instrumentation/HUD/display-groundspeed</property>
+    <value>true</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>HUDButton.lowbar.001</object-name>
+  <condition>
+   <not-equals>
+    <property>/instrumentation/HUD/display-groundspeed</property>
+    <value>true</value>
+   </not-equals>
+  </condition>
+ </animation>
+
+ <text>
+  <name>hudbutton2-gs</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.001</x-m>
+   <y-m>-0.02</y-m>
+   <z-m>0.001</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">GS</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>hudbutton2-m</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.001</x-m>
+   <y-m>-0.02</y-m>
+   <z-m>-0.0052</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">M</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <!-- HUD Button 3: Magnetic/True -->
+ 
+ <animation>
+  <type>select</type>
+  <object-name>HUDButton.topbar.002</object-name>
+  <condition>
+   <equals>
+    <property>/instrumentation/HUD/display-true</property>
+    <value>false</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>HUDButton.lowbar.002</object-name>
+  <condition>
+   <not-equals>
+    <property>/instrumentation/HUD/display-true</property>
+    <value>false</value>
+   </not-equals>
+  </condition>
+ </animation>
+
+ <text>
+  <name>hudbutton3-mag</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.001</x-m>
+   <y-m>0</y-m>
+   <z-m>0.001</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">MAG</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>hudbutton3-true</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+    <x-m>0.001</x-m>
+   <y-m>0</y-m>
+   <z-m>-0.0052</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">TRUE</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <!-- HUD Button 4: Barometric/Radar Altitude -->
+ 
+ <animation>
+  <type>select</type>
+  <object-name>HUDButton.topbar.003</object-name>
+  <condition>
+   <or>
+    <equals>
+     <property>/instrumentation/HUD/display-altitude</property>
+     <value>barometric</value>
+    </equals>
+	<equals>
+     <property>/instrumentation/HUD/display-altitude</property>
+     <value>both</value>
+    </equals>
+   </or>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>HUDButton.midbar.003</object-name>
+  <condition>
+   <or>
+    <equals>
+     <property>/instrumentation/HUD/display-altitude</property>
+     <value>barometric</value>
+    </equals>
+	<equals>
+     <property>/instrumentation/HUD/display-altitude</property>
+     <value>radar</value>
+    </equals>
+   </or>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>HUDButton.lowbar.003</object-name>
+  <condition>
+   <or>
+    <equals>
+     <property>/instrumentation/HUD/display-altitude</property>
+     <value>both</value>
+    </equals>
+	<equals>
+     <property>/instrumentation/HUD/display-altitude</property>
+     <value>radar</value>
+    </equals>
+   </or>
+  </condition>
+ </animation>
+
+ <text>
+  <name>hudbutton4-baro</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.001</x-m>
+   <y-m>0.019</y-m>
+   <z-m>0.001</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">BARO</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>hudbutton4-rad</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.001</x-m>
+   <y-m>0.019</y-m>
+   <z-m>-0.0052</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">RAD</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <!-- HUD Button 5: FLIR -->
+ 
+ <animation>
+  <type>select</type>
+  <object-name>HUDButton.topbar.004</object-name>
+  <object-name>HUDButton.lowbar.004</object-name>
+  <condition>
+   <equals>
+    <property>/instrumentation/HUD/display-FLIR</property>
+    <value>true</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <text>
+  <name>hudbutton5-flir</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.001</x-m>
+   <y-m>0.0385</y-m>
+   <z-m>-0.002</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">FLIR</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <!-- Actions -->
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>HUDbutton.000</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/HUD/display-locked</property>    
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>HUDbutton.001</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/HUD/display-groundspeed</property>    
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>HUDbutton.002</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/HUD/display-true</property>    
+   </binding>
+   <binding>
+    <command>property-set</command>
+	<property>/instrumentation/MFD/PA/true-heading</property> 
+	<property>/instrumentation/HUD/display-true</property>       
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>HUDbutton.003</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-cycle</command>
+    <property>/instrumentation/HUD/display-altitude</property>
+	<value>barometric</value>
+	<value>radar</value>
+	<value>both</value>
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>HUDbutton.004</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/HUD/display-FLIR</property>    
+   </binding>
+  </action>
+ </animation>
+ 
+ <!-- Illumination -->
+
+ <animation>
+  <type>material</type>
+  <object-name>hudbutton1-lock</object-name>
+  <object-name>hudbutton1-vv</object-name>
+  <object-name>hudbutton2-gs</object-name>
+  <object-name>hudbutton2-m</object-name>
+  <object-name>hudbutton3-mag</object-name>
+  <object-name>hudbutton3-true</object-name>
+  <object-name>hudbutton4-baro</object-name>
+  <object-name>hudbutton4-rad</object-name>
+  <object-name>hudbutton5-flir</object-name>
+  <object-name>HUDButton.topbar.000</object-name>
+  <object-name>HUDButton.midbar.000</object-name>
+  <object-name>HUDButton.lowbar.000</object-name>
+  <object-name>HUDButton.topbar.001</object-name>
+  <object-name>HUDButton.midbar.001</object-name>
+  <object-name>HUDButton.lowbar.001</object-name>
+  <object-name>HUDButton.topbar.002</object-name>
+  <object-name>HUDButton.midbar.002</object-name>
+  <object-name>HUDButton.lowbar.002</object-name>
+  <object-name>HUDButton.topbar.003</object-name>
+  <object-name>HUDButton.midbar.003</object-name>
+  <object-name>HUDButton.lowbar.003</object-name>
+  <object-name>HUDButton.topbar.004</object-name>
+  <object-name>HUDButton.midbar.004</object-name>
+  <object-name>HUDButton.lowbar.004</object-name>
+ <diffuse>
+    <red>0.2</red>
+    <green>1.0</green>
+    <blue>0.2</blue>
+  </diffuse>
+  <emission>
+    <red>0.2</red>
+    <green>0.8</green>
+    <blue>0.2</blue>
+    <factor-prop>/instrumentation/illumination/softkeys</factor-prop>
+  </emission>
+</animation>
+
+</PropertyList>

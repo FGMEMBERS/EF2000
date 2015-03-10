@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<PropertyList>
+
+ <path>mfd.ac</path>
+ 
+ <model>
+ <name>mfd-buttons-off</name>
+ <path>Aircraft/EF2000/Models/Instruments/MFDs/buttons-off.xml</path>
+ </model>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>mfd-buttons-off</object-name>
+  <condition>
+   <or>
+    <less-than>
+     <property>/systems/electrical/outputs/avionics/MFHDD[0]</property>
+     <value>26</value>
+    </less-than>
+    <equals>
+     <property>/instrumentation/MFD[0]/serviceable</property>
+	 <value>false</value>
+    </equals>
+	<equals>
+    <property>/instrumentation/MFD[0]/stand-by</property>
+    <value>true</value>
+   </equals>
+   </or>
+  </condition>
+ </animation>
+ 
+ <!-->
+ <animation>
+  <type>select</type>
+  <object-name>mfd-buttons-off</object-name>
+  <condition>
+   <or>
+    <less-than>
+     <property>/systems/electrical/outputs/avionics/HUD</property>
+     <value>26</value>
+    </less-than>
+    <equals>
+     <property>/instrumentation/MFD[0]/serviceable</property>
+	 <value>false</value>
+    </equals>
+   </or>
+  </condition>
+ </animation>
+ <-->
+ 
+ <model>
+ <name>pa-page</name>
+ <path>Aircraft/EF2000/Models/Instruments/MFDs/PA/pa.xml</path>
+ <offsets>
+	   <x-m>0.0</x-m>
+	   <y-m>-0.000</y-m>
+       <z-m>0.00</z-m>
+	</offsets>
+ </model>
+ 
+ <model>
+ <name>pa-buttons</name>
+ <path>Aircraft/EF2000/Models/Instruments/MFDs/PA/pa-buttons.xml</path>
+ </model>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>pa-page</object-name>
+  <object-name>pa-buttons</object-name>
+  <condition>
+   <greater-than>
+    <property>/systems/electrical/outputs/bus</property>
+    <value>26</value>
+   </greater-than>
+   <equals>
+    <property>/instrumentation/MFD[0]/serviceable</property>
+    <value>true</value>
+   </equals>
+   <equals>
+    <property>/instrumentation/MFD[0]/stand-by</property>
+    <value>false</value>
+   </equals>
+   <equals>
+    <property>/instrumentation/MFD[0]/page-selected</property>
+    <value>pa</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>power</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/MFD[0]/stand-by</property>    
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>power</object-name>
+  <property>/instrumentation/MFD[0]/stand-by</property>
+  <factor>0.0075</factor>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ 
+</PropertyList>

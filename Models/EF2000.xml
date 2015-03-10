@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+Eurofighter EF2000
+
+-->
+
+<PropertyList>
+
+	<path>EF2000.ac</path> 
+			<offsets>                        <!-- Temporary Model Alignment -->
+			  <z-m>0.355</z-m>
+			  <pitch-deg>1.5</pitch-deg>
+		     </offsets>
+			 
+	 <nasal>
+      <load>
+
+	     var me = cmdarg();
+		 var callsign = me.getNode("callsign").getValue();
+		 
+		 var init = func {
+		 print("Initialising EF2000 Remote Functions ("~callsign~")");
+		 
+		 #Strobes
+		 var power = me.getNode("sim/multiplay/generic/float[3]", 1);
+		 var lstrobe = me.getNode("sim/model/EF2000/lights/strobe-lower", 1);
+		 var ustrobe = me.getNode("sim/model/EF2000/lights/strobe-upper", 1);
+		 var rnd = rand();
+		 #print("Random number is "~rnd~"!");
+		 lstrand = 0.9 + ( rnd * 1.015 );
+		 ustrand = 1.2 + (rnd);
+		 #print("LSTRAND is "~lstrand~"!");
+		 #print("USTRAND is "~ustrand~"!");
+         aircraft.light.new(ustrobe, [0.02, ustrand], power);
+         aircraft.light.new(lstrobe, [0.02, lstrand], power);
+		 
+		 
+		 props.globals.initNode("/sim/time/aura-setting", 0.2, "DOUBLE");
+		 lightaura();
+		 
+		 props.globals.initNode("/sim/sound/canopy-view-modifier", 0, "DOUBLE");
+		 canopy_sound();
+		 };
+		 
+         var lightaura = func {
+	         var rad = getprop("/sim/time/sun-angle-rad");
+	         var fact = ((( 1 / rad ) * 1.25) - 0.25);
+	         setprop("/sim/time/aura-dimming", fact);
+	         settimer(lightaura, 2);
+	        }
+	  
+         var canopy_sound = func {
+             var int = getprop("/sim/current-view/internal");
+             var can_pos = getprop("/canopy/position-norm");
+             if ( can_pos == nil ) { can_pos = 0; };
+	         if (int) { var notext = 0 } else { var notext = 1 };
+	         var vol_out = ( can_pos + notext );
+	         setprop("/sim/sound/canopy-view-modifier", vol_out);
+             settimer(canopy_sound, 0.05);
+            }
+			
+		 
+		 init();
+	  
+
+	  </load>
+	 </nasal>
+	
+	<sound>
+	 <path>Aircraft/EF2000/Sound/EF2000-sound.xml</path>
+	</sound>
+	
+	<model>
+  	 <path>Aircraft/EF2000/Models/Effects/effects.xml</path>
+    </model>
+	
+	<model>
+  	 <path>Aircraft/EF2000/Models/submodels.xml</path>
+    </model>
+	
+	<model>
+  	 <path>Aircraft/EF2000/Models/Stores/stores.xml</path>
+    </model>
+	
+	<model>
+	 <name>Nosegear</name>
+  	 <path>Aircraft/EF2000/Models/nosegear.xml</path>
+    </model>
+	
+		<model>
+		<path>Aircraft/EF2000/Models/Pilot/pilot.xml</path>
+		<name>pilot</name>
+		<offsets>
+			<x-m>4.1</x-m>
+			<y-m>0</y-m>
+			<z-m>0.71</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+  	 <path>Aircraft/EF2000/Models/Identification/identification.xml</path>
+    </model>
+	
+	<model>
+  	 <path>Aircraft/EF2000/Models/cockpit.xml</path>
+	 <name>cockpit</name>
+      <offsets>
+	  <x-m>0</x-m>
+	  <y-m>0</y-m>
+	  <z-m>0.065</z-m>
+	  <pitch-deg>0</pitch-deg>
+	  </offsets>
+    </model>
+	
+	<model>
+  		<path>Aircraft/EF2000/Models/Engines/EJ200-L.xml</path>
+		<offsets>
+			<x-m>14.82</x-m>
+			<y-m>-0.45</y-m>
+			<z-m>-0.07</z-m>
+			<pitch-deg>0</pitch-deg>
+			<roll-deg>18</roll-deg>
+		</offsets>
+    </model>
+	
+	<model>
+  		<path>Aircraft/EF2000/Models/Engines/EJ200-R.xml</path>
+		<offsets>
+			<x-m>14.82</x-m>
+			<y-m>0.49</y-m>
+			<z-m>-0.05</z-m>
+			<pitch-deg>0</pitch-deg>
+			<roll-deg>18</roll-deg>
+		</offsets>
+    </model>
+
+    <model>
+  		<path>Aircraft/EF2000/Models/Lights/lights.xml</path>
+    </model>
+	
+	<model>
+  		<path>Aircraft/EF2000/Models/canopy.xml</path>
+		   <offsets>
+			<x-m>6.34916</x-m>
+			<y-m>0.012</y-m>
+			<z-m>1.24447</z-m>
+			<pitch-deg>0</pitch-deg>
+			<roll-deg>0</roll-deg>
+		</offsets>
+    </model>
+	
+	<model>
+	<name>CanopyLocal</name>
+  		<path>Aircraft/EF2000/Models/Submodels/canopy-submodel.xml</path>
+		   <offsets>
+			<x-m>6.34916</x-m>
+			<y-m>0.012</y-m>
+			<z-m>1.24447</z-m>
+			<pitch-deg>0</pitch-deg>
+			<roll-deg>0</roll-deg>
+		</offsets>
+    </model>
+	
+	<animation>
+		<object-name>pilot</object-name>
+		<object-name>Seat</object-name>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>1500</max-m>
+	</animation>
+	
+	<animation>
+		<object-name>cockpit</object-name>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>100</max-m>
+	</animation>		
+	
+  
+  <!-- Rembrandt Glass Select -->
+  <effect>
+   <inherits-from>Effects/model-transparent</inherits-from>
+   <object-name>CanopyGlass</object-name>
+   <object-name>Windshield</object-name>
+  <object-name>FormLightLens.FR</object-name>
+  <object-name>FormLightLens.FL</object-name>
+  <object-name>FormLightLens.RL</object-name>
+  <object-name>FormLightLens.RR</object-name>
+  </effect>
+  
+  
+  
+  <effect>
+       <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
+       <object-name>Fuselage1</object-name>  
+       <object-name>Wing.L</object-name>
+	   <object-name>Wing.R</object-name>
+	   <object-name>CanopyGlass</object-name>
+	   
+   </effect>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>FlaperonInner.L</object-name>
+  <property>surface-positions/left-aileron-pos-norm</property>
+  <factor>10</factor>
+  <center>
+   <x-m>12.4675</x-m>
+   <y-m>-1.99</y-m>
+   <z-m>-0.3</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>rotate</type>
+  <object-name>FlaperonInner.L</object-name>
+  <property>surface-positions/flap-pos-norm</property>
+  <factor>10</factor>
+  <center>
+   <x-m>12.4675</x-m>
+   <y-m>-1.99</y-m>
+   <z-m>-0.3</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>FlaperonOuter.L</object-name>
+  <property>surface-positions/left-aileron-pos-norm</property>
+  <factor>20</factor>
+  <center>
+   <x-m>12.657</x-m>
+   <y-m>-4.133</y-m>
+   <z-m>-0.346</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>FlaperonInner.R</object-name>
+  <property>surface-positions/right-aileron-pos-norm</property>
+  <factor>10</factor>
+  <center>
+   <x-m>12.552</x-m>
+   <y-m>2.092</y-m>
+   <z-m>-0.342</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>rotate</type>
+  <object-name>FlaperonInner.R</object-name>
+  <property>surface-positions/flap-pos-norm</property>
+  <factor>10</factor>
+  <center>
+   <x-m>12.552</x-m>
+   <y-m>2.092</y-m>
+   <z-m>-0.342</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>FlaperonOuter.R</object-name>
+  <property>surface-positions/right-aileron-pos-norm</property>
+  <factor>20</factor>
+  <center>
+   <x-m>12.63</x-m>
+   <y-m>4.33</y-m>
+   <z-m>-0.382</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>Canard.L</object-name>
+  <object-name>Canard.R</object-name>
+  <property>surface-positions/elevator-pos-norm</property>
+  <factor>80</factor>
+  <center>
+   <x-m>3.185</x-m>
+   <y-m>0</y-m>
+   <z-m>0.16</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>rotate</type>
+  <object-name>Rudder</object-name>
+  <property>surface-positions/rudder-pos-norm</property>
+  <factor>20</factor>
+  <center>
+   <x-m>14.25</x-m>
+   <y-m>0.018</y-m>
+   <z-m>0.7</z-m>
+  </center>
+  <axis>
+   <x>-0.5</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>Speedbrake</object-name>
+  <property>surface-positions/speedbrake-pos-norm</property>
+  <factor>45</factor>
+  <center>
+   <x-m>6.5</x-m>
+   <y-m>0.0</y-m>
+   <z-m>1.2406</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+	
+ <animation>
+  <type>rotate</type>
+  <object-name>FuelDoor2</object-name>
+  <property>sim/multiplay/generic/float[10]</property>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.1</ind>
+    <dep>110</dep>
+   </entry>
+   <entry>
+    <ind>0.65</ind>
+    <dep>110</dep>
+   </entry>
+   <entry>
+    <ind>0.75</ind>
+    <dep>0</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>2.9424</x-m>
+   <y-m>0.5328</y-m>
+   <z-m>0.5146</z-m>
+  </center>
+  <axis>
+   <x>-1.0</x>
+   <y>-0.175</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>FuelDoor1</object-name>
+  <object-name>FuelProbeOuter</object-name>
+  <object-name>FuelProbeInner</object-name>
+  <property>sim/multiplay/generic/float[10]</property>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.11</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.65</ind>
+    <dep>30</dep>
+   </entry>
+   <entry>
+    <ind>1</ind>
+    <dep>30</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>3.558</x-m>
+   <y-m>0.550</y-m>
+   <z-m>0.632</z-m>
+  </center>
+  <axis>
+   <x>-0.1</x>
+   <y>0.4</y>
+   <z>-0.6</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>FuelProbeInner</object-name>
+  <property>sim/multiplay/generic/float[10]</property>
+   <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.65</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.89</ind>
+    <dep>0.25</dep>
+   </entry>
+   <entry>
+    <ind>0.9</ind>
+    <dep>0.25</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>-1</x>
+   <y>-0.1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>Nosegear</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation> 
+   <entry>
+    <ind>1</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.2</ind>
+    <dep>105</dep>
+   </entry>
+   <entry>
+    <ind>0</ind>
+    <dep>105</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>6.14</x-m>
+   <y-m>0.00</y-m>
+   <z-m>-0.7933</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>GearDoorNose</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation> 
+   <entry>
+    <ind>1</ind>
+    <dep>90</dep>
+   </entry>
+   <entry>
+    <ind>0.2</ind>
+    <dep>90</dep>
+   </entry>
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>6.757</x-m>
+   <y-m>-0.1886</y-m>
+   <z-m>-0.893</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <object-name>Nosegear</object-name>
+  <type>rotate</type>
+  <property>sim/multiplay/generic/float[14]</property>
+  <center>
+   <x-m>6.14</x-m>
+   <y-m>0.00</y-m>
+   <z-m>-0.7933</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>Wheel.L</object-name>
+  <object-name>StrutUpper.L</object-name>
+  <object-name>StrutLower.L</object-name>
+  <object-name>Suspension1.L</object-name>
+  <object-name>Suspension2.L</object-name>
+  <object-name>Suspension3.L</object-name>
+  <object-name>Gearlight.L</object-name>
+  <object-name>LandLight.L</object-name>
+  <object-name>TaxiLight.L</object-name>
+  <object-name>Brace2.L</object-name>
+  <property>gear/gear[1]/position-norm</property>
+  <interpolation> 
+   <entry>
+    <ind>1</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.15</ind>
+    <dep>95</dep>
+   </entry>
+   <entry>
+    <ind>0</ind>
+    <dep>95</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>9.352</x-m>
+   <y-m>-1.65</y-m>
+   <z-m>-0.335</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>GearDoorOuter.L</object-name>
+  <property>gear/gear[1]/position-norm</property>
+  <interpolation> 
+   <entry>
+    <ind>1</ind>
+    <dep>-100</dep>
+   </entry>
+   <entry>
+    <ind>0.15</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>9.354</x-m>
+   <y-m>-1.777</y-m>
+   <z-m>-0.423</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>-0.08</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>GearDoorInner.L</object-name>
+  <property>gear/gear[1]/position-norm</property>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.14</ind>
+    <dep>75</dep>
+   </entry>
+   <entry>
+    <ind>1</ind>
+    <dep>75</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>9.238</x-m>
+   <y-m>-0.256</y-m>
+   <z-m>-0.777</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <object-name>Wheel.L</object-name>
+  <type>spin</type>
+    <property>sim/multiplay/generic/float[12]</property>
+  <factor>-15</factor>
+  <center>
+   <x-m>9.299</x-m>
+   <y-m>-1.8418</y-m>
+   <z-m>-1.7067</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>Wheel.R</object-name>
+  <object-name>StrutUpper.R</object-name>
+  <object-name>StrutLower.R</object-name>
+  <object-name>Suspension1.R</object-name>
+  <object-name>Suspension2.R</object-name>
+  <object-name>Suspension3.R</object-name>
+  <object-name>Gearlight.R</object-name>
+  <object-name>LandLight.R</object-name>
+  <object-name>TaxiLight.R</object-name>
+  <object-name>Brace2.R</object-name>
+  <property>gear/gear[2]/position-norm</property>
+   <interpolation> 
+   <entry>
+    <ind>1</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.15</ind>
+    <dep>95</dep>
+   </entry>
+   <entry>
+    <ind>0</ind>
+    <dep>95</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>9.352</x-m>
+   <y-m>1.65</y-m>
+   <z-m>-0.335</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>GearDoorOuter.R</object-name>
+  <property>gear/gear[2]/position-norm</property>
+  <interpolation> 
+   <entry>
+    <ind>1</ind>
+    <dep>100</dep>
+   </entry>
+   <entry>
+    <ind>0.15</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>9.387</x-m>
+   <y-m>1.820</y-m>
+   <z-m>-0.393</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>GearDoorInner.R</object-name>
+  <property>gear/gear[2]/position-norm</property>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.14</ind>
+    <dep>75</dep>
+   </entry>
+   <entry>
+    <ind>1</ind>
+    <dep>75</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>9.238</x-m>
+   <y-m>0.256</y-m>
+   <z-m>-0.777</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <object-name>Wheel.R</object-name>
+  <type>spin</type>
+  <property>sim/multiplay/generic/float[13]</property>
+  <factor>-15</factor>
+  <center>
+   <x-m>9.299</x-m>
+   <y-m>1.865</y-m>
+   <z-m>-1.706</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>material</type>
+  <object-name>LandLight.L</object-name>
+  <object-name>LandLight.R</object-name>
+  <emission>
+   <factor-prop>sim/multiplay/generic/float[4]</factor-prop>
+   <red>0.0045</red>
+   <green>0.0045</green>
+   <blue>0.0045</blue>
+  </emission>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>TaxiLight.L</object-name>
+  <object-name>TaxiLight.R</object-name>
+  <emission>
+   <factor-prop>sim/multiplay/generic/float[1]</factor-prop>
+   <red>0.0045</red>
+   <green>0.0045</green>
+   <blue>0.0045</blue>
+  </emission>
+ </animation>
+ 
+  <animation>
+  <type>material</type>
+  <object-name>NavLightLens.L</object-name>
+  <object-name>NavLightLens.R</object-name>
+  <object-name>NavLightLens.T</object-name>
+  <emission>
+   <factor-prop>sim/multiplay/generic/float[2]</factor-prop>
+   <red>0.035</red>
+   <green>0.035</green>
+   <blue>0.035</blue>
+  </emission>
+ </animation>
+ 
+ <animation>
+  <type>material</type>
+  <object-name>FormLightLens.FR</object-name>
+  <object-name>FormLightLens.FL</object-name>
+  <object-name>FormLightLens.RL</object-name>
+  <object-name>FormLightLens.RR</object-name>
+  <ambient>
+   <red>0.45</red>
+   <green>0.75</green>
+   <blue>0.45</blue>
+  </ambient>
+  <diffuse>
+   <red>0.35</red>
+   <green>0.55</green>
+   <blue>0.35</blue>
+  </diffuse>
+  <emission>
+   <factor-prop>sim/multiplay/generic/float[5]</factor-prop>
+   <red>0.0</red>
+   <green>0.65</green>
+   <blue>0.0</blue>
+  </emission>
+ </animation>
+   
+  
+   
+
+</PropertyList>

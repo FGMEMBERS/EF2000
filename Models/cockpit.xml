@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<PropertyList>
+
+ <path>cockpit.ac</path>
+ 
+  <model>
+  	<path>Aircraft/EF2000/Models/switch-panel-right.xml</path>
+	<offsets>
+	   <x-m>3.9505</x-m>
+	   <y-m>0.349</y-m>
+       <z-m>0.47</z-m>
+	   <pitch-deg>1.0</pitch-deg>
+	   <heading-deg>-0.4</heading-deg>
+	</offsets>
+ </model>
+ 
+ <model>
+  	<path>Aircraft/EF2000/Models/switch-panel-left.xml</path>
+	<offsets>
+	   <x-m>3.9775</x-m>
+	   <y-m>-0.35</y-m>
+       <z-m>0.47</z-m>
+	   <pitch-deg>1.0</pitch-deg>
+	   <heading-deg>0</heading-deg>
+	</offsets>
+ </model>
+ 
+ <model>
+  	<path>Aircraft/EF2000/Models/mid-panel-left.xml</path>
+	<offsets>
+	   <x-m>3.715</x-m>
+	   <y-m>-0.355</y-m>
+       <z-m>0.515</z-m>
+	   <pitch-deg>-50</pitch-deg>
+	   <heading-deg>7</heading-deg>
+	   <roll-deg>2.75</roll-deg>
+	</offsets>
+ </model>
+ 
+    <model>
+  	<path>Aircraft/EF2000/Models/Instruments/DWP/dwp.xml</path>
+	<offsets>
+	   <x-m>3.715</x-m>
+	   <y-m>0.33</y-m>
+       <z-m>0.515</z-m>
+	   <pitch-deg>-50</pitch-deg>
+	   <heading-deg>-9</heading-deg>
+	   <roll-deg>2.75</roll-deg>
+	</offsets>
+ </model>
+ 
+ <model>
+  	<path>Aircraft/EF2000/Models/Instruments/MFDs/mfd0.xml</path>
+	<offsets>
+	   <x-m>3.67</x-m>
+	   <y-m>0.00</y-m>
+       <z-m>0.62</z-m>
+	   <pitch-deg>-13</pitch-deg>
+	</offsets>
+ </model>
+ 
+ <model>
+  	<path>Aircraft/EF2000/Models/Instruments/MFDs/mfd1.xml</path>
+	<offsets>
+	   <x-m>3.66</x-m>
+	   <y-m>-0.19</y-m>
+       <z-m>0.67</z-m>
+	   <pitch-deg>-13.734</pitch-deg>
+	</offsets>
+ </model>
+ 
+ <model>
+  	<path>Aircraft/EF2000/Models/Instruments/MFDs/mfd2.xml</path>
+	<offsets>
+	   <x-m>3.66</x-m>
+	   <y-m>0.19</y-m>
+       <z-m>0.67</z-m>
+	   <pitch-deg>-13.734</pitch-deg>
+	</offsets>
+ </model>
+ 
+ <model>
+  	<path>Aircraft/EF2000/Models/Instruments/HUP/hup.xml</path>
+	<offsets>
+	   <x-m>3.67</x-m>
+	   <y-m>-0.00</y-m>
+       <z-m>0.8525</z-m>
+	   <pitch-deg>-21</pitch-deg>
+	</offsets>
+ </model>
+ 
+ <model>
+  	<path>Aircraft/EF2000/Models/Instruments/VSI/vsi.xml</path>
+	<offsets>
+	   <x-m>3.452</x-m>
+	   <y-m>0.1275</y-m>
+       <z-m>0.805</z-m>
+	   <pitch-deg>-5</pitch-deg>
+	   <heading-deg>0</heading-deg>
+	</offsets>
+ </model>
+
+  <model>
+  	<name>mdef</name>
+	<path>Aircraft/EF2000/Models/Instruments/MDEF/mdef.xml</path>
+	<offsets>
+	   <x-m>3.452</x-m>
+	   <y-m>-0.20</y-m>
+       <z-m>0.805</z-m>
+	   <pitch-deg>-5</pitch-deg>
+	   <heading-deg>0</heading-deg>
+	</offsets>
+	<center>
+	   <x-m>3.50</x-m>
+	   <y-m>-0.346</y-m>
+       <z-m>0.90</z-m>
+	</center>
+ </model>
+ 
+ <model>
+  	<name>warnings</name>
+	<path>Aircraft/EF2000/Models/Instruments/warnings-left.xml</path>
+	<offsets>
+	   <x-m>3.65</x-m>
+	   <y-m>-0.106</y-m>
+       <z-m>0.878</z-m>
+	   <pitch-deg>-10</pitch-deg>
+	   <heading-deg>5</heading-deg>
+	   <roll-deg>-2</roll-deg>
+	</offsets>
+ </model>
+ 
+ <model>
+  	<name>warnings</name>
+	<path>Aircraft/EF2000/Models/Instruments/warnings-right.xml</path>
+	<offsets>
+	   <x-m>3.65</x-m>
+	   <y-m>0.106</y-m>
+       <z-m>0.878</z-m>
+	   <pitch-deg>-10</pitch-deg>
+	   <heading-deg>-5</heading-deg>
+	   <roll-deg>2</roll-deg>
+	</offsets>
+ </model>
+ 
+  <model>
+  	<name>stick</name>
+	<path>Aircraft/EF2000/Models/stick.xml</path>
+	<offsets>
+	   <x-m>3.8396</x-m>
+	   <y-m>-0.004141</y-m>
+       <z-m>0.4070</z-m>
+	   <pitch-deg>0</pitch-deg>
+	   <heading-deg>0</heading-deg>
+	   <roll-deg>0</roll-deg>
+	</offsets>
+ </model>
+
+</PropertyList>

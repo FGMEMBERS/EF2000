@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <path>../softkeys.ac</path>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>Moding.topbar.000</object-name>
+  <object-name>Moding.lowbar.000</object-name>
+  <condition>
+   <greater-than>
+    <property>/systems/electrical/outputs/tacan</property>
+	<value>200</value>
+   </greater-than>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>Moding.topbar.005</object-name>
+  <object-name>Moding.lowbar.005</object-name>
+  <condition>
+   <equals>
+    <property>/computers/navigation/mode</property>
+	<value>tacan</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>Moding.topbar.006</object-name>
+  <object-name>Moding.lowbar.006</object-name>
+  <condition>
+   <equals>
+    <property>/computers/navigation/mode</property>
+	<value>nav</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>Moding.topbar.008</object-name>
+  <object-name>Moding.lowbar.008</object-name>
+  <condition>
+   <equals>
+    <property>/instrumentation/MDEF/keypad-page-selected</property>
+	<value>tacan</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <text>
+  <name>aids-tacanon-1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.197</x-m>
+   <y-m>0.031</y-m>
+   <z-m>0.008</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">TAC</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>aids-tacanon-2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.198</x-m>
+   <y-m>0.031</y-m>
+   <z-m>0.00275</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">ON</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+  
+ <text>
+  <name>aids-tacmode-1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.197</x-m>
+   <y-m>0.052</y-m>
+   <z-m>-0.012</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">TAC</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>aids-tacmode-2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.198</x-m>
+   <y-m>0.052</y-m>
+   <z-m>-0.018</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">MODE</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>aids-navmode-1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.0725</y-m>
+   <z-m>-0.014</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">NAV</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>aids-navmode-2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.0725</y-m>
+   <z-m>-0.02</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">MODE</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>aids-tacandata-1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.029</y-m>
+   <z-m>-0.0355</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">TAC</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>aids-tacandata-2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.004</character-size>
+  <offsets>
+   <x-m>0.19</x-m>
+   <y-m>0.029</y-m>
+   <z-m>-0.0405</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">DATA</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>ModingKey.000</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/tacan/power</property>  
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>ModingKey.005</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-assign</command>
+    <property>/computers/navigation/mode</property> 
+    <value>tacan</value>	
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>ModingKey.006</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-assign</command>
+    <property>/computers/navigation/mode</property> 
+    <value>nav</value>	
+   </binding>
+  </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>ModingKey.008</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-cycle</command>
+    <property>/instrumentation/MDEF/keypad-page-selected</property> 
+	<value>tacan</value>
+	<value />   
+   </binding>
+  </action>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>Moding.midbar.000</object-name>
+  <object-name>Moding.topbar.001</object-name>
+  <object-name>Moding.midbar.001</object-name>
+  <object-name>Moding.lowbar.001</object-name>
+  <object-name>Moding.topbar.002</object-name>
+  <object-name>Moding.midbar.002</object-name>
+  <object-name>Moding.lowbar.002</object-name>
+  <object-name>Moding.topbar.003</object-name>
+  <object-name>Moding.midbar.003</object-name>
+  <object-name>Moding.lowbar.003</object-name>
+  <object-name>Moding.topbar.004</object-name>
+  <object-name>Moding.midbar.004</object-name>
+  <object-name>Moding.lowbar.004</object-name>
+  <object-name>Moding.midbar.005</object-name>
+  <object-name>Moding.midbar.006</object-name>
+  <object-name>Moding.topbar.007</object-name>
+  <object-name>Moding.midbar.007</object-name>
+  <object-name>Moding.lowbar.007</object-name>
+  <object-name>Moding.midbar.008</object-name>
+  <object-name>Moding.topbar.009</object-name>
+  <object-name>Moding.midbar.009</object-name>
+  <object-name>Moding.lowbar.009</object-name>
+  <object-name>Moding.topbar.010</object-name>
+  <object-name>Moding.midbar.010</object-name>
+  <object-name>Moding.lowbar.010</object-name>
+  <object-name>Moding.topbar.011</object-name>
+  <object-name>Moding.midbar.011</object-name>
+  <object-name>Moding.lowbar.011</object-name>
+  <condition>
+   <greater-than>
+    <property>systems/electrical/outputs/avionics/MDEF</property>
+	<value>500</value>
+   </greater-than>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>aids-tacanon-1</object-name>
+  <object-name>aids-tacanon-2</object-name>
+  <object-name>aids-tacmode-1</object-name>
+  <object-name>aids-tacmode-2</object-name>
+  <object-name>aids-navmode-1</object-name>
+  <object-name>aids-navmode-2</object-name>
+  <object-name>aids-tacandata-1</object-name>
+  <object-name>aids-tacandata-2</object-name>
+  <object-name>Moding.topbar.000</object-name>
+  <object-name>Moding.lowbar.000</object-name>
+  <object-name>Moding.topbar.005</object-name>
+  <object-name>Moding.lowbar.005</object-name>
+  <object-name>Moding.topbar.006</object-name>
+  <object-name>Moding.lowbar.006</object-name>
+  <object-name>Moding.topbar.008</object-name>
+  <object-name>Moding.lowbar.008</object-name>
+  <emission>
+    <red>0.3</red>
+    <green>0.85</green>
+    <blue>0.3</blue>
+	<factor-prop>/instrumentation/illumination/softkeys</factor-prop>
+  </emission>
+ </animation>
+ 
+</PropertyList>

@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <filter>
+  <name>Control Input: Pitch</name>
+  <debug>false</debug>
+  <type>gain</type>
+  <input>
+   <condition>
+    <equals>
+	 <property>/systems/autopilot/locks/altitude</property>
+	 <value />
+	</equals>
+   </condition>
+   <property>/controls/flight/elevator</property>
+  </input>
+  <input>
+   <condition>
+    <not-equals>
+	 <property>/systems/autopilot/locks/altitude</property>
+	 <value />
+	</not-equals>
+   </condition>
+   <property>/systems/autopilot/command-outputs/pitch</property>
+  </input>
+  <output>
+   <property>/systems/FCS/control-inputs/pitch</property>
+  </output>
+  <gain>
+   <property>/systems/FCS/settings/stick-scale-pitch</property>
+  </gain>
+  <u_min>-1.0</u_min>
+  <u_max>1.0</u_max>
+ </filter>
+ 
+ <filter>
+  <name>Control Input: Roll</name>
+  <debug>false</debug>
+  <type>gain</type>
+  <input>
+   <condition>
+    <equals>
+	 <property>/systems/autopilot/locks/heading</property>
+	 <value />
+	</equals>
+   </condition>
+   <property>/controls/flight/aileron</property>
+  </input>
+  <input>
+   <condition>
+    <not-equals>
+	 <property>/systems/autopilot/locks/heading</property>
+	 <value />
+	</not-equals>
+   </condition>
+   <property>/systems/autopilot/command-outputs/roll</property>
+  </input>
+  <output>
+   <property>/systems/FCS/control-inputs/roll</property>
+   <property>/systems/FCS/internal/attitude/roll-adjust</property>
+  </output>
+  <gain>
+   <property>/systems/FCS/settings/stick-scale-roll</property>
+  </gain>
+  <u_min>-1.0</u_min>
+  <u_max>1.0</u_max>
+ </filter>
+ 
+ <filter>
+  <name>Control Input: Yaw</name>
+  <debug>false</debug>
+  <type>gain</type>
+  <input>
+   <property>/controls/flight/rudder</property>
+  </input>
+  <output>
+   <property>/systems/FCS/control-inputs/yaw</property>
+  </output>
+  <gain>
+   <property>/systems/FCS/settings/pedal-scale</property>
+  </gain>
+  <u_min>-1.0</u_min>
+  <u_max>1.0</u_max>
+ </filter>
+ 
+ <filter>
+  <name>Control Input: Speedbrake</name>
+  <debug>false</debug>
+  <type>gain</type>
+  <input>
+   <property>/controls/flight/speedbrake</property>
+  </input>
+  <output>
+   <property>/systems/FCS/control-inputs/speedbrake</property>
+  </output>
+  <gain>
+   1.0
+  </gain>
+  <u_min>-1.0</u_min>
+  <u_max>1.0</u_max>
+ </filter>
+ 
+ <filter>
+  <name>FCS Input: Pitch</name>
+  <debug>false</debug>
+  <type>gain</type>
+  <input>
+   <property>/systems/FCS/control-inputs/pitch</property>
+  </input>
+  <output>
+   <property>/systems/FCS/internal/attitude/pitch-adjust</property>
+  </output>
+  <gain>-1.0
+   <!-- property>/systems/FCS/internal/speed-damp</property -->
+  </gain>
+  <u_min>-1.0</u_min>
+  <u_max>1.0</u_max>
+ </filter>
+ 
+ <filter>
+  <name>Damping</name>
+  <debug>false</debug>
+  <type>reciprocal</type>
+  <input>
+   <property>/velocities/airspeed-kt</property>
+   <offset>100</offset>
+  </input>
+  <output>
+   <property>/systems/FCS/internal/damping-scale</property>
+  </output>
+  <gain>190</gain>
+  <u_min>0.1</u_min>
+  <u_max>1.0</u_max>
+ </filter>
+ 
+ <filter>
+  <name>Scaling: Speed</name>
+  <debug>false</debug>
+  <type>reciprocal</type>
+  <input>
+   <property>/velocities/airspeed-kt</property>
+  </input>
+  <output>
+   <property>/systems/FCS/internal/speed-scale</property>
+  </output>
+  <gain>125.0</gain>
+  <u_min>0.8</u_min>
+  <u_max>1.0</u_max>
+ </filter>
+ 
+ <filter>
+  <name>Scaling: Pitch/Speed</name>
+  <debug>false</debug>
+  <type>gain</type>
+  <input>
+   <property>/systems/FCS/control-inputs/pitch</property>
+  </input>
+  <output>
+   <property>/systems/FCS/internal/speed-damp</property>
+  </output>
+  <gain>
+   <property>/systems/FCS/internal/speed-scale</property>
+  </gain>
+ </filter>
+ 
+ <filter>
+  <name>Scaling: Roll/Speed</name>
+  <debug>false</debug>
+  <type>gain</type>
+  <input>
+   <property>/systems/FCS/control-inputs/roll</property>
+  </input>
+  <output>
+   <property>/systems/FCS/internal/R-SS-1</property>
+  </output>
+  <gain>
+   <property>/systems/FCS/internal/speed-scale</property>
+  </gain>
+ </filter>
+ 
+ <filter>
+  <name>Pitch Normaliser</name>
+  <debug>false</debug>
+  <type>gain</type>
+   <input>
+    <condition>
+     <equals>
+	  <property>/systems/FCS/internal/attitude/inverted</property>
+	  <value>0</value>
+     </equals>	
+    </condition>
+	<property>/orientation/pitch-deg</property>
+   </input>
+   <input>
+    <condition>
+     <equals>
+	  <property>/systems/FCS/internal/attitude/inverted</property>
+	  <value>1</value>
+     </equals>	
+    </condition>
+    <expression>
+     <table>
+      <property>/orientation/pitch-deg</property> 
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>90</ind><dep>90</dep></entry>
+	  <entry><ind>0</ind><dep>180</dep></entry>
+	  <entry><ind>-0.1</ind><dep>-180</dep></entry>
+	  <entry><ind>-90</ind><dep>-90</dep></entry>
+     </table>
+    </expression>
+  </input>
+  <output>
+   <property>/systems/FCS/internal/attitude/pitch-normalised-deg</property>
+  </output>
+  <gain>1.0</gain>
+  <period>
+   <min>-180</min>
+   <max>180</max>
+  </period>
+  <!-- u_min>0.1</u_min>
+  <u_max>1.0</u_max -->
+ </filter>
+ 
+ <filter>
+  <name>Roll Inverse</name>
+  <debug>false</debug>
+  <type>gain</type>
+  <input>
+   <property>/systems/FCS/internal/attitude/roll-deg</property>
+   <offset>180</offset>
+  </input>
+  <output>
+   <property>/systems/FCS/internal/attitude/roll-inverse-deg</property>
+  </output>
+  <gain>1.0</gain>
+  <period>
+   <min>-180</min>
+   <max>180</max>
+  </period>
+  <!-- u_min>0.1</u_min>
+  <u_max>1.0</u_max -->
+ </filter>
+ 
+  <filter>
+  <name>Pitch Demand Normaliser</name>
+  <debug>false</debug>
+  <type>gain</type>
+  <input>
+   <property>/systems/FCS/internal/attitude/pitch-deg</property>
+   <offset>0</offset>
+  </input>
+  <output>
+   <property>/systems/FCS/internal/attitude/pitch-demand-normalised-deg</property>
+  </output>
+  <gain>1.0</gain>
+  <period>
+   <min>-180</min>
+   <max>180</max>
+  </period>
+  <!-- u_min>0.1</u_min>
+  <u_max>1.0</u_max -->
+ </filter>
+ 
+ <filter>
+   <name>Inversion Flag</name>
+   <type>gain</type>
+   <debug>false</debug>
+   <gain>1.0</gain>
+   <output>/systems/FCS/internal/attitude/inverted</output>
+   <input>
+    <expression>
+     <table>
+      <property>/orientation/roll-deg</property> 
+      <entry><ind>-180</ind><dep>1</dep></entry>
+      <entry><ind>-90</ind><dep>1</dep></entry>
+	  <entry><ind>-89.9</ind><dep>0</dep></entry>
+	  <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>89.9</ind><dep>0</dep></entry>
+      <entry><ind>90</ind><dep>1</dep></entry>
+      <entry><ind>179.9</ind><dep>1</dep></entry>
+      <entry><ind>180</ind><dep>1</dep></entry>
+     </table>
+    </expression>
+   </input>
+  </filter>
+  
+  <filter>
+   <name>Pitch Authority</name>
+   <type>gain</type>
+   <debug>false</debug>
+   <gain>1.0</gain>
+   <output>/systems/FCS/internal/attitude/pitch-demand-authority</output>
+   <input>
+    <expression>
+     <table>
+      <property>/orientation/roll-deg</property> 
+      <entry><ind>-180</ind><dep>-1</dep></entry>
+      <entry><ind>-90</ind><dep>0</dep></entry>
+	  <entry><ind>0</ind><dep>1</dep></entry>
+      <entry><ind>90</ind><dep>0</dep></entry>
+	  <entry><ind>180</ind><dep>-1</dep></entry>
+     </table>
+    </expression>
+   </input>
+  </filter>
+ 
+ <pid-controller>
+  <name>System Command: Pitch</name>
+  <debug>false</debug>
+  <input>
+   <property>/systems/FCS/internal/attitude/pitch-normalised-deg</property>
+  </input>
+  <reference>  
+   <property>/systems/FCS/internal/attitude/pitch-demand-normalised-deg</property>
+  </reference>
+  <output>
+   <property>/systems/FCS/internal/pitch-command</property>
+  </output>
+  <config>
+   <Kp>-0.015</Kp>           
+   <beta>1.0</beta>    <!-- input value weighing factor -->
+   <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
+   <gamma>0.0</gamma>  <!-- input value weighing factor for -->
+   <Ti>10.0</Ti>       <!-- integrator time  10.0 -->
+   <Td>0.00001</Td>    <!-- derivator time -->
+   <u_min>-0.5</u_min> <!-- minimum output clamp -->
+   <u_max>0.5</u_max>
+  </config>
+ </pid-controller>
+ 
+ <pid-controller>
+  <name>System Command: Roll</name>
+  <debug>false</debug>
+  <input> 
+   <property>/orientation/roll-deg</property>
+  </input>
+  <reference>
+   <property>/systems/FCS/internal/attitude/roll-deg</property>
+  </reference>
+    <output>
+	 <property>/systems/FCS/internal/roll-command</property>
+	</output>
+    <config>
+      <Kp>0.02</Kp>        <!-- proportional gain -->
+      <beta>1.0</beta>     <!-- input value weighing factor -->
+      <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
+      <gamma>0.0</gamma>   <!-- input value weighing factor for -->
+                           <!-- unfiltered derivative error -->
+      <Ti>10.0</Ti>        <!-- integrator time -->
+      <Td>0.00001</Td>     <!-- derivator time -->
+      <u_min>-0.6</u_min> <!-- minimum output clamp -->
+      <u_max>0.6</u_max>  <!-- maximum output clamp -->
+    </config>
+  </pid-controller>
+  
+  <pid-controller>
+  <name>System Command: Roll</name>
+  <debug>false</debug>
+  <input> 
+   <property>/orientation/roll-deg</property>
+  </input>
+  <reference>
+   <property>/systems/FCS/internal/attitude/roll-deg</property>
+  </reference>
+    <output>
+	 <property>/systems/FCS/internal/roll-command</property>
+	</output>
+    <config>
+      <Kp>0.02</Kp>        <!-- proportional gain -->
+      <beta>1.0</beta>     <!-- input value weighing factor -->
+      <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
+      <gamma>0.0</gamma>   <!-- input value weighing factor for -->
+                           <!-- unfiltered derivative error -->
+      <Ti>10.0</Ti>        <!-- integrator time -->
+      <Td>0.00001</Td>     <!-- derivator time -->
+      <u_min>-0.6</u_min> <!-- minimum output clamp -->
+      <u_max>0.6</u_max>  <!-- maximum output clamp -->
+    </config>
+  </pid-controller>
+ 
+ <filter>
+   <name>Flaperon Pitch Command</name>
+   <type>gain</type>
+   <debug>false</debug>
+   <enable>
+    <condition>
+	 <greater-than>
+	  <property>/systems/electrical/outputs/FCS</property>
+	  <value>175</value>
+	 </greater-than>
+    </condition>
+   </enable>
+   <input>
+    <condition>
+	 <property>/controls/buttons/FCS-override</property>
+	</condition>
+    <property>/systems/FCS/control-inputs/pitch</property>
+   </input>
+   <input>
+	<condition>
+	 <not>
+	  <property>/controls/buttons/FCS-override</property>
+	 </not>
+	</condition>
+    <property>/systems/FCS/internal/pitch-command</property>
+   </input>
+   <output>
+    <property>/systems/FCS/command-outputs/flaperon-pitch</property>
+   </output>
+   <gain>
+    1.0
+   </gain>
+   <u_min>-1.0</u_min> 
+   <u_max>0.5</u_max>  
+  </filter>
+  
+  <filter>
+   <name>Flaperon Roll Command</name>
+   <type>gain</type>
+   <debug>false</debug>
+   <enable>
+    <condition>
+	 <greater-than>
+	  <property>/systems/electrical/outputs/FCS</property>
+	  <value>175</value>
+	 </greater-than>
+    </condition>
+   </enable>
+   <input>
+    <condition>
+	 <property>/controls/buttons/FCS-override</property>
+	</condition>
+    <property>/systems/FCS/control-inputs/roll</property>
+   </input>
+   <input>
+	<condition>
+	 <not>
+	  <property>/controls/buttons/FCS-override</property>
+	 </not>
+	</condition>
+    <property>/systems/FCS/internal/roll-command</property>
+    <scale>1.0</scale>
+   </input>
+   <output>
+    <property>/systems/FCS/command-outputs/flaperon-roll</property>
+   </output>
+   <gain>
+    <property>/systems/FCS/internal/damping-scale</property>
+	<scale>/systems/FCS/settings/roll-damping</scale>
+	<offset>0</offset>
+   </gain>
+   <u_min>-0.82</u_min> <!-- minimum output clamp -->
+   <u_max>0.82</u_max>  <!-- maximum output clamp -->
+  </filter>
+  
+  <filter>
+   <name>Rudder Command</name>
+   <type>gain</type>
+   <debug>false</debug>
+   <enable>
+    <condition>
+	 <greater-than>
+	  <property>/systems/electrical/outputs/FCS</property>
+	  <value>175</value>
+	 </greater-than>
+    </condition>
+   </enable>
+   <input>
+    <condition>
+	 <property>/controls/buttons/FCS-override</property>
+	</condition>
+    <property>/systems/FCS/control-inputs/yaw</property>
+   </input>
+   <input>
+	<condition>
+	 <not>
+	  <property>/controls/buttons/FCS-override</property>
+	 </not>
+	</condition>
+    <property>/systems/FCS/control-inputs/yaw</property>
+   </input>
+   <output>
+    <property>/systems/FCS/command-outputs/rudder</property>
+   </output>
+   <gain>0
+    <!-- <property>/systems/FCS/internal/damping-scale</property>
+	<scale>/systems/FCS/settings/roll-damping</scale>
+	<offset>0</offset -->
+   </gain>
+   <u_min>-0.95</u_min> <!-- minimum output clamp -->
+   <u_max>0.95</u_max>  <!-- maximum output clamp -->
+  </filter>
+  
+  <filter>
+   <name>Speedbrake Command</name>
+   <type>gain</type>
+   <debug>false</debug>
+   <enable>
+    <condition>
+	 <greater-than>
+	  <property>/systems/electrical/outputs/FCS</property>
+	  <value>175</value>
+	 </greater-than>
+    </condition>
+   </enable>
+   <input>
+    <property>/systems/FCS/control-inputs/speedbrake</property>
+   </input>
+   <output>
+    <property>/systems/FCS/command-outputs/speedbrake</property>
+   </output>
+   <gain>
+    1.0
+   </gain>
+  </filter>
+  
+  <filter>
+   <name>Nosewheel Command</name>
+   <type>gain</type>
+   <debug>false</debug>
+   <enable>
+    <condition>
+	 <greater-than>
+	  <property>/systems/electrical/outputs/FCS</property>
+	  <value>175</value>
+	 </greater-than>
+    </condition>
+   </enable>
+   <input>
+    <property>/systems/FCS/control-inputs/yaw</property>
+   </input>
+   <output>
+    <property>/systems/FCS/command-outputs/nosewheel</property>
+   </output>
+   <gain>
+    <property>/gear/gear[0]/rollspeed-ms</property>
+    <scale>-0.0025</scale>
+	<offset>1.0</offset>
+   </gain>
+    <u_min>-1.0</u_min>
+  <u_max>1.0</u_max>
+  </filter>
+ 
+  <filter>
+   <name>Speedbrake Compensator</name>
+   <type>gain</type>
+   <debug>false</debug>
+   <input>
+    <property>/surface-positions/speedbrake-pos-norm</property>
+   </input>
+   <output>
+    <property>/systems/FCS/command-outputs/brake-compensator</property>
+   </output>
+   <gain>
+    <property>/systems/FCS/settings/brake-compensator-scale</property>
+	<value>0.55</value>
+   </gain>
+  </filter>
+ 
+
+</PropertyList>

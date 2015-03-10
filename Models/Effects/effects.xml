@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  
+  <model>
+    <path>Aircraft/EF2000/Models/Effects/wingtip-vortex.xml</path>
+    <offsets>
+      <x-m>12.3473</x-m>
+     <y-m>-5.3888</y-m>
+     <z-m>-0.2</z-m>
+      <pitch-deg> -2.0 </pitch-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/EF2000/Models/Effects/wingtip-vortex.xml</path>
+    <offsets>
+      <x-m>12.3473</x-m>
+     <y-m>5.3888</y-m>
+     <z-m>-0.2</z-m>
+      <pitch-deg> -2.0 </pitch-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/EF2000/Models/Effects/fuel-vapour.xml</path>
+    <offsets>
+     <x-m>16.1975</x-m>
+     <y-m>0</y-m>
+     <z-m>3.246</z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/EF2000/Models/Effects/contrail-left.xml</path>
+    <offsets>
+     <x-m>30.0</x-m>
+     <y-m>-0.75</y-m>
+     <z-m>-0.14</z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/EF2000/Models/Effects/contrail-right.xml</path>
+    <offsets>
+     <x-m>30</x-m>
+     <y-m>0.75</y-m>
+     <z-m>-0.14</z-m>
+    </offsets>
+  </model>
+  
+</PropertyList>

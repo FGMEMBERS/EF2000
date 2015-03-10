@@ -1,0 +1,38 @@
+
+<PropertyList>
+
+ <!-- This is a hack to facilitate a nosewheel that both rolls and casters -->
+
+ <path>nosegear.ac</path>
+ 
+  <animation>
+  <object-name>Wheel.Nose</object-name>
+  <type>spin</type>
+  <property>sim/multiplay/generic/float[11]</property>
+  <factor>-20</factor>
+  <center>
+   <x-m>5.9785</x-m>
+   <y-m>0</y-m>
+   <z-m>-1.9036</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>StrutLower.Nose</object-name>
+  <object-name>Wheel.Nose</object-name>
+  <property>gear/gear[0]/compression-norm</property>
+  <factor>0.1</factor>
+  <axis>
+   <x>0.1</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ 
+ </PropertyList>

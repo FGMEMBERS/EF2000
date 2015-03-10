@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <path>radio.ac</path>
+ 
+ <text>
+  <name>rad1-channel</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+   <x-m>0.01</x-m>
+   <y-m>0.051</y-m>
+   <z-m>0.0075</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">text-value</type>
+  <property>/systems/CAMU/radio[0]/channel-number</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>center-center</alignment>
+ </text>
+ 
+ <text>
+  <name>rad1-ident</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.00475</character-size>
+  <offsets>
+   <x-m>0.01</x-m>
+   <y-m>0.0135</y-m>
+   <z-m>0.0075</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">text-value</type>
+  <property>/systems/CAMU/radio[0]/identifier</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <text>
+  <name>rad1-freq</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.00475</character-size>
+  <offsets>
+   <x-m>0.01</x-m>
+   <y-m>0.0135</y-m>
+   <z-m>0.001</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <property>/systems/CAMU/radio[0]/frequency</property>
+  <format>%3.2f</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-center</alignment>
+ </text>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>radknob.dec</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+   <command>property-adjust</command>
+    <property>/systems/CAMU/radio[0]/selected-channel-n</property>
+    <step>-1</step>
+	<wrap>true</wrap>
+	<min>1</min>
+	<max>10</max>
+   </binding>
+  </action>
+ </animation>
+ 
+  <animation>
+  <type>pick</type>
+  <object-name>radknob.inc</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+   <command>property-adjust</command>
+    <property>/systems/CAMU/radio[0]/selected-channel-n</property>
+    <step>1</step>
+	<wrap>true</wrap>
+	<min>1</min>
+	<max>11</max>
+   </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>rad1-channel</object-name>
+  <object-name>rad1-ident</object-name>
+  <object-name>rad1-freq</object-name>
+  <diffuse>
+    <red>0.2</red>
+    <green>1.0</green>
+    <blue>0.2</blue>
+  </diffuse>
+  <emission>
+    <red>0.2</red>
+    <green>0.8</green>
+    <blue>0.2</blue>
+    <factor-prop>/instrumentation/illumination/softkeys</factor-prop>
+  </emission>
+</animation>
+
+
+ 
+</PropertyList>

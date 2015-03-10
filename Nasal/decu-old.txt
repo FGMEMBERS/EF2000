@@ -1,0 +1,146 @@
+
+## DECMU
+
+
+var start_running = getprop("/sim/preferences/start-running");
+
+var apu = engines.Jet.new(2 , start_running, 0.01 , 10 , 6 , 6 , 6 , 2);
+var engine1 = engines.Jet.new(0 , start_running, 0.01 , 5.21 , 4 , 4 , 0.025 , 2);
+var engine2 = engines.Jet.new(1 , start_running, 0.01 , 5.21 , 4 , 4 , 0.025 , 2);
+
+
+#setlistener("sim/signals/fdm-initialized", init);
+setlistener("sim/signals/fdm-initialized", func apu.init(), 0, 0);
+setlistener("sim/signals/fdm-initialized", func engine1.init(), 0, 0);
+setlistener("sim/signals/fdm-initialized", func engine2.init(), 0, 0);
+
+props.globals.initNode("/engines/engine[0]/bleed-air", 0, "BOOL");
+props.globals.initNode("/engines/engine[1]/bleed-air", 0, "BOOL");
+
+var apustarter = func { setprop("/controls/engines/engine[2]/starter", 1); }
+var apufuelon = func { setprop("/controls/engines/engine[2]/cutoff", 0); }
+var apufueloff = func { setprop("/controls/engines/engine[2]/cutoff", 1); }
+
+var eng1fuelon = func { setprop("/controls/engines/engine[0]/cutoff", 0); }
+var eng1fueloff = func { setprop("/controls/engines/engine[0]/cutoff", 1); }
+
+var eng2fuelon = func { setprop("/controls/engines/engine[1]/cutoff", 0); }
+var eng2fueloff = func { setprop("/controls/engines/engine[1]/cutoff", 1); }
+
+
+var eng1air = func { 
+   var air1relay = getprop("/systems/DECU/APU-air-left");
+   var apurun = getprop("/engines/engine[2]/running");
+   if ( air1relay == 1 ) {
+      if ( apurun == 1 ) {
+	     setprop("/controls/engines/engine[0]/starter", 1);
+      }
+   }
+}
+setlistener("/systems/DECMU/APU-air-left", eng1air);
+
+var eng2air = func { 
+   var air2relay = getprop("/systems/DECMU/APU-air-right");
+   var apurun = getprop("/engines/engine[2]/running");
+   if ( air2relay == 1 ) {
+      if ( apurun == 1 ) {
+	     setprop("/controls/engines/engine[1]/starter", 1);
+      }
+   }
+}
+setlistener("/systems/DECU/APU-air-right", eng2air);
+
+var apustart = func {
+   apustarter();
+   settimer( apufuelon, 2);
+}
+
+var apustop = func {
+   apufueloff();
+}
+
+var eng1start = func {
+   eng1fueloff();
+   setprop("/systems/DECMU/APU-air-left", 1);
+   settimer(eng1fuelon, 2);
+}
+
+var eng2start = func {
+   eng2fueloff();
+   setprop("/systems/DECMU/APU-air-right", 1);
+   settimer(eng2fuelon, 2);
+};
+
+var engstart = func {
+   settimer(eng1start, 2);
+   settimer(eng2start, 10);
+}
+
+var engstop = func {
+   eng1fueloff();
+   eng2fueloff();
+}
+
+var autostart = func {
+   var startstatus = getprop("/sim/autostart/started");
+   if ( startstatus == 0 ) {
+      gui.popupTip("Autostarting...");
+	  setprop("/sim/autostart/started", 1);
+      setprop("/controls/electric/battery-switch", 1);
+	  settimer(apustart, 1);
+      settimer(engstart, 12);
+	  settimer(
+	     setprop("/computers/flight/phase-of-flight", "flight")
+		 );
+	  gui.popupTip("Starting Engines");
+	  }
+   if ( startstatus == 1 ) {
+      gui.popupTip("Shutting Down...");
+      setprop("/sim/autostart/started", 0);
+	  setprop("/systems/DECU/APU-air-left", 0);
+	  setprop("/systems/DECU/APU-air-right", 0);
+	  eng1fueloff();
+      eng2fueloff();
+      apufueloff();
+   }
+}
+
+var autostop = func {
+   eng1fueloff();
+   eng2fueloff();
+   apufueloff();
+}
+
+var engine 		= props.globals.getNode("controls/engines").getChildren("engine");
+var throttle	= props.globals.getNode("controls/engines/engine[0]/throttle");
+
+var no_reheat = func {
+	foreach(e; engine) {		 
+		var burner = e.getNode("reheat", 1);
+		if (burner.getValue()) burner.setValue(0);
+	}
+}
+
+var reheat = func {
+	var reheat_ok = getprop("/systems/autopilot/settings/allow-reheat");
+	var autothrottle= (getprop("/autopilot/locks/speed/speed-with-throttle") or
+		getprop("/systems/autopilot/locks/speed/speed-with-throttle"));
+		
+	if (autothrottle and !reheat_ok) {
+		foreach(e; engine) {		 
+			var burner = e.getNode("reheat", 1);
+			var throttle = e.getNode("throttle", 1);	
+			burner.setValue(0);	
+			throttle.setValue(0.98);
+		}
+	} else {
+		foreach(e; engine) {		 
+			burner = e.getNode("reheat", 1);
+			burner.setValue(1);
+		}	
+	}
+}
+
+
+   
+  
